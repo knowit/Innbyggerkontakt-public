@@ -10,4 +10,4 @@ opentelemetry-propagator-gcp
 opentelemetry-sdk
 pytest-mock==3.10.0
 responses
-suds-community==1.0.0
+suds-community==1.1.2
