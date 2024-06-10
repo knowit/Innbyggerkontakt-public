@@ -1,6 +1,6 @@
 -r ../lint-requirements.txt
 ../packages_source/python/
-fastapi[all]==0.88.0
+fastapi[all]==0.111.0
 freezegun
 opentelemetry-api
 opentelemetry-exporter-gcp-trace
