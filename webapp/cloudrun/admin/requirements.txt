@@ -1,5 +1,5 @@
 #--extra-index-url https://europe-west3-python.pkg.dev/innbyggerkontakt-dev/ik-python-repo/simple
 #--extra-index-url https://europe-west3-python.pkg.dev/innbyggerkontakt/ik-python-repo/simple
-fastapi[all]==0.88.0
+fastapi[all]==0.111.0
 firebase-admin==6.0.1
 psycopg2-binary~=2.9.5
