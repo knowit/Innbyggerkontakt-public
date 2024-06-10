@@ -8,6 +8,6 @@ opentelemetry-instrumentation-fastapi
 opentelemetry-instrumentation-requests
 opentelemetry-propagator-gcp
 opentelemetry-sdk
-pytest-mock==3.10.0
+pytest-mock==3.14.0
 responses
 suds-community==1.0.0
