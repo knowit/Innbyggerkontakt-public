@@ -7,7 +7,7 @@ packages = [{include = "innbyggerkontakt"}]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-cryptography="~36.0.1"
+cryptography="~42.0.8"
 firebase-admin=">=5.2.0"
 google-cloud-secret-manager="~2.9.0"
 google-cloud-pubsub="~2.9.0"
