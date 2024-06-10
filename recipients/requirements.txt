@@ -10,4 +10,4 @@ opentelemetry-instrumentation-requests
 opentelemetry-propagator-gcp
 opentelemetry-sdk
 pytz
-suds-community==1.0.0
+suds-community==1.1.2
