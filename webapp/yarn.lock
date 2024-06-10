@@ -2693,12 +2693,12 @@
     lodash.isequal "^4.5.0"
     xtend "^4.0.2"
 
-"@mapbox/mapbox-gl-geocoder@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-geocoder/-/mapbox-gl-geocoder-5.0.1.tgz#3db39280175872bfd94884275c5ee528bdff35e0"
-  integrity sha512-/OUL42eh4OBaIerhcwCpa27oD+u4a2xN8V7vEdsglwd8lCplFAxJCdwT9Kprli1TH5mTYsXyONmh03FwoWBWfA==
+"@mapbox/mapbox-gl-geocoder@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-geocoder/-/mapbox-gl-geocoder-5.0.2.tgz#f7409023a667e4d092c2b1d640a088ce5c735cbe"
+  integrity sha512-o+2atyKKsfbiI2/iutQ/razt5O++kfi9oxwaXSfKc6m/9NudJnQm3rpGB0GagA+becq2NU4U99E9Yzv+UcMCBQ==
   dependencies:
-    "@mapbox/mapbox-sdk" "^0.13.3"
+    "@mapbox/mapbox-sdk" "^0.13.7"
     events "^3.3.0"
     lodash.debounce "^4.0.6"
     nanoid "^3.1.31"
@@ -2711,7 +2711,7 @@
   resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-supported/-/mapbox-gl-supported-2.0.1.tgz#c15367178d8bfe4765e6b47b542fe821ce259c7b"
   integrity sha512-HP6XvfNIzfoMVfyGjBckjiAOQK9WfX0ywdLubuPMPv+Vqf5fj0uCbgBQYpiqcWZT6cbyyRnTSXDheT1ugvF6UQ==
 
-"@mapbox/mapbox-sdk@^0.13.3":
+"@mapbox/mapbox-sdk@^0.13.7":
   version "0.13.7"
   resolved "https://registry.yarnpkg.com/@mapbox/mapbox-sdk/-/mapbox-sdk-0.13.7.tgz#05e1bf287d86868623d748c19865b1fee7222642"
   integrity sha512-JZjBsAVSBv7lX7gQPOQwftBGHIUcvL/tPKFxAL+SCT7u1n+eRH052XebOTkl28pNm7Du6DpKAs1GvgUnDcFFDQ==
@@ -4078,10 +4078,10 @@
     "@types/geojson" "*"
     "@types/mapbox-gl" "*"
 
-"@types/mapbox__mapbox-gl-geocoder@^4.7.3":
-  version "4.7.3"
-  resolved "https://registry.yarnpkg.com/@types/mapbox__mapbox-gl-geocoder/-/mapbox__mapbox-gl-geocoder-4.7.3.tgz#98891cb6e342613e8d20833b6890e15fd447b847"
-  integrity sha512-zGVxbyEnJnVc37KpgCDRh1nTvVwVNTcqIDFgE5aETD2iOGDVVZpVDJRE3TUrTjdHxaq89767U8kxGcc8Pnv/ag==
+"@types/mapbox__mapbox-gl-geocoder@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@types/mapbox__mapbox-gl-geocoder/-/mapbox__mapbox-gl-geocoder-5.0.0.tgz#2431b1974f7b19e33162e3942331375586d5f159"
+  integrity sha512-eGBWdFiP2QgmwndPyhwK6eBeOfyB8vRscp2C6Acqasx5dH8FvTo/VgXWCrCKFR3zkWek/H4w4/CwmBFOs7OLBA==
   dependencies:
     "@types/geojson" "*"
     "@types/mapbox-gl" "*"
