@@ -5,7 +5,7 @@ cloud_event_model~=0.1.4
 firebase_admin
 freezegun~=1.2.1
 freg_models~=0.1.1
-google-auth~=2.11.1
+google-auth~=2.30.0
 google-cloud-logging
 google-cloud-pubsub~=2.13.11
 google-cloud-scheduler~=2.7.3
