@@ -2,4 +2,4 @@
 ../../../packages_source/python/.
 fastapi[all]==0.88.0
 firebase-admin==6.0.1
-psycopg2-binary==2.9.5
+psycopg2-binary==2.9.9
