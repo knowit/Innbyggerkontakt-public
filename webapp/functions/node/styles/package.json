@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@google-cloud/firestore": "4.15.1",
-    "@google-cloud/secret-manager": "3.10.1",
+    "@google-cloud/secret-manager": "5.6.0",
     "firebase-admin": "10.0.0",
     "firebase-functions": "3.16.0",
     "json2mjml": "1.0.3",
