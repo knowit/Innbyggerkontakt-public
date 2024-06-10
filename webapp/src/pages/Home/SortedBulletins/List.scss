@@ -1,0 +1,53 @@
+@use "../../../styles/screen-schemes/default" as screen;
+
+.homepageContent {
+  &__span {
+    display: flex;
+    align-self: center;
+  }
+  &__banner {
+    border-radius: 3px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 24px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    height: fit-content;
+    .regular18 .lightBlue {
+      text-align: right;
+    }
+    .flexWrapper {
+      display: inline-flex;
+      width: 100%;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .flexWrapperWidth {
+        display: inline-flex;
+        width: 50%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      @media screen and (max-width: 1000px) {
+        .recipientsContent {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (screen.$mq-subsmall) {
+  .homepageContent {
+    width: 100%;
+    .lightBlueBackground {
+      .flexWrapper {
+        .flexWrapperWidth {
+          flex-direction: column;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

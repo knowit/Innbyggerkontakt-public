@@ -1,0 +1,23 @@
+.checkboxField {
+  display: flex;
+  position: relative;
+  justify-content: left;
+  align-items: center;
+  margin-right: 0;
+  height: 30px;
+
+  input[type='checkbox'] {
+    margin-right: 10px;
+    transform: scale(1.4);
+    cursor: pointer;
+  }
+
+  .checkboxLabel {
+    cursor: pointer;
+  }
+
+  .checkbox-children {
+    margin-top: -15px;
+    margin-left: 5px;
+  }
+}

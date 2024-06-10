@@ -1,0 +1,12 @@
+{
+  "listType": "email",
+  "listName": "dummy listenavn",
+  "recipientsCount": 1,
+  "createdTimestamp": "1643673600",
+  "list": [
+    {
+      "name": "Are Antonsen",
+      "email": "a@a.no"
+    }
+  ]
+}

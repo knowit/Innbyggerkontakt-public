@@ -1,0 +1,10 @@
+firebase_admin
+pandas
+python-dotenv
+requests
+google-cloud-secret-manager
+google-cloud-storage
+google-cloud-tasks
+PyJWT
+pyOpenSSL
+python-dotenv

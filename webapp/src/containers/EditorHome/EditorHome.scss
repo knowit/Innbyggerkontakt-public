@@ -1,0 +1,102 @@
+@use "../../styles/font-classes";
+@use "../../styles/color-schemes/default" as colors;
+@use "../../styles/screen-schemes/default" as screen;
+
+.editorHome {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 62.5rem;
+
+    @media screen and (screen.$mq-subsmall) {
+        width: auto;
+    }
+
+    > div:first-of-type {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        @media screen and (screen.$mq-subsmall) {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        > div {
+            > h1 {
+                @include font-classes.regular48();
+                color: colors.$dark-blue;
+            }
+
+            > p {
+                @include font-classes.regular18();
+            }
+        }
+    }
+
+
+    &__actions {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+
+        button {
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+
+        @media screen and (screen.$mq-subsmall) {
+            width: 100%;
+        }
+    }
+
+    &__listHeader {
+        display: inline-block;
+
+        a {
+            margin-right: 0;
+            color: colors.$bright-blue;
+            text-decoration: none;
+            float: right;
+            @include font-classes.medium14();
+        }
+
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 2rem;
+
+        @media screen and (screen.$mq-sublarge) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media screen and (screen.$mq-subsmall) {
+            grid-template-columns: 1fr;
+            justify-content: center;
+            align-items: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+
+    &__notFound {
+        white-space: nowrap;
+    }
+
+    &__loader {
+        margin-top: 5rem;
+    }
+}

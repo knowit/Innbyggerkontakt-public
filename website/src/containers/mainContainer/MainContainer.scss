@@ -1,0 +1,79 @@
+@use '../../styles/screen-schemes/default'  as display;
+
+// .scrollSnapContainer {
+//     max-height: 100vh;
+//     overflow-y: scroll;
+//     scroll-snap-type: proximity; /* for older browsers */
+//     scroll-snap-points-y: repeat(100vh); /* for older browsers */
+//     scroll-snap-type: y proximity;
+//     scroll-behavior: smooth;
+// }
+
+// .scrollSnapContainer {
+//     max-height: 100vh;
+//     overflow-y: scroll;
+//     scroll-snap-type: proximity; /* for older browsers */
+//     scroll-snap-points-y: repeat(100vh); /* for older browsers */
+//     scroll-snap-type: y proximity;
+//     scroll-behavior: smooth;
+// }
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 100px auto 0px;
+  max-width: 120em;
+  @media screen and (display.$mq-subsmall) {
+    width: 100%;
+    align-items: center;
+    margin: 60px auto 0px;
+  }
+  @media screen and (display.$mq-small) and (display.$mq-submedium) {
+    // General content width
+    width: calc(min(#{display.$bp-small}, 90%));
+  }
+  @media screen and (display.$mq-medium) and (display.$mq-sublarge) {
+    width: calc(min(#{display.$bp-medium}, 90%));
+  }
+  @media screen and (display.$mq-medium) and (display.$mq-sublarge) {
+    width: calc(min(#{display.$bp-medium}, 90%));
+  }
+  @media screen and (display.$mq-large) and (display.$mq-subxlarge) {
+    width: calc(min(#{display.$bp-large}, 90%));
+  }
+  @media screen and (display.$mq-xlarge) and (display.$mq-subxxlarge) {
+    width: calc(min(#{display.$bp-large}, 90%));
+  }
+  @media screen and (display.$mq-xxlarge) {
+    width: calc(min(#{display.$bp-large}, 90%));
+  }
+}
+
+.consentWrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  @media screen and (display.$mq-subsmall) {
+    overflow: auto;
+    max-height: 100vh;
+  }
+}
+
+.consentModal {
+  margin: 140px auto;
+  background: #fff;
+  position: relative;
+  transition: all 5s ease-in-out;
+  @media screen and (display.$mq-subsmall) {
+    width: auto;
+  }
+  @media screen and (display.$mq-small) and (display.$mq-submedium) {
+    width: auto;
+  }
+}

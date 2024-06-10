@@ -1,0 +1,92 @@
+@use '../../styles/color-schemes/default' as colors;
+@use '../../styles/functions' as functions;
+@use '../../styles/screen-schemes/default'  as display;
+@use '../../styles/font-schemes/default'  as fonts;
+
+
+.contactFormContainer {
+    width: 90%;
+    min-height: calc(100vh - 103px);
+    display: flex;
+    align-items: center;
+    @media screen and (display.$mq-subsmall) {
+        // width: 90%;
+        min-height: calc(100vh - 60px);
+    }
+}
+
+.contactFormContent {
+    // height: 300px;
+    // margin-top: 103px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    // width: 80%;
+    @media screen and (display.$mq-subsmall) {
+        margin-top: 5px;
+        flex-direction: column-reverse;
+        // width: 90%;
+    }
+}
+
+.formMailImage {
+    height: 450px;
+    margin-right: -70px;
+    @media screen and (display.$mq-subsmall) {
+        height: 300px;
+        width: 100%;
+        margin-right: 0px;
+    }
+}
+
+.contactFormDescription {
+    font-size: 48px;
+    font-weight: 400;
+    color: colors.$dark-blue;
+    @media screen and (display.$mq-subsmall) {
+        font-size: 24px;
+    }
+}
+
+form label {
+    display: block;
+ }
+
+ #emailInput {
+    margin-top:20px;
+    height: 50px;
+    width: 60%;
+    font-size: large;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: solid;
+    background-color: colors.$background;
+    font-family: fonts.$font-family;
+    width: 90%;
+
+    @media screen and (display.$mq-subsmall) {
+        // font-size: 11px;
+        // margin: 20px 0px 20px 0px;
+        max-width: 400px;
+
+    }
+ }
+
+ .disclaimerText {
+    color: colors.$dark-blue;
+    font-size: 14px;
+    margin: 30px 0px 30px 0px;
+    @media screen and (display.$mq-subsmall) {
+        font-size: 14px;
+        margin: 20px 0px 20px 0px;
+    }
+ }
+
+ .submitButton {
+    background-color: colors.$bright-green;
+    border-width: 0px;
+    &:hover {
+        @include functions.setColors(colors.$darker-green, colors.$white, colors.$darker-green);
+    }
+ }

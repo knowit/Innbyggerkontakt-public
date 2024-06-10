@@ -1,0 +1,90 @@
+@use '../../styles/color-schemes/default' as colors;
+@use '../../styles/functions' as functions;
+@use '../../styles/screen-schemes/default'  as display;
+
+
+.footerContainer {
+    margin-top: 150px;
+    border-radius: 91px 91px 0px 0px;
+    @include functions.setColors(colors.$light-bright-blue, colors.$white, colors.$light-bright-blue);
+    @media screen and (display.$mq-subsmall) {
+        border-radius: 15px 15px 0px 0px;
+        width: 100%;
+    }
+    width: 100%;
+    bottom: 0px;
+}
+
+.footerContent {
+    padding: 70px 130px 70px 130px;
+    display: flex;
+    justify-content: space-around;
+    @media screen and (display.$mq-subsmall) {
+        flex-direction: column;
+        padding: 40px 20px 40px 20px;
+
+    }
+}
+
+.footerHeading {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.footerRow > * {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbarLink {
+    color: white;
+    text-decoration: none;
+}
+
+.navbarLink:hover{
+    color: colors.$bright-green!important;
+}
+
+.navbarLink:visited {
+    color: white!important;
+}
+
+.footerRightRow {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    @media screen and (display.$mq-subsmall) {
+        align-items: center;
+
+    }
+}
+
+.footerLogoAndName {
+    color: #96FFE1;
+    display: flex;
+    margin-top: 30px;
+}
+
+.footerLogo {
+    height: 40px;
+}
+
+.footerName {
+    font-weight: 400;
+    font-size: 18px;
+    text-align: right;
+    margin-left: 20px;
+}
+
+.fTryOutButton {
+    background-color: colors.$bright-green;
+    &:hover {
+        @include functions.setColors(colors.$darker-green, colors.$white, colors.$darker-green);
+    }
+    @media screen and (display.$mq-subsmall) {
+        display: none;
+
+    }
+}
+

@@ -1,0 +1,90 @@
+
+@use '../../styles/index';
+@use '../../styles/color-schemes/default' as colors;
+@use '../../styles/functions' as functions;
+@use '../../styles/screen-schemes/default' as screen;
+
+
+.webinarBoxContainer {
+    // scroll-snap-align: center;
+    // height: 100vh;
+
+    min-height: calc(100vh - 103px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (screen.$mq-subsmall) {
+        width: 90%;
+        min-height: calc(100vh - 60px);
+    }
+}
+
+.webinarBoxTextBlock {
+    width: 50% ;
+    // height: 400px;
+    @media screen and (screen.$mq-subsmall) {
+        width: 100%;
+        height: auto;
+        line-height: 22px;
+
+    }
+}
+
+.webinarBoxActionButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    @media screen and (screen.$mq-subsmall) {
+        width: 100%;
+        margin-top: 20px;
+        font-size: 14px;
+        // height: auto;
+    }
+}
+
+.webinarBoxHeading {
+    font-size: 48px;
+    font-weight: 700;
+    @media screen and (screen.$mq-subsmall) {
+        font-size: 18px;
+        font-weight: 600;
+        // margin: 20px;
+    }
+}
+
+.webinarBoxDescription {
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 30px;
+    @media screen and (screen.$mq-subsmall) {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+}
+
+.iiDescription p {
+    margin-top: 20px;
+}
+
+.webinarBoxTryOutButton {
+    background-color: colors.$bright-green;
+    &:hover {
+        @include functions.setColors(colors.$darker-green, colors.$white, colors.$darker-green);
+    }
+}
+
+.webinarImage {
+    height: 150px;
+    @media screen and (screen.$mq-subsmall) {
+        height: 100px;
+
+    }
+}
+
+.webinarlink {
+  color: colors.$white;
+  font-size: 24px;
+  font-weight: 400;
+}

@@ -1,0 +1,53 @@
+@use '../../../../styles/color-schemes/default' as color;
+@use '../../../../styles/font-classes';
+
+.chooseBox {
+    display: inline-flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    margin-top: 24px;
+    align-items: center;
+
+  
+    &.option {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      @include font-classes.regular14;
+  
+      &.active {
+        @include font-classes.bold14;
+      }
+
+      &.seen {
+        color: color.$dark-bright-blue;
+      }
+
+      &.unseen {
+        color: color.$gray-text;
+      }
+  
+      &.clickable {
+        cursor: pointer;
+      }
+    }
+  
+    &__icon {
+      display: block;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      background-color: currentColor;
+      position: relative;
+  
+      .doneIcon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 13px;
+        fill: color.$white;
+      }
+    }
+  }
+  

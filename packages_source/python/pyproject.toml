@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "innbyggerkontakt"
+version = "1.0.4"
+description = "Deprecated helper utils, theese will in the future be split up into individual packages"
+authors = ["Your Name <you@example.com>"]
+packages = [{include = "innbyggerkontakt"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+cryptography="~36.0.1"
+firebase-admin=">=5.2.0"
+google-cloud-secret-manager="~2.9.0"
+google-cloud-pubsub="~2.9.0"
+google-cloud-storage="~1.43.0"
+google-cloud-tasks="~2.7.1"
+pydantic="^1.8"
+pytz="~2022.1"
+PyJWT="^2.3.0"
+requests="^2.27"
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-dev-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt-dev/ik-python-repo/"
+default = false
+secondary = true
+
+[[tool.poetry.source]]
+name = "google-ik-artifactpy-innbyggerkontakt-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt/ik-python-repo/"
+default = false
+secondary = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

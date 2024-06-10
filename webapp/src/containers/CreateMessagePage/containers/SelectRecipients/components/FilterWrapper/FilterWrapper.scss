@@ -1,0 +1,42 @@
+@use '../../../../../../styles/color-schemes/default' as color;
+@use '../../../../../../styles/functions';
+
+.recipientsTypeItemWrapperExpand {
+  width: 100%;
+  opacity: 1;
+  border-width: 1px;
+  border-radius: 2px;
+  height: fit-content;
+}
+
+.recipientsContentWithIcon {
+  background: color.$light-blue-transparent;
+  margin: 16px 0 40px 0;
+  padding: 20px 16px;
+  display: flex;
+  align-items: center;
+
+  .iconsWrapper .recipientsContentIcon {
+    padding: 24px 24px 24px 8px;
+    fill: color.$dark-bright-blue;
+    flex-grow: 0;
+  }
+
+  .recipientsContentHeader {
+    margin: 0 0 8px;
+    color: color.$dark-bright-blue;
+  }
+}
+
+.iconsWrapper {
+  .recipientsContentIcon {
+    padding: 24px 30px;
+    fill: color.$bright-blue;
+  }
+  .clickable {
+    float: right;
+    .recipientsClose {
+      color: color.$gray-text;
+    }
+  }
+}

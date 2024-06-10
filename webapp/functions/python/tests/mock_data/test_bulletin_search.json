@@ -1,0 +1,49 @@
+{
+  "name": "test",
+  "kommunenummer": "0000",
+  "status": "active",
+  "channel": {"name": "email", "type": "search"},
+  "recipients": {
+    "query": [{
+      "kjoenn": "mann",
+      "postnummer": ["0000"],
+      "inkludererOppholdsadresse": true,
+      "alder": {
+        "filter": "ageBetween",
+        "fromAge": 20,
+        "toAge": 40
+      },
+      "mottager": "self"
+    }]
+  },
+  "content": {
+    "from": {
+      "name": "Test",
+      "email": "test@test.no"
+    },
+    "contentInLanguage": [
+      {
+        "language": "nb",
+        "subject": "test",
+        "variables": {
+          "HTMLtest": "test",
+          "content": "test",
+          "image": "test",
+          "image_alt": "test",
+          "textblocks": "test",
+          "title": "test"
+        }
+      }
+    ],
+    "defaultLanguage": "nb"
+  },
+  "execution": {
+    "datetime": "2020-08-11T08:00:00+02:00",
+    "type": "instant",
+    "active": true
+  },
+  "templateApplicationId": "test_template_application",
+  "templateApplicationStyleId": "default",
+  "sandboxMode": false,
+  "lastChangedBy": "client"
+}

@@ -1,0 +1,47 @@
+{
+    "name": "test",
+    "kommunenummer": "0000",
+    "status": "active",
+    "channel": {"name": "email", "type": "search"},
+    "recipients": {
+      "kart": [
+        {
+            "id": "abc123",
+            "recipientFilter": "kart",
+            "ownerType": false,
+            "polygons": "{\"type\":\"FeatureCollection\",\"features\":[{\"id\":\"666cb6e739eb689d0cd1673b069f294a\",\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"coordinates\":[[[10.732533411160915,59.93589623071398],[10.723024837614389,59.931657572858654],[10.729463714189592,59.926367868433005],[10.731934445898617,59.92711823245236],[10.735752849448971,59.93364568337273],[10.732533411160915,59.93589623071398]]],\"type\":\"Polygon\"}},{\"id\":\"e1b9d8a9ca95308215b07abf7c2aa0a3\",\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"coordinates\":[[[10.749999098691745,59.92815411938287],[10.7548345750686,59.92833359944339],[10.757270222429042,59.930433444013914],[10.757556769177569,59.93325097532363],[10.751682560837821,59.933789329868546],[10.749676733600126,59.93319713938851],[10.74881709335557,59.930523178000016],[10.749999098691745,59.92815411938287]]],\"type\":\"Polygon\"}}]}"
+        }
+      ]
+    },
+    "content": {
+      "from": {
+        "name": "Test",
+        "email": "test@test.no"
+      },
+      "contentInLanguage": [
+        {
+          "language": "nb",
+          "subject": "test",
+          "variables": {
+            "HTMLtest": "test",
+            "content": "test",
+            "image": "test",
+            "image_alt": "test",
+            "textblocks": "test",
+            "title": "test"
+          }
+        }
+      ],
+      "defaultLanguage": "nb"
+    },
+    "execution": {
+      "datetime": "2020-08-11T08:00:00+02:00",
+      "type": "instant",
+      "active": true
+    },
+    "templateApplicationId": "test_template_application",
+    "templateApplicationStyleId": "default",
+    "sandboxMode": false,
+    "lastChangedBy": "client",
+    "type": "search"
+  }

@@ -1,0 +1,56 @@
+{
+  "local_variables": ["name"],
+  "global_variables": [
+    {
+      "help_text": "Hovedbildet står øverst i e-posten og kan oppsummere innholdet i e-posten. Vi anbefaler en bredde på bildene fra 600px til 650px for å få best visning av innhold til brukerne for både mobil og desktop. Bildet kan være så langt du vil, men bør ikke overstige en filstørrelse på 1MB. Formatene som er støttet er jpeg, jpg, png og gif.",
+      "position": 1,
+      "title": "Bilde",
+      "input_component": "image",
+      "variable_name": "bilde"
+    },
+    {
+      "help_text": "Alternativ bildetekst brukes for at blinde og svaksynte skal kunne lese om og forstå innholdet i bildet, og når en mailklient ikke kan vise bilde.",
+      "position": 2,
+      "input_component": "line",
+      "title": "Alternativ bildetekst",
+      "variable_name": "bilde_alt"
+    },
+    {
+      "help_text": "Overskrift er forskjellig fra e-postens emnefelt og kan godt være litt mer beskrivende.",
+      "position": 3,
+      "input_component": "line",
+      "variable_name": "overskrift",
+      "title": "Overskrift"
+    },
+    {
+      "help_text": "",
+      "position": 4,
+      "input_component": "box",
+      "variable_name": "ingress",
+      "title": "Ingress"
+    },
+    {
+      "help_text": "",
+      "position": 5,
+      "input_component": "box",
+      "variable_name": "innhold",
+      "title": "Innhold"
+    },
+    {
+      "help_text": "Tilbakemeldinger skjer ved at mottaker får se tre smilefjes i bunnen av e-posten som de kan trykke på for å vise hva de syns om å motta informasjonen. Dette vil oppsummeres i statistikk-sidene.",
+      "position": 6,
+      "input_component": "checkbox",
+      "variable_name": "feedback",
+      "title": "Bruk tilbakemeldinger"
+    },
+    {
+      "help_text": "Gi en forklaring til mottaker på hvorfor man får denne e-posten",
+      "position": 7,
+      "variable_name": "begrunnelse",
+      "input_component": "box",
+      "title": "Begrunnelse for utsending"
+    }
+  ],
+  "name": "Utsending enkeltsak",
+  "mailjet_template": 1663366
+}

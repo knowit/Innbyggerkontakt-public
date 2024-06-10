@@ -1,0 +1,35 @@
+@use '../../styles/color-schemes/default' as colors;
+// @use '../../styles/functions' as functions;
+@use '../../styles/screen-schemes/default'  as display;
+
+.feedbackContainer {
+    // scroll-snap-align: center;
+    // height: 100vh;
+    min-height: calc(100vh - 103px);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    @media screen and (display.$mq-subsmall) {
+        width: 90%;
+        min-height: calc(100vh - 60px);
+    }
+}
+
+.subHeading {
+    color: colors.$bright-blue
+}
+
+.feedbackList {
+    // display: grid;
+    // grid-template-columns: repeat(2, 1fr);
+    // grid-gap: 4em 1em;
+    // @media screen and ($mq-subsmall) {
+    //     grid-gap: 0px;
+    //     grid-template-columns: repeat(2, 50%);
+
+    // }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

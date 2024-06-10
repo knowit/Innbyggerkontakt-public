@@ -1,0 +1,25 @@
+@use '../../../../styles/font-schemes/default' as fonts;
+
+.radioFields {
+  display: flex;
+  align-items: center;
+  .radioDropdown{
+    flex-basis: 50%;
+    flex-grow: 1;
+    margin-left: 10px;
+  }
+
+  input[type='radio'] {
+    transform: scale(1.3);
+    cursor: pointer;
+    &:disabled {
+      cursor: default;
+    }
+  }
+
+  .radioText {
+    padding-left: 16px;
+    font-size: 18px;
+    font-weight: fonts.$regular;
+  }
+}

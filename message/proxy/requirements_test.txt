@@ -1,0 +1,6 @@
+-r ../../lint-requirements.txt
+../../packages_source/python/
+pydantic==1.8.2
+pytest-mock==3.3.1
+requests==2.27.1
+responses==0.13.3

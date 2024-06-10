@@ -1,0 +1,35 @@
+@use '../../../styles/color-schemes/default' as color;
+
+@mixin form_dropdown_items {
+  position: relative;
+
+  .appendices {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    right: -30px;
+    .mandatory,
+    .infoCircle {
+      display: inline-block;
+    }
+    .mandatory,
+    .infoCircle {
+      margin-left: 3px;
+      vertical-align: top;
+    }
+    .mandatory {
+      padding-top: 18px;
+    }
+
+    .infoCircle {
+      color: color.$gray-border;
+    }
+  }
+
+  .mainTitle {
+    padding-bottom: 5px;
+  }
+  //.dropdownInForm {
+  //  min-height: 90px;
+  //}
+}

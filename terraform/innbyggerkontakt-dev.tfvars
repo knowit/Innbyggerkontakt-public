@@ -1,0 +1,5 @@
+project_name          = "Innbyggerkontakt-dev"
+project_id            = "innbyggerkontakt-dev"
+krr_endpoint          = "https://test.kontaktregisteret.no"
+fiks_endpoint         = "https://api.fiks.test.ks.no"
+maskinporten_endpoint = "https://test.maskinporten.no"

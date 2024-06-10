@@ -1,0 +1,12 @@
+.mapboxgl-ctrl-attrib {
+  display: none;
+}
+
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+.mapboxgl-ctrl-top-right {
+  top: 2rem !important;
+  right: 0;
+}

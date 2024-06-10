@@ -1,0 +1,20 @@
+@use '../../../../styles/color-schemes/default' as colors;
+
+.newTemplateContainer {
+    width: 100%;
+
+    > .newTemplateForm {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+
+        > .startTemplateFieldsContainer {
+            display: flex;
+            flex-direction: column;
+            background-color: colors.$light-blue-transparent;
+            padding: 1rem 2rem;
+            gap: 1rem;
+        }
+    }
+}

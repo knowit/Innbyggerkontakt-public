@@ -1,0 +1,76 @@
+[tool.poetry]
+name = "retry-helper"
+version = "0.1.2"
+description = ""
+authors = ["Tiril V. Stabell <tiril.stabell@knowit.no>"]
+readme = "README.md"
+packages = [{include = "retry_helper"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+cloudevents = "^1.6.2"
+python-dateutil = "^2.8.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.1.2"
+pytest-cov = "^3.0.0"
+black = "^22.6.0"
+flake8-bandit = "^3.0.0"
+flake8-bugbear = "^22.8.23"
+flake8-cognitive-complexity = "^0.1.0"
+flake8-comprehensions = "^3.10.0"
+flake8-quotes = "^3.3.1"
+flake8-simplify = "^0.19.3"
+flakeheaven = "^3.0.0"
+pylint = "^2.15.0"
+freezegun = "^1.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-dev-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt-dev/ik-python-repo/"
+default = false
+secondary = true
+
+[[tool.poetry.source]]
+name = "google-ik-artifactpy-innbyggerkontakt-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt/ik-python-repo/"
+default = false
+secondary = true
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+skip-string-normalization = 1
+
+[tool.flakeheaven]
+base = "../../pyproject.toml"
+
+[tool.flakeheaven.plugins]
+pyflakes = ["+*"]
+mccabe = ["+C901"]
+flake8-quotes = ["+*"]
+flake8-simplify = ["+*"]
+flake8-cognitive-complexity = ["+*"]
+flake8-docstring = ["+*"]
+pylint = [
+    "+*",
+    "-C0116", # missing-function-docstring
+    "-C0114", # missing-module-docstring
+    "-C0115", # missing-class-docstring
+    ]
+
+
+[tool.isort]
+known_first_party = ["freg_config", "models", "services"]
+known_local_folder = ["freg_config", "services", "models"]
+lines_after_imports = 2
+profile = "black"
+
+[tool.pytest.ini_options]
+required_plugins = ["pytest-cov"]
+addopts = "--cov=."

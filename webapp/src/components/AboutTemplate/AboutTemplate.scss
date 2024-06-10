@@ -1,0 +1,46 @@
+@use '../../styles/color-schemes/default' as colors;
+@use '../../styles/screen-schemes/default' as screen;
+
+.aboutSummaryContainer {
+  padding: 1rem;
+  > div {
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (screen.$mq-subsmall) {
+      flex-direction: column;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+    }
+    .aboutEmailContentContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-left: 0.5rem;
+    }
+
+    .templateContentImage {
+      width: 50%;
+      height: 50%;
+      object-fit: cover;
+      max-width: 800px;
+      max-height: 300px;
+    }
+
+    .templateImagePlaceholder {
+      background-color: colors.$gray-inactive;
+      width: 40%;
+      padding: 2rem;
+    }
+  }
+}

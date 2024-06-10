@@ -1,0 +1,28 @@
+@use './../../../../styles/index.scss';
+@use '../../../../styles/color-schemes/default' as color;
+
+.summaryDateInput {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include index.defaultField;
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 18px;
+  border: 1px solid color.$dark-bright-blue;
+
+  input {
+    margin: 0 !important;
+  }
+}
+
+.summaryDateInput--active {
+  background-color: color.$bright-blue;
+  color: white;
+
+  svg {
+    fill: white;
+    margin-left: 20px;
+  }
+}

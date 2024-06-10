@@ -1,0 +1,61 @@
+@use 'styles/screen-schemes/default' as screen;
+@use 'styles/color-schemes/default' as color;
+@use 'styles/font-schemes/default' as fonts;
+
+.start {
+  @media screen and (screen.$mq-submedium) {
+    margin: auto;
+  }
+  &--margin {
+    margin-left: 2rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  &__radio {
+    width: 50%;
+    &--wrapper {
+      box-sizing: border-box;
+      display: flex;
+      gap: 1rem;
+      width: 90%;
+      @media screen and (screen.$mq-submedium) {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      &--column {
+        flex-direction: column;
+        > * {
+          width: 100%;
+        }
+      }
+    }
+    &__info {
+      margin-left: 1.5rem;
+      span {
+        font-weight: fonts.$medium;
+      }
+    }
+    &__disabled {
+      color: color.$gray-inactive !important;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    &--margin {
+      width: 50%;
+      @media screen and (screen.$mq-submedium) {
+        width: fit-content;
+      }
+    }
+  }
+
+  .automatisk__radio--disabled {
+    color: color.$gray-inactive;
+  }
+}

@@ -1,0 +1,13 @@
+steps:
+  - name: 'gcr.io/$PROJECT_ID/deployment:terraform-$_TERRAFORM_VERSION'
+    dir: $_DIR
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        pip3 install -r requirements.txt
+        terraform init -upgrade -reconfigure -backend-config=$PROJECT_ID.tfbackend
+        terraform plan -var 'project_id=$PROJECT_ID' -out="tfplan"
+        terraform apply -auto-approve "tfplan"
+
+timeout: 1800s

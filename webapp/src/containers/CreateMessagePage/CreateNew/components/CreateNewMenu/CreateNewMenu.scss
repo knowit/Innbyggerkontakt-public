@@ -1,0 +1,140 @@
+@use '../../../../../styles/color-schemes/default' as colors;
+@use '../../../../../styles/screen-schemes/default' as screen;
+
+.createNewMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  height: 36.75rem;
+  min-width: 11.5rem;
+  left: 0px;
+  top: 0px;
+  gap: 1.5rem;
+
+  @media screen and (screen.$mq-submedium) {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+  }
+
+  &--li {
+    display: flex;
+    align-items: center;
+    padding: 0.65rem 1rem;
+    width: calc(100% - 2rem);
+    left: 0px;
+    @media screen and (screen.$mq-submedium) {
+      flex-direction: column;
+      min-width: 1rem;
+      span {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (screen.$mq-subsmall) {
+    transition: all 0.3s ease-in-out;
+    background-color: colors.$light-light-light-blue;
+    flex-direction: column;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 4rem;
+    height: 100%;
+    min-width: auto;
+    left: 0px;
+    padding: 1rem;
+    gap: 1rem;
+
+    &--li {
+      padding: 0.75rem;
+      align-items: flex-start;
+      height: 1.25rem;
+      width: auto;
+      span {
+        transition: all 0.3s ease-in-out;
+        display: block;
+        font-size: 0em;
+      }
+    }
+
+    &--li.createNewMenuIsOpen {
+      width: calc(100% - 2rem);
+      span {
+        font-size: 1em;
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .done:hover {
+    cursor: pointer;
+    background: rgba(134, 188, 255, 0.2);
+    border-radius: 2rem;
+  }
+
+  .toDo:hover {
+    cursor: pointer;
+    background: rgba(134, 188, 255, 0.2);
+    border-radius: 2rem;
+  }
+
+  .current {
+    background: rgba(134, 188, 255, 0.2);
+    border-radius: 2rem;
+    cursor: pointer;
+
+    @media screen and (screen.$mq-subsmall) {
+      border-radius: 1rem;
+    }
+  }
+
+  .disabled:hover {
+    cursor: not-allowed;
+  }
+
+  .doneDisabled:hover {
+    cursor: not-allowed;
+  }
+
+  &--link {
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    @media screen and (screen.$mq-submedium) {
+      width: auto;
+    }
+    &:link {
+      color: colors.$dark-bright-blue;
+    }
+    &:visited {
+      color: colors.$dark-bright-blue;
+    }
+  }
+  &--svg {
+    height: 20px;
+    width: 20px;
+    margin-right: 0.875rem;
+    @media screen and (screen.$mq-submedium) {
+      margin: auto;
+    }
+
+    &__active {
+      color: colors.$dark-bright-blue;
+    }
+    &__inactive {
+      color: colors.$gray-border;
+    }
+  }
+  &--span {
+    @media screen and (screen.$mq-submedium) {
+      display: none;
+    }
+    &__disabled {
+      color: colors.$gray-border;
+    }
+  }
+}

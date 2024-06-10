@@ -1,0 +1,25 @@
+innbyggerkontakt:
+  project_name: "Innbyggerkontakt"
+  krr_endpoint: "https://kontaktregisteret.no"
+  krr_scope: "krr:global/kontaktinformasjon.read"
+  fiks_endpoint: "https://api.fiks.ks.no"
+  maskinporten_endpoint: "https://maskinporten.no"
+  matrikkel_endpoint: "https://www.nd.matrikkel.no"
+  app_engine_region: "europe-west1"
+  slack_webhook_url: "https://hooks.slack.com/services/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"
+  bring_postal_code_document: "https://www.bring.no/tjenester/adressetjenester/postnummer/_/attachment/download/7f0186f6-cf90-4657-8b5b-70707abeb789:c432782f4f6c31c6b933ba0d2a121f736a0a9c06/Postnummerregister-ansi.txt"
+  fiks_freg_event_organization: ""
+  cors: '["http://app.innbyggerkontakt.no", "https://app.innbyggerkontakt.no", "innbyggerkontakt.web.app", "innbyggerkontakt.firebaseapp.com"]'
+
+innbyggerkontakt-dev:
+  project_name: "Innbyggerkontakt-dev"
+  krr_endpoint: "https://test.kontaktregisteret.no"
+  krr_scope: "global/kontaktinformasjon.read"
+  fiks_endpoint: "https://api.fiks.test.ks.no"
+  maskinporten_endpoint: "https://test.maskinporten.no"
+  matrikkel_endpoint: "https://prodtest.matrikkel.no"
+  app_engine_region: "europe-west3"
+  slack_webhook_url: "https://hooks.slack.com/services/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"
+  bring_postal_code_document: "https://www.bring.no/tjenester/adressetjenester/postnummer/_/attachment/download/7f0186f6-cf90-4657-8b5b-70707abeb789:c432782f4f6c31c6b933ba0d2a121f736a0a9c06/Postnummerregister-ansi.txt"
+  fiks_freg_event_organization: "development"
+  cors: '["https://innbyggerkontakt-dev.web.app", "https://innbyggerkontakt-dev.firebaseapp.com"]'

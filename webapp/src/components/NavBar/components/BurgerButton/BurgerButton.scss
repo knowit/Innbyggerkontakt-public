@@ -1,0 +1,23 @@
+@use '../../../../styles/font-classes';
+@use '../../../../styles/screen-schemes/default' as screen;
+@use '../../../../styles/color-schemes/default' as colors;
+
+.burgerButtonContainer {
+    display: none;
+    transition: all 0.2s ease-in-out;
+    color: colors.$light-light-blue;
+
+
+    @media screen and (screen.$mq-subsmall) {
+        display: block;
+        cursor: pointer;
+    }
+
+    &--open {
+        transform: rotate(90deg);
+    }
+
+    &--closed {
+        transform: rotate(0deg);
+    }
+}

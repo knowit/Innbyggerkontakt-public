@@ -1,0 +1,19 @@
+@use '../../../../styles/screen-schemes/default' as screen;
+
+.recipientsAddCancelButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .addCancelButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  @media screen and (screen.$mq-subsmall) {
+    flex-direction: column;
+  }
+}

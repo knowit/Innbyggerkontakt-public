@@ -1,0 +1,62 @@
+@use './color-schemes/default' as colors;
+@use './functions';
+
+.header {
+  @include functions.setColors(colors.$background, colors.$bright-blue, colors.$dark-blue);
+  .navBar {
+    @include functions.setColors(colors.$background, colors.$bright-blue, colors.$dark-blue);
+    .navButton {
+      @include functions.setColors(colors.$background, colors.$bright-blue, colors.$dark-blue);
+      &:hover {
+        @include functions.setColors(colors.$background, colors.$bright-green, colors.$dark-blue);
+      }
+      &:active {
+        @include functions.setColors(colors.$background, colors.$bright-blue, colors.$dark-blue);
+      }
+    }
+    .right {
+      .clickable {
+        &:hover {
+          @include functions.setColors(colors.$background, colors.$white, colors.$background);
+        }
+        &:active {
+          @include functions.setColors(colors.$darkest-blue, colors.$white, colors.$darkest-blue);
+        }
+      }
+    }
+  }
+}
+
+@mixin btn_primary {
+  @include functions.setColors(colors.$bright-green, colors.$white, colors.$darker-green);
+  &:hover {
+    @include functions.setColors(colors.$darker-green, colors.$white, colors.$darker-green);
+  }
+  &:active {
+    @include functions.setColors(colors.$darkest-green, colors.$white, colors.$darkest-green);
+  }
+  &:disabled {
+    @include functions.setColors(colors.$gray-border, colors.$white, colors.$gray-border);
+  }
+}
+
+@mixin btn_tertiary {
+  @include functions.setColors(colors.$transparent, colors.$bright-blue, colors.$bright-blue);
+  border-width: 1px;
+  padding: 11px 21px;
+  &:hover {
+    @include functions.setColors(colors.$transparent, colors.$dark-bright-blue, colors.$dark-bright-blue);
+    border-width: 2px;
+    padding: 10px 20px;
+  }
+  &:active {
+    @include functions.setColors(colors.$transparent, colors.$dark-bright-blue, colors.$dark-bright-blue);
+    border-width: 3px;
+    padding: 9px 19px;
+  }
+  &:disabled {
+    @include functions.setColors(colors.$transparent, colors.$gray-border, colors.$gray-border);
+    border-width: 3px;
+    padding: 9px 19px;
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "innbyggerkontakt",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "Lars Brekkå <innbyggerkontakt@knowit.no>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "build": "sanity build"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^2.35.2",
+    "@sanity/components": "^2.14.0",
+    "@sanity/core": "^2.35.0",
+    "@sanity/default-layout": "^2.35.2",
+    "@sanity/default-login": "^2.35.2",
+    "@sanity/desk-tool": "^2.35.2",
+    "@sanity/production-preview": "^2.33.2",
+    "@sanity/vision": "^2.35.2",
+    "prop-types": "^15.7",
+    "react": "^17.0",
+    "react-dom": "^17.0",
+    "react-icons": "^4.2.0",
+    "styled-components": "^5.2.0"
+  },
+  "devDependencies": {}
+}

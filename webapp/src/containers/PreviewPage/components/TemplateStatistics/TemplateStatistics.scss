@@ -1,0 +1,9 @@
+@use "../../../../styles/color-schemes/default" as color;
+
+.templateStatisticsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: color.$light-blue-transparent;
+    padding: 2rem;
+}

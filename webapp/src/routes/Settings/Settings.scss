@@ -1,0 +1,335 @@
+@use 'styles/font-classes';
+@use 'styles/index';
+@use 'styles/color-schemes/default' as color;
+@use 'styles/functions';
+@use 'styles/screen-schemes/default' as screen;
+
+.settingsPage {
+  display: flex;
+  gap: 6rem;
+  padding-top: 1.75rem;
+
+  @media screen and (screen.$mq-subsmall) {
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    .itemIcon_title {
+      margin-top: 5px;
+      color: color.$dark-blue;
+    }
+    @media screen and (screen.$mq-subsmall) {
+      margin-left: 20%;
+      max-width: 100%;
+      .itemIcon_title {
+        display: none;
+      }
+    }
+
+    .settings__header {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      color: color.$dark-blue;
+      p {
+        margin-top: 0.5rem;
+      }
+
+      &.general__header {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .semibold18 {
+      margin: 0;
+      margin-bottom: 3px;
+      margin-top: 10px;
+    }
+    .regular14 {
+      margin: 0;
+      margin-bottom: 5px;
+      max-width: 800px;
+    }
+  }
+  .item--width {
+    width: 80%;
+
+    @media screen and (screen.$mq-subsmall) {
+      margin-left: 20%;
+      max-width: 100%;
+    }
+  }
+
+  .settingsMenu {
+    @include index.sideMenu();
+
+    @media screen and (screen.$mq-subsmall) {
+      width: auto;
+      padding: 1rem;
+      min-width: 0;
+      margin: 0;
+      margin-top: 3.75rem;
+    }
+  }
+}
+.imageUploader_wrapper {
+  display: grid;
+  grid-template-columns: 2.5fr 3fr;
+  grid-column-gap: 50px;
+}
+
+.settingsWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+
+  @media screen and (screen.$mq-subsmall) {
+    width: 100%;
+  }
+
+  .newUserButtonRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1rem;
+
+    @media screen and (screen.$mq-subsmall) {
+      flex-direction: column;
+    }
+  }
+}
+
+.usersWrapper {
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  opacity: 1;
+  border-width: 1px;
+  border-radius: 2px;
+  min-height: 40px;
+  height: 60px;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2%;
+  overflow: auto;
+  @include functions.setColors(color.$white, color.$black, color.$even_darker_green);
+  // This should be removed as outline is used by keyboard-users
+  @include functions.removeOutline();
+
+  @media screen and (screen.$mq-subsmall) {
+    > p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.userWrapperGrid {
+  display: grid;
+  grid-template-rows: 1fr 1fr auto;
+  row-gap: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.userWrapper {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+  min-height: 40px;
+  height: 50px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  @include functions.setColors(color.$white, color.$black, color.$even-darker-green);
+  // as above
+  @include functions.removeOutline();
+}
+
+.userInput {
+  padding: 0;
+  margin: 10px 0;
+  label {
+    display: none;
+  }
+  .componentInForm input {
+    @include functions.setColors(color.$white, color.$black, color.$even_darker_green);
+    padding: 0 0 0 15px;
+    height: 50px;
+  }
+  .componentInForm {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .inputicon {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    right: 2%;
+    cursor: pointer;
+    align-items: center;
+    color: color.$even_darker_green;
+  }
+}
+.passord .componentInForm .formInput {
+  cursor: pointer;
+}
+@media screen and (screen.$mq-subsmall) {
+  .settingsMenu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    min-width: 0;
+    background-color: color.$light-light-light-blue;
+    z-index: 2;
+  }
+  .inputEditorComponent {
+    width: 95%;
+  }
+  .settingsPage {
+    .item {
+      grid-column: 1/5;
+    }
+    .mainHeadingSettings {
+      display: none;
+    }
+  }
+  .settings__header {
+    max-height: 100px;
+  }
+}
+
+@media screen and (screen.$mq-submedium) {
+  .settingsPage {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .imageUploader_wrapper {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .settingsMenu {
+    margin-left: 1.5rem;
+  }
+}
+.inputInAdmin {
+  min-height: 50px;
+}
+
+.clickableIcon {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.text_info {
+  color: color.$black;
+}
+.greenIcon {
+  color: color.$darker-green;
+}
+
+.genereltItem {
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+
+.checkboxList {
+  display: flex;
+  & > * {
+    margin-right: 20px;
+  }
+}
+
+.titleWithoutInfo {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.titleWithInfo {
+  display: flex;
+  align-items: center;
+
+  .mandatory,
+  .infoCircle {
+    margin-left: 3px;
+  }
+
+  .infoCircle {
+    color: color.$gray-text;
+  }
+}
+
+.controlPointIcon {
+  margin-right: 5px;
+}
+.userIcon {
+  background-color: color.$white;
+}
+.styleIcon {
+  background-color: color.$white;
+}
+
+.otherUsersWrapper {
+  margin-top: 3rem;
+  width: 80%;
+}
+
+.settings__input--transparent {
+  background: transparent;
+}
+
+.settings__input--white {
+  background: white;
+}
+
+.settings__input {
+  .componentInForm input {
+    @include functions.setColors(color.$transparent, color.$black, color.$even_darker_green);
+  }
+}
+
+.users__text--save {
+  padding: 0 25px 0 0;
+}
+
+.mfa__text {
+  column-gap: 1rem;
+}
+
+.mfa__text__link {
+  margin-left: auto;
+  background: transparent;
+}
+
+.mfa__text__icon {
+  color: grey;
+}
+.mfa__email {
+  display: inline-flex;
+  width: 100%;
+}
+.mfa__email--verified {
+  margin-left: 1rem;
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+.otherUsersWrapper__icon {
+  margin: 2rem 0 0.75rem 1rem;
+}
+
+.otherUsersWrapper--loadig {
+  margin-top: 50px;
+}
+
+.settingsExplainText--margin {
+  margin-top: 1rem;
+}

@@ -1,0 +1,54 @@
+steps:
+  - name: gcr.io/cloud-builders/gsutil
+    id: get_tar_file
+    entrypoint: bash
+    args: ['-c', 'gsutil cp gs://${PROJECT_ID}-my_cache_bucket/pre-commit-cache.tar.gz pre-commit-cache.tar.gz || exit 0']
+
+  # Make the cache folder
+  - name: "gcr.io/${PROJECT_ID}/poetry"
+    id: mkdir
+    entrypoint: mkdir
+    args: ["-p", "${_PRE_COMMIT_HOME}"]
+
+  - name: "gcr.io/${PROJECT_ID}/my-pre-commit:latest"
+    id: unzip_tar
+    entrypoint: /bin/sh
+    args: ['-c', 'tar -xf pre-commit-cache.tar.gz -C ${_PRE_COMMIT_HOME} || exit 0']
+
+
+  - name: "gcr.io/${PROJECT_ID}/my-pre-commit:latest"
+    id: my-pre-commit
+    args: ["run", "flakeheaven", --all-files]
+    env:
+      - "PRE_COMMIT_HOME=${_PRE_COMMIT_HOME}"
+
+  # Zip the cache
+  - name: "gcr.io/${PROJECT_ID}/my-pre-commit:latest"
+    id: zip_new_cache
+    entrypoint: tar
+    args:
+      [
+        "-C",
+        "${_PRE_COMMIT_HOME}",
+        "-zcf",
+        "pre-commit-cache.tar.gz",
+        ".",
+      ]
+
+  # Move the new cache to bucket
+  - name: gcr.io/cloud-builders/gsutil
+    args:
+      [
+        "cp",
+        "pre-commit-cache.tar.gz",
+        "gs://${PROJECT_ID}-my_cache_bucket/pre-commit-cache.tar.gz",
+      ]
+
+substitutions:
+  _CACHE_BUCKET: "innbyggerkontakt-dev-my_cache_bucket"
+  _PRE_COMMIT_HOME: "/workspace/.pre_commit"
+  _CACHE_KEY: "precommit_cache_key"
+
+options:
+  substitution_option: "ALLOW_LOOSE"
+  machineType: 'E2_HIGHCPU_8'

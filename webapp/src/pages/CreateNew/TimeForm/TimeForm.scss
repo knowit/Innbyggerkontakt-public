@@ -1,0 +1,109 @@
+@use 'styles/functions';
+@use 'styles/color-schemes/default' as color;
+@use 'styles/font-classes';
+
+.timeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 3.7rem;
+  width: 100%;
+
+  .timeForm--contentWrapper {
+    display: grid;
+    grid-gap: 10px;
+    align-self: center;
+  }
+  .radioAndTextContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    align-self: center;
+    color: color.$dark-bright-blue;
+    max-width: 31.25rem;
+
+    .descriptionText {
+      align-self: flex-start;
+    }
+
+    .radioButtonsTimeForm {
+      align-self: flex-start;
+      margin: 0;
+    }
+
+    //TODO: remove when the new styling on radiobuttons is merge in
+    label {
+      color: color.$black;
+      @include font-classes.regular18();
+    }
+
+    .delayDropdown {
+      width: 45%;
+    }
+
+    .dataAndTimeBox {
+      flex-direction: column;
+      margin-left: 3rem;
+    }
+    //for TimeFormEvent
+    .dataAndTimeBox--clock {
+      width: 30%;
+    }
+  }
+  //for TimeFormSearch
+  .dataAndTimeBox--clock {
+    width: 60%;
+  }
+
+  .dataAndTimeBox {
+    &--title,
+    label {
+      @include font-classes.regular18();
+      padding-top: 6px;
+      color: color.$dark-bright-blue;
+    }
+  }
+
+  .descriptionText {
+    margin: 0;
+  }
+
+  .searchText {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    text-align: center;
+    color: color.$dark-bright-blue;
+
+    .descriptionText {
+      align-self: center;
+    }
+  }
+
+  .mainTitle {
+    color: color.$dark-blue;
+  }
+
+  .errorMessage {
+    margin-bottom: 4px;
+  }
+
+  .navigationButtonsLeft {
+    display: inline-flex;
+    float: left;
+  }
+
+  .navigationButtonsRight {
+    display: inline-flex;
+    float: right;
+  }
+}
+
+.delayText {
+  display: inline-block;
+}
+
+.css-j5h6pi-MuiPopper-root {
+  inset: 0px auto auto 2% !important;
+}

@@ -1,0 +1,615 @@
+{
+  "oppslag": [
+    {
+      "foedselsEllerDNummer": "14079002012",
+      "folkeregisterperson": {
+        "identifikasjonsnummer": [
+          {
+            "ajourholdstidspunkt": "2020-03-25T20:15:22.954+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "status": "iBruk",
+            "foedselsEllerDNummer": "14079002012",
+            "identifikatortype": "foedselsnummer"
+          }
+        ],
+        "status": [
+          {
+            "ajourholdstidspunkt": "2020-03-25T20:15:22.954+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "gyldighetstidspunkt": "2020-03-25T20:15:22.954+01:00",
+            "status": "bosatt"
+          }
+        ],
+        "kjoenn": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "kjoenn": "kvinne"
+          }
+        ],
+        "navn": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Innvandring",
+            "gyldighetstidspunkt": "2019-01-01T00:00:00+01:00",
+            "fornavn": "FORSTÅELSESFULLBLAUTOPPBLÅST",
+            "mellomnavn": "DYPSINDIG",
+            "etternavn": "SØNDAG",
+            "forkortetNavn": "FORSTÅELSESFULLBLAUTOPPBLÅST D SØNDAG"
+          }
+        ],
+        "bostedsadresse": [
+          {
+            "ajourholdstidspunkt": "2020-10-16T00:00:00+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Årsakskode fra DSF: ",
+            "gyldighetstidspunkt": "2020-10-16T00:00:00+01:00",
+            "vegadresse": {
+              "kommunenummer": "3011",
+              "bruksenhetsnummer": "73",
+              "adressenavn": "Barmveien",
+              "adressekode": "00001",
+              "poststed": {
+                "poststedsnavn": "VESTERØY",
+                "postnummer": "1684"
+              },
+              "coAdressenavn": ""
+            },
+            "adresseIdentifikatorFraMatrikkelen": "445474109",
+            "adressegradering": "ugradert",
+            "grunnkrets": 204,
+            "stemmekrets": 2,
+            "skolekrets": 2,
+            "kirkekrets": 1
+          },
+          {
+            "ajourholdstidspunkt": "2020-03-25T00:00:00+01:00",
+            "erGjeldende": false,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Årsakskode fra DSF: ",
+            "gyldighetstidspunkt": "2020-03-25T00:00:00+01:00",
+            "vegadresse": {
+              "kommunenummer": "0301",
+              "bruksenhetsnummer": "73",
+              "adressenavn": "Den andre Barmveien",
+              "adressekode": "00001",
+              "poststed": {
+                "poststedsnavn": "VESTERØY",
+                "postnummer": "1684"
+              },
+              "coAdressenavn": ""
+            },
+            "adresseIdentifikatorFraMatrikkelen": "445474109",
+            "adressegradering": "ugradert",
+            "grunnkrets": 204,
+            "stemmekrets": 2,
+            "skolekrets": 2,
+            "kirkekrets": 1
+          },
+          {
+            "ajourholdstidspunkt": "2018-03-25T00:00:00+01:00",
+            "erGjeldende": false,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Årsakskode fra DSF: ",
+            "gyldighetstidspunkt": "2018-03-25T00:00:00+01:00",
+            "vegadresse": {
+              "kommunenummer": "0301",
+              "bruksenhetsnummer": "73",
+              "adressenavn": "Barmveien",
+              "adressekode": "00001",
+              "poststed": {
+                "poststedsnavn": "VESTERØY",
+                "postnummer": "1684"
+              },
+              "coAdressenavn": ""
+            },
+            "adresseIdentifikatorFraMatrikkelen": "445474109",
+            "adressegradering": "ugradert",
+            "grunnkrets": 204,
+            "stemmekrets": 2,
+            "skolekrets": 2,
+            "kirkekrets": 1
+          }
+        ],
+        "foreldreansvar": [
+            {
+                "erGjeldende": true,
+                "kilde": "KILDE_DSF",
+                "ansvar": "mor",
+                "ansvarssubjekt": "14079002012",
+                "ansvarlig": "01234567890"
+            },
+            {
+                "erGjeldende": true,
+                "kilde": "KILDE_DSF",
+                "ansvar": "far",
+                "ansvarssubjekt": "14079002012",
+                "ansvarlig": "01234567891"
+            }
+        ],
+        "foedsel": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "foedselsdato": "2000-1-1",
+            "foedselsaar": "2000"
+          }
+        ]
+      }
+    },
+    {
+      "foedselsEllerDNummer": "04019002697",
+      "folkeregisterperson": {
+        "identifikasjonsnummer": [
+          {
+            "ajourholdstidspunkt": "2020-03-25T20:14:46.939+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "status": "iBruk",
+            "foedselsEllerDNummer": "04019002697",
+            "identifikatortype": "foedselsnummer"
+          }
+        ],
+        "status": [
+          {
+            "ajourholdstidspunkt": "2020-03-25T20:14:46.939+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "gyldighetstidspunkt": "2020-03-25T20:14:46.939+01:00",
+            "status": "bosatt"
+          }
+        ],
+        "kjoenn": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "kjoenn": "kvinne"
+          }
+        ],
+        "navn": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Innvandring",
+            "gyldighetstidspunkt": "2019-01-01T00:00:00+01:00",
+            "fornavn": "PEN",
+            "mellomnavn": "FATTIG",
+            "etternavn": "ENTREPRENØR",
+            "forkortetNavn": "PEN FATTIG ENTREPRENØR"
+          }
+        ],
+        "bostedsadresse": [
+          {
+            "ajourholdstidspunkt": "2020-06-25T00:00:00+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Årsakskode fra DSF: ",
+            "gyldighetstidspunkt": "2020-06-25T00:00:00+01:00",
+            "vegadresse": {
+              "kommunenummer": "3011",
+              "bruksenhetsnummer": "H0101",
+              "bruksenhetstype": "bolig",
+              "adressenavn": "Liadammen",
+              "adressekode": "00001",
+              "poststed": {
+                "poststedsnavn": "VESTERØY",
+                "postnummer": "1684"
+              },
+              "coAdressenavn": ""
+            },
+            "adresseIdentifikatorFraMatrikkelen": "415378029",
+            "adressegradering": "ugradert",
+            "grunnkrets": 204,
+            "stemmekrets": 2,
+            "skolekrets": 2,
+            "kirkekrets": 1
+          },
+          {
+            "ajourholdstidspunkt": "2020-03-25T00:00:00+01:00",
+            "erGjeldende": false,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Årsakskode fra DSF: ",
+            "gyldighetstidspunkt": "2020-03-25T00:00:00+01:00",
+            "vegadresse": {
+              "kommunenummer": "3011",
+              "bruksenhetsnummer": "73",
+              "adressenavn": "Barmveien",
+              "adressekode": "00001",
+              "poststed": {
+                "poststedsnavn": "VESTERØY",
+                "postnummer": "1684"
+              },
+              "coAdressenavn": ""
+            },
+            "adresseIdentifikatorFraMatrikkelen": "445474109",
+            "adressegradering": "ugradert",
+            "grunnkrets": 204,
+            "stemmekrets": 2,
+            "skolekrets": 2,
+            "kirkekrets": 1
+          }
+        ],
+        "foreldreansvar": [
+            {
+                "erGjeldende": true,
+                "kilde": "KILDE_DSF",
+                "ansvar": "mor",
+                "ansvarssubjekt": "04019002697",
+                "ansvarlig": "01234567891"
+            },
+            {
+                "erGjeldende": true,
+                "kilde": "KILDE_DSF",
+                "ansvar": "far",
+                "ansvarssubjekt": "04019002697",
+                "ansvarlig": "01234567892"
+            }
+        ],
+        "foedsel": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "foedselsdato": "2000-2-1",
+            "foedselsaar": "2000"
+          }
+        ]
+      }
+    },
+    {
+      "foedselsEllerDNummer": "10029002369",
+      "folkeregisterperson": {
+        "identifikasjonsnummer": [
+          {
+            "ajourholdstidspunkt": "2020-03-25T20:15:09.201+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "status": "iBruk",
+            "foedselsEllerDNummer": "10029002369",
+            "identifikatortype": "foedselsnummer"
+          }
+        ],
+        "status": [
+          {
+            "ajourholdstidspunkt": "2020-03-25T20:15:09.201+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "gyldighetstidspunkt": "2020-03-25T20:15:09.201+01:00",
+            "status": "bosatt"
+          }
+        ],
+        "kjoenn": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "kjoenn": "mann"
+          }
+        ],
+        "navn": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Innvandring",
+            "gyldighetstidspunkt": "2019-01-01T00:00:00+01:00",
+            "fornavn": "EPISK",
+            "mellomnavn": "USANNFERDIG",
+            "etternavn": "FORMFUSJON",
+            "forkortetNavn": "EPISK USANNFERDIG FORMFUSJON"
+          }
+        ],
+        "bostedsadresse": [
+          {
+            "ajourholdstidspunkt": "2020-05-07T12:08:16.225+02:00",
+            "erGjeldende": true,
+            "kilde": "DataPatch 17",
+            "gyldighetstidspunkt": "2020-05-07T12:08:16.225+02:00",
+            "vegadresse": {
+              "kommunenummer": "3011",
+              "adressenavn": "Gravningstien",
+              "adressenummer": {
+                "husnummer": "8"
+              },
+              "adressekode": "1206",
+              "poststed": {
+                "poststedsnavn": "VESTERØY",
+                "postnummer": "1684"
+              }
+            },
+            "adressegradering": "ugradert"
+          },
+          {
+            "erGjeldende": false,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Årsakskode fra DSF: ",
+            "vegadresse": {
+              "kommunenummer": "0301",
+              "bruksenhetsnummer": "73",
+              "adressenavn": "Barmveien",
+              "adressekode": "00001",
+              "poststed": {
+                "poststedsnavn": "VESTERØY",
+                "postnummer": "1684"
+              },
+              "coAdressenavn": ""
+            },
+            "adresseIdentifikatorFraMatrikkelen": "445474109",
+            "adressegradering": "ugradert",
+            "grunnkrets": 204,
+            "stemmekrets": 2,
+            "skolekrets": 2,
+            "kirkekrets": 1
+          }
+        ],
+        "foedsel": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "foedselsdato": "2005-7-24",
+            "foedselsaar": "2005"
+          }
+        ]
+      }
+    },
+    {
+      "foedselsEllerDNummer": "07049000582",
+      "folkeregisterperson": {
+        "identifikasjonsnummer": [
+          {
+            "ajourholdstidspunkt": "2020-03-25T20:14:56.715+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "status": "iBruk",
+            "foedselsEllerDNummer": "07049000582",
+            "identifikatortype": "foedselsnummer"
+          }
+        ],
+        "status": [
+          {
+            "ajourholdstidspunkt": "2020-03-25T20:14:56.715+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "gyldighetstidspunkt": "2020-03-25T20:14:56.715+01:00",
+            "status": "bosatt"
+          }
+        ],
+        "kjoenn": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "kjoenn": "mann"
+          }
+        ],
+        "navn": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Innvandring",
+            "gyldighetstidspunkt": "2019-01-01T00:00:00+01:00",
+            "fornavn": "FAMØS",
+            "mellomnavn": "GJENSIDIG",
+            "etternavn": "SCENEHETEMANNRØDSTRUPE",
+            "forkortetNavn": "FAMØS GJENSIDIG SCENEHETEMANNRØDSTRUPE"
+          }
+        ],
+        "bostedsadresse": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Årsakskode fra DSF: ",
+            "vegadresse": {
+              "kommunenummer": "3011",
+              "bruksenhetsnummer": "37",
+              "adressenavn": "Salta",
+              "adressekode": "00001",
+              "poststed": {
+                "poststedsnavn": "NEDGÅRDEN",
+                "postnummer": "1692"
+              },
+              "coAdressenavn": ""
+            },
+            "adresseIdentifikatorFraMatrikkelen": "436213005",
+            "adressegradering": "ugradert",
+            "grunnkrets": 102,
+            "stemmekrets": 1,
+            "skolekrets": 1,
+            "kirkekrets": 1
+          },
+          {
+            "erGjeldende": false,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Årsakskode fra DSF: ",
+            "vegadresse": {
+              "kommunenummer": "0301",
+              "bruksenhetsnummer": "73",
+              "adressenavn": "Barmveien",
+              "adressekode": "00001",
+              "poststed": {
+                "poststedsnavn": "VESTERØY",
+                "postnummer": "1684"
+              },
+              "coAdressenavn": ""
+            },
+            "adresseIdentifikatorFraMatrikkelen": "445474109",
+            "adressegradering": "ugradert",
+            "grunnkrets": 204,
+            "stemmekrets": 2,
+            "skolekrets": 2,
+            "kirkekrets": 1
+          }
+        ]
+      }
+    },
+    {
+      "foedselsEllerDNummer": "35643678543",
+      "folkeregisterperson": {
+        "identifikasjonsnummer": [
+          {
+            "ajourholdstidspunkt": "2020-03-25T20:14:56.715+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "status": "iBruk",
+            "foedselsEllerDNummer": "35643678543",
+            "identifikatortype": "foedselsnummer"
+          }
+        ],
+        "status": [
+          {
+            "ajourholdstidspunkt": "2020-03-25T20:14:56.715+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "gyldighetstidspunkt": "2020-03-25T20:14:56.715+01:00",
+            "status": "bosatt"
+          }
+        ],
+        "kjoenn": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "kjoenn": "mann"
+          }
+        ],
+        "navn": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Innvandring",
+            "gyldighetstidspunkt": "2019-01-01T00:00:00+01:00",
+            "fornavn": "FAMØS",
+            "mellomnavn": "GJENSIDIG",
+            "etternavn": "SCENEHETEMANNRØDSTRUPE",
+            "forkortetNavn": "FAMØS GJENSIDIG SCENEHETEMANNRØDSTRUPE"
+          }
+        ],
+        "bostedsadresse": [
+          {
+            "ajourholdstidspunkt": "2020-03-24T00:00:00+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Årsakskode fra DSF: ",
+            "gyldighetstidspunkt": "2020-03-24T00:00:00+01:00",
+            "vegadresse": {
+              "kommunenummer": "3011",
+              "bruksenhetsnummer": "37",
+              "adressenavn": "Salta",
+              "adressekode": "00001",
+              "poststed": {
+                "poststedsnavn": "NEDGÅRDEN",
+                "postnummer": "1692"
+              },
+              "coAdressenavn": ""
+            },
+            "adresseIdentifikatorFraMatrikkelen": "436213005",
+            "adressegradering": "ugradert",
+            "grunnkrets": 102,
+            "stemmekrets": 1,
+            "skolekrets": 1,
+            "kirkekrets": 1
+          }
+        ],
+        "foedsel": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "foedselsdato": "1956-8-19",
+            "foedselsaar": "1956"
+          }
+        ]
+      }
+    },
+    {
+      "foedselsEllerDNummer": "35643678547",
+      "folkeregisterperson": {
+        "identifikasjonsnummer": [
+          {
+            "ajourholdstidspunkt": "2020-03-25T20:14:56.715+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "status": "iBruk",
+            "foedselsEllerDNummer": "35643678547",
+            "identifikatortype": "foedselsnummer"
+          }
+        ],
+        "status": [
+          {
+            "ajourholdstidspunkt": "2020-03-25T20:14:56.715+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "gyldighetstidspunkt": "2020-03-25T20:14:56.715+01:00",
+            "status": "bosatt"
+          }
+        ],
+        "kjoenn": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "kjoenn": "mann"
+          }
+        ],
+        "navn": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Innvandring",
+            "gyldighetstidspunkt": "2019-01-01T00:00:00+01:00",
+            "fornavn": "FAMØS",
+            "mellomnavn": "GJENSIDIG",
+            "etternavn": "SCENEHETEMANNRØDSTRUPE",
+            "forkortetNavn": "FAMØS GJENSIDIG SCENEHETEMANNRØDSTRUPE"
+          }
+        ],
+        "bostedsadresse": [
+          {
+            "ajourholdstidspunkt": "2020-03-24T00:00:00+01:00",
+            "erGjeldende": false,
+            "kilde": "KILDE_DSF",
+            "aarsak": "Årsakskode fra DSF: ",
+            "gyldighetstidspunkt": "2020-03-24T00:00:00+01:00",
+            "vegadresse": {
+              "kommunenummer": "3011",
+              "bruksenhetsnummer": "37",
+              "adressenavn": "Salta",
+              "adressekode": "00001",
+              "poststed": {
+                "poststedsnavn": "NEDGÅRDEN",
+                "postnummer": "1692"
+              },
+              "coAdressenavn": ""
+            },
+            "adresseIdentifikatorFraMatrikkelen": "436213005",
+            "adressegradering": "ugradert",
+            "grunnkrets": 102,
+            "stemmekrets": 1,
+            "skolekrets": 1,
+            "kirkekrets": 1
+          }
+        ],
+        "foedsel": [
+          {
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "foedselsdato": "1970-12-31",
+            "foedselsaar": "1970"
+          }
+        ]
+      }
+    },
+    {
+      "foedselsEllerDNummer": "35643678546",
+      "folkeregisterperson": {
+        "identifikasjonsnummer": [
+          {
+            "ajourholdstidspunkt": "2020-03-25T20:14:56.715+01:00",
+            "erGjeldende": true,
+            "kilde": "KILDE_DSF",
+            "status": "iBruk",
+            "foedselsEllerDNummer": "35643678546",
+            "identifikatortype": "foedselsnummer"
+          }
+        ]
+      }
+    }
+  ]
+}

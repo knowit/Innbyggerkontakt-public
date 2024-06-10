@@ -1,0 +1,67 @@
+@use 'styles/screen-schemes/default' as screen;
+@use 'styles/color-schemes/default' as color;
+@use 'styles/font-schemes/default' as font;
+@use 'styles/font-classes';
+
+.row {
+  height: fit-content;
+}
+
+.listRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  & > div {
+    justify-self: center;
+  }
+
+  @media screen and (screen.$mq-sublarge) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (screen.$mq-submedium) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (screen.$mq-subsmall) {
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.listRowGlobal {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  justify-content: center;
+  gap: 2rem;
+  @media screen and (screen.$mq-submedium) {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 40px;
+  }
+}
+
+@media screen and (screen.$mq-subsmall) {
+  .searchPage {
+    width: 100% !important;
+  }
+  .listRowGlobal {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.scroll-menu-arrow {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.scroll-menu-arrow--disabled {
+  visibility: hidden;
+}
+
+.arrow {
+  font-size: 30px;
+}

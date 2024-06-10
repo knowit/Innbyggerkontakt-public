@@ -1,0 +1,101 @@
+[
+  {
+    "sekvensnummer": 0,
+    "hendelse": {
+      "folkeregisteridentifikator": "01234567890",
+      "hendelsetype": "endringIBostedsadresse",
+      "ajourholdstidspunkt": "2020-03-25T20:15:22.954+01:00",
+      "hendelsesdokument": "test",
+      "persondokument": "test"
+    }
+  },
+  {
+    "sekvensnummer": 1,
+    "hendelse": {
+      "folkeregisteridentifikator": "01234567890",
+      "hendelsetype": "endringIBostedsadresse",
+      "ajourholdstidspunkt": "2020-03-25T20:15:22.954+01:00",
+      "hendelsesdokument": "test",
+      "persondokument": "test"
+    }
+  },
+  {
+    "sekvensnummer": 2,
+    "hendelse": {
+      "folkeregisteridentifikator": "01234567890",
+      "hendelsetype": "endringIBostedsadresse",
+      "ajourholdstidspunkt": "2020-03-25T20:15:22.954+01:00",
+      "hendelsesdokument": "test",
+      "persondokument": "test"
+    }
+  },
+  {
+    "sekvensnummer": 3,
+    "hendelse": {
+      "folkeregisteridentifikator": "01234567890",
+      "hendelsetype": "endringIOppholdsadresse",
+      "ajourholdstidspunkt": "2020-03-25T20:15:22.954+01:00",
+      "hendelsesdokument": "test",
+      "persondokument": "test"
+    }
+  },
+  {
+    "sekvensnummer": 4,
+    "hendelse": {
+      "folkeregisteridentifikator": "01234567890",
+      "hendelsetype": "endringIBostedsadresse",
+      "ajourholdstidspunkt": "2020-03-25T20:15:22.954+01:00",
+      "hendelsesdokument": "test",
+      "persondokument": "test"
+    }
+  },
+  {
+    "sekvensnummer": 5,
+    "hendelse": {
+      "folkeregisteridentifikator": "01234567890",
+      "hendelsetype": "endringIOppholdsadresse",
+      "ajourholdstidspunkt": "2020-03-25T20:15:22.954+01:00",
+      "hendelsesdokument": "test",
+      "persondokument": "test"
+    }
+  },
+  {
+    "sekvensnummer": 6,
+    "hendelse": {
+      "folkeregisteridentifikator": "01234567890",
+      "hendelsetype": "endringIBostedsadresse",
+      "ajourholdstidspunkt": "2020-03-25T20:15:22.954+01:00",
+      "hendelsesdokument": "test",
+      "persondokument": "test"
+    }
+  },
+  {
+    "sekvensnummer": 7,
+    "hendelse": {
+      "folkeregisteridentifikator": "01234567890",
+      "hendelsetype": "endringIBostedsadresse",
+      "ajourholdstidspunkt": "2020-03-25T20:15:22.954+01:00",
+      "hendelsesdokument": "test",
+      "persondokument": "test"
+    }
+  },
+  {
+    "sekvensnummer": 8,
+    "hendelse": {
+      "folkeregisteridentifikator": "01234567890",
+      "hendelsetype": "endringIBostedsadresse",
+      "ajourholdstidspunkt": "2020-03-25T20:15:22.954+01:00",
+      "hendelsesdokument": "test",
+      "persondokument": "test"
+    }
+  },
+  {
+    "sekvensnummer": 9,
+    "hendelse": {
+      "folkeregisteridentifikator": "01234567890",
+      "hendelsetype": "endringIBostedsadresse",
+      "ajourholdstidspunkt": "2020-03-25T20:15:22.954+01:00",
+      "hendelsesdokument": "test"
+    }
+  }
+]

@@ -1,0 +1,21 @@
+@use '../../styles/font-classes';
+
+.popUpMessageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    > h1 {
+        @include font-classes.regular24();
+    }
+
+    > p {
+        max-width: 60%;
+    }
+
+    > div:last-of-type {
+        display: flex;
+        gap: 1.5rem;
+    }
+}

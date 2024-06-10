@@ -1,0 +1,108 @@
+@use 'styles/font-classes';
+@use 'styles/color-classes';
+@use 'styles/color-schemes/default' as colors;
+
+.multifactor {
+  &__title-container {
+    margin-bottom: 3.75rem;
+    margin-top: 0.5rem;
+
+    &--extended {
+      margin-bottom: 7.125rem;
+    }
+  }
+
+  &__sign-in-popup-info {
+    @include font-classes.regular18();
+    text-align: center;
+  }
+
+  &__title {
+    @include font-classes.bold24();
+    color: colors.$dark-blue;
+  }
+
+  &__title-explanation {
+    @include color-classes.text_disabled();
+  }
+
+  &__flow-container {
+    display: grid;
+    row-gap: 3.75rem;
+    grid-template-rows: auto;
+    justify-content: center;
+  }
+
+  &__input {
+    display: grid;
+    grid-template-rows: auto;
+
+    &-title-container {
+      display: flex;
+      align-items: baseline;
+      column-gap: 2rem;
+    }
+
+    &-title {
+      @include font-classes.semibold18();
+    }
+
+    &-button {
+      @include color-classes.btn_primary();
+      @include font-classes.medium14();
+
+      &--center {
+        justify-self: center;
+      }
+    }
+  }
+
+  &__info {
+    @include font-classes.semibold18();
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+    color: colors.$darker-green;
+
+    &--error {
+      color: colors.$error;
+    }
+
+    &--center {
+      justify-self: center;
+    }
+  }
+
+  &__navigate-button {
+    @include font-classes.medium14();
+    max-height: 42px;
+    display: flex;
+    align-items: center;
+    column-gap: 0.75rem;
+    margin: 2rem 0;
+
+    &--center {
+      justify-self: center;
+    }
+
+    &--primary {
+      @include color-classes.btn_primary();
+    }
+
+    &--secondary {
+      @include color-classes.btn_secondary();
+    }
+
+    &--tertiary {
+      @include color-classes.btn_tertiary();
+    }
+  }
+
+  .mt-1\.5 {
+    margin-top: 1.5rem;
+  }
+
+  .mb-1\.5 {
+    margin-bottom: 1.5rem;
+  }
+}

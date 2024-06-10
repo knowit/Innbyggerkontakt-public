@@ -1,0 +1,156 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/webapp" # Location of package manifests
+    schedule:
+      interval: "monthly"
+      time: "07:00"
+      timezone: "Europe/Oslo"
+    reviewers:
+      - "larsbrek"
+      - "AndersSteenNilsen"
+    ignore:
+      - dependency-name: "@types/node"
+        versions: [">=13"]
+
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/webapp/functions/node/styles" # Location of package manifests
+    schedule:
+      interval: "monthly"
+      time: "07:00"
+      timezone: "Europe/Oslo"
+    reviewers:
+      - "larsbrek"
+      - "AndersSteenNilsen"
+    ignore:
+      - dependency-name: "@types/node"
+        versions: [">=13"]
+
+  - package-ecosystem: "pip"
+    directory: "/webapp/functions/python"
+    schedule:
+      interval: "monthly"
+      time: "07:00"
+      timezone: "Europe/Oslo"
+    ignore:
+      - dependency-name: "innbyggerkontakt-utils"
+    reviewers:
+      - "larsbrek"
+      - "AndersSteenNilsen"
+
+  - package-ecosystem: "pip"
+    directory: "/webapp/cloudrun/admin"
+    schedule:
+      interval: "monthly"
+      time: "07:00"
+      timezone: "Europe/Oslo"
+    ignore:
+      - dependency-name: "innbyggerkontakt-utils"
+    reviewers:
+      - "larsbrek"
+      - "AndersSteenNilsen"
+
+  - package-ecosystem: "pip"
+    directory: "/data"
+    schedule:
+      interval: "monthly"
+      time: "07:00"
+      timezone: "Europe/Oslo"
+    ignore:
+      - dependency-name: "innbyggerkontakt-utils"
+    reviewers:
+      - "larsbrek"
+      - "AndersSteenNilsen"
+
+  - package-ecosystem: "pip"
+    directory: "/message/message"
+    schedule:
+      interval: "monthly"
+      time: "07:00"
+      timezone: "Europe/Oslo"
+    ignore:
+      - dependency-name: "innbyggerkontakt-utils"
+    reviewers:
+      - "larsbrek"
+      - "AndersSteenNilsen"
+
+  - package-ecosystem: "pip"
+    directory: "/message/proxy"
+    schedule:
+      interval: "monthly"
+      time: "07:00"
+      timezone: "Europe/Oslo"
+    ignore:
+      - dependency-name: "innbyggerkontakt-utils"
+    reviewers:
+      - "larsbrek"
+      - "AndersSteenNilsen"
+
+  - package-ecosystem: "pip"
+    directory: "/outcome/src"
+    schedule:
+      interval: "monthly"
+      time: "07:00"
+      timezone: "Europe/Oslo"
+    ignore:
+      - dependency-name: "innbyggerkontakt-utils"
+    reviewers:
+      - "larsbrek"
+      - "AndersSteenNilsen"
+
+  - package-ecosystem: "pip"
+    directory: "/packages_source/python"
+    schedule:
+      interval: "monthly"
+      time: "07:00"
+      timezone: "Europe/Oslo"
+    reviewers:
+      - "larsbrek"
+      - "AndersSteenNilsen"
+
+  - package-ecosystem: "pip"
+    directory: "/recipients"
+    schedule:
+      interval: "monthly"
+      time: "07:00"
+      timezone: "Europe/Oslo"
+    ignore:
+      - dependency-name: "innbyggerkontakt-utils"
+    reviewers:
+      - "larsbrek"
+      - "AndersSteenNilsen"
+
+  - package-ecosystem: "pip"
+    directory: "/slack_notifier"
+    schedule:
+      interval: "monthly"
+      time: "07:00"
+      timezone: "Europe/Oslo"
+    reviewers:
+      - "larsbrek"
+      - "AndersSteenNilsen"
+
+  - package-ecosystem: "terraform"
+    directory: "/terraform"
+    schedule:
+      interval: "monthly"
+      time: "07:00"
+      timezone: "Europe/Oslo"
+    reviewers:
+      - "larsbrek"
+      - "AndersSteenNilsen"
+
+  - package-ecosystem: "terraform"
+    directory: "/.cloudbuild/terraform"
+    schedule:
+      interval: "monthly"
+      time: "07:00"
+      timezone: "Europe/Oslo"
+    reviewers:
+      - "larsbrek"
+      - "AndersSteenNilsen"

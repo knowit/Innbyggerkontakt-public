@@ -1,0 +1,97 @@
+@use 'styles/color-schemes/default' as color;
+@use 'styles/functions';
+@use 'styles/font-classes';
+@use 'styles/screen-schemes/default' as screen;
+@use 'styles/index.scss';
+
+.summary-item {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  opacity: 1;
+  border-radius: 2px;
+  border: 1px solid #1dd19d66;
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    @include index.clickable;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    padding: 0.7rem 2rem;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__clickable {
+    padding: 10px;
+  }
+
+  &__content__button {
+    display: flex;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    @media screen and (screen.$mq-submedium) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__content {
+    background-color: color.$light-blue-transparent;
+    padding: 1.5rem 2rem;
+    width: stretch;
+    width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+    width: -moz-available; /* WebKit-based browsers will ignore this. */
+  }
+
+  &__content--inactive {
+    display: none;
+  }
+
+  &__editButton {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__icon {
+    margin-left: -47px;
+    margin-right: 23px;
+    height: 1.8rem;
+    width: 1.8rem;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+
+    &--active,
+    &--inactive {
+      font-size: 2.5rem;
+      position: absolute;
+      top: -5px;
+      left: -5px;
+    }
+
+    &--active {
+      fill: color.$bright-green;
+    }
+
+    &--inactive {
+      fill: color.$gray-inactive;
+    }
+  }
+
+  &__heading {
+    @include font-classes.regular18;
+    align-self: center;
+    color: black;
+  }
+  &__expand-icon {
+    color: color.$gray-text;
+    font-size: 1.7rem;
+  }
+  &__rotate {
+    transform: rotate(180deg);
+  }
+}

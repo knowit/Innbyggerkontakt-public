@@ -1,0 +1,56 @@
+//@use '../../styles/index';
+@use '../../styles/color-schemes/default' as colors;
+@use '../../styles/font-schemes/default' as fonts;
+@use '../../styles/font-classes';
+@use '../../styles/color-classes';
+//@use '../../styles/functions';
+
+button {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 3px;
+  width: fit-content;
+  height: fit-content;
+  padding: 10px 20px;
+}
+
+.primary {
+  @include color-classes.btn_primary();
+}
+
+.secondary {
+  @include color-classes.btn_secondary();
+}
+
+.tertiary {
+  @include color-classes.btn_tertiary();
+}
+
+@mixin btn_rounded_small {
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 90px;
+  @include font-classes.regular18();
+
+  &:hover,
+  &:active {
+    font-weight: fonts.$semibold;
+    padding: 8px 15px;
+  }
+
+  .textButton {
+    font: inherit;
+  }
+}
+
+.btn_rounded_small_primary {
+  @include btn_rounded_small;
+  @include color-classes.btn_rounded_small_primary;
+}
+
+.btn_rounded_small_secondary {
+  @include btn_rounded_small;
+  @include color-classes.btn_rounded_small_secondary;
+}

@@ -1,0 +1,196 @@
+@use 'styles/color-schemes/default' as color;
+@use 'styles/font-schemes/default' as font;
+@use 'styles/functions';
+@use 'styles/font-classes';
+@use 'styles/color-classes';
+
+.selectRecipients__wrapper {
+  width: 100%;
+  max-width: 50rem;
+}
+.recipientsContent {
+  background: #b0d3ff62;
+
+  margin-top: 18px;
+  padding: 20px;
+  height: fit-content;
+
+  p {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+  }
+
+  .recipientsDeleteButton {
+    color: color.$bright-blue;
+  }
+}
+
+.recipientsWhiteBackground {
+  display: inline-flex;
+  border-radius: 19px;
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include color-classes.recipients_box();
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 19px;
+
+  .clickableIcon {
+    margin-left: 10px;
+  }
+}
+
+.recipientItemContent {
+  margin-bottom: 50px;
+
+  .subHeader {
+    margin: 0 0 8px 0;
+  }
+
+  &--paddingTop {
+    padding-top: 0.5rem;
+  }
+  &--label {
+    font-size: font.$px18;
+    input {
+      margin-right: 0.5rem;
+      transform: scale(1.3);
+    }
+  }
+  &__disabled--true {
+    color: color.$gray-text;
+    cursor: not-allowed;
+    input {
+      cursor: not-allowed;
+    }
+  }
+  &--column {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.recipientsBlueBorderButton {
+  display: inline-flex;
+  border-radius: 5px;
+  width: fit-content;
+  height: fit-content;
+  padding: 30px;
+  border-style: solid;
+  border-width: 1px;
+  @include color-classes.recipients_button();
+}
+
+.clickableBlueBorder {
+  display: inline-flex;
+  align-items: center;
+  @include functions.setColors(color.$white, color.$gray-border, color.$background);
+
+  &:hover {
+    @include functions.setColors(color.$white, color.$even_darker_green, color.$background);
+  }
+  &:disabled {
+    cursor: default;
+  }
+  cursor: pointer;
+}
+
+.filterButtonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 8px 0;
+}
+.recipientsCircleIcon {
+  margin-right: 5px;
+}
+.recipientsCircleIcon .filter {
+  color: color.$bright-blue;
+}
+
+.recipientsCircleIcon .nofilter {
+  color: black;
+}
+.blueBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(134, 188, 255, 0.1);
+  border-radius: 2px;
+  padding: 40px;
+  margin-bottom: 74px;
+  box-sizing: border-box;
+
+  .subHeader {
+    color: color.$dark-bright-blue;
+    margin: 0;
+  }
+
+  .buttonContainer {
+    width: 100%;
+    padding-top: 40px;
+
+    button {
+      display: inline-flex;
+    }
+  }
+}
+
+.topBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+
+  .newGroupBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 27px;
+    width: 100%;
+    padding: 24px;
+    margin: 2.5rem 1rem;
+  }
+
+  .infoText {
+    padding: 38px 16px 0 16px;
+  }
+}
+
+.recipientsContentWrapper {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.flexButtonContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  align-items: stretch;
+
+  .tempButton {
+    height: initial;
+  }
+}
+
+.flexButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addCircleIconRecipients {
+  font-size: 20px;
+}
+
+.matrikkelFilter--span {
+  font-size: font.$px18;
+}

@@ -1,0 +1,45 @@
+steps:
+
+# Get the cache
+- name: gcr.io/cloud-builders/gsutil
+  args: ['cp', 'gs://innbyggerkontakt-dev-my_cache_bucket/poetry_cache.tar.gz', 'poetry_cache.tar.gz']
+
+# Make the cache folder
+- name: 'gcr.io/innbyggerkontakt-dev/poetry'
+  entrypoint: mkdir
+  args: ["-p", "/builder/home/.cache/pypoetry/"]
+
+# Unzip the cache
+- name: 'gcr.io/innbyggerkontakt-dev/poetry'
+  entrypoint: tar
+  args: ["-xf", "poetry_cache.tar.gz", "-C", "/builder/home/.cache/pypoetry/"]
+
+#install requirements
+- name: 'gcr.io/innbyggerkontakt-dev/poetry'
+  dir: 'helpers/otel_setup'
+  args: ["install"]
+
+# Zip the cache
+- name: 'gcr.io/innbyggerkontakt-dev/poetry'
+  entrypoint: tar
+  args: ["-C", "/builder/home/.cache/pypoetry/", "-zcf", "poetry_cache.tar.gz", "." ]
+
+# Move the new cache to bucket
+- name: gcr.io/cloud-builders/gsutil
+  args: ['cp', 'poetry_cache.tar.gz', 'gs://innbyggerkontakt-dev-my_cache_bucket/poetry_cache.tar.gz']
+
+# test
+- name: 'gcr.io/innbyggerkontakt-dev/poetry'
+  dir: 'helpers/otel_setup'
+  args: ["run", "pytest"]
+
+# build
+- name: 'gcr.io/innbyggerkontakt-dev/poetry'
+  dir: 'helpers/otel_setup'
+  args: ["build"]
+
+# Add repo
+# If package with same version number is already existing, it will fail.
+- name: 'gcr.io/innbyggerkontakt-dev/poetry'
+  dir: helpers/otel_setup/
+  args: ["publish", "-r", "google-ik-artifact"]

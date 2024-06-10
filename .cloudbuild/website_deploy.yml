@@ -1,0 +1,3 @@
+steps:
+      - name: gcr.io/innbyggerkontakt-dev/firebase
+        args: ['deploy', '--project=innbyggerkontakt-dev', '--only=hosting']

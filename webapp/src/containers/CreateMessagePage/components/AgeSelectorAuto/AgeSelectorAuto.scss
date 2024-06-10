@@ -1,0 +1,92 @@
+@use '../../../../styles/color-schemes/default' as colors;
+@use '../../../../styles/screen-schemes/default' as screens;
+@use '../../../../styles/font-classes';
+
+.ageDropdown {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ageDropdown > * {
+  flex-grow: 0;
+  flex-basis: 45%;
+}
+
+.ageField {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 36px;
+
+  .inputDropdownComponent {
+    padding-top: 0;
+    .componentInForm {
+      width: 185px;
+      height: 55px;
+    }
+
+    .dropdown {
+      height: inherit;
+
+      .reactSelect__control {
+        border-color: colors.$dark-bright-blue;
+      }
+
+      .reactSelect__value-container {
+        justify-content: left;
+      }
+
+      .reactSelect__single-value,
+      .reactSelect__dropdown-indicator {
+        color: colors.$dark-bright-blue;
+        @include font-classes.regular18();
+      }
+
+      .reactSelect__option--is-selected {
+        background-color: colors.$bright-blue;
+      }
+    }
+  }
+
+  @media screen and (screens.$mq-subsmall) {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+}
+.ageField > * {
+  flex-grow: 0;
+  flex-basis: 20%;
+}
+.ageType {
+  margin-left: 10px;
+}
+
+.turnXYears {
+  width: fit-content !important;
+  padding-top: 0;
+  input {
+    border-color: colors.$dark-bright-blue;
+    width: 75px;
+    height: 55px;
+    text-align: center;
+    @include font-classes.regular18();
+  }
+  &:focus-within {
+    input {
+      border-color: colors.$dark-bright-blue;
+    }
+  }
+  input[type='number'] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+}
+
+.ageType {
+  margin-left: 40px;
+}

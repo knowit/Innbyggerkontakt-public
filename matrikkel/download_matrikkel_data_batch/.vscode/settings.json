@@ -1,0 +1,9 @@
+{
+  "python.testing.pytestArgs": ["tests", "--no-cov", "--run-integration"],
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.defaultInterpreterPath": ".venv/Scripts/python.exe",
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestPath": "Dev/Innbyggerkontakt/matrikkel/download_matrikkel_data/.venv/Lib/site-packages/pytest",
+  "python.analysis.typeCheckingMode": "basic"
+}

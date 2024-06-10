@@ -1,0 +1,109 @@
+@use '../../styles/color-schemes/default' as colors;
+@use '../../styles/screen-schemes/default' as screen;
+@use '../../styles/font-classes';
+
+.navBarContainer {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    height: 5rem;
+    width: 100%;
+    background-color: colors.$dark-blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > div {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 90rem;
+        padding: 0rem 2rem;
+
+        > :first-child {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            > :first-child {
+                > img {
+                    height: 36px;
+                }
+            }
+            > span:first-of-type {
+                @include font-classes.medium14;
+                color: colors.$background;
+            }
+        }
+
+
+
+        > .navBarButtonContainer {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+
+            @media screen and (screen.$mq-subsmall) {
+                display: none;
+            }
+        }
+
+        > .navBarMobileMenuContainer {
+            transition: all 0.3s ease-in-out;
+            display: none;
+            position: absolute;
+            left: 0;
+            background-color: colors.$dark-blue;
+            width: 100%;
+            top: 5rem;
+            justify-content: space-between;
+            gap: 1rem;
+            z-index: -10;
+            opacity: 0;
+            flex-direction: column;
+            transform: translateY(-100%);
+
+            > div {
+                padding: 1rem 1rem 1rem 3rem;
+            }
+
+            @media screen and (screen.$mq-subsmall) {
+                display: flex;
+
+                &--open {
+                    transform: translateY(0%);
+                    z-index: 1;
+                    opacity: 1;
+                    pointer-events: all;
+                }
+                &--closed {
+                    pointer-events: none;
+                }
+
+                a {
+                    background-color: transparent;
+                }
+            }
+
+
+
+            > :first-child {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            > :last-child {
+                padding: 2rem 2rem 2rem 0rem;
+                margin: auto;
+                color: colors.$light-light-blue;
+                @include font-classes.regular14;
+
+                > span {
+                    @include font-classes.medium14;
+                }
+            }
+        }
+    }
+}

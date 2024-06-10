@@ -1,0 +1,9 @@
+# Ignore these
+.python-version
+docker-compose.yml
+pubsub_listener
+main.py
+requirements.txt
+requirements_test.txt
+setup.py
+test_placeholder.py

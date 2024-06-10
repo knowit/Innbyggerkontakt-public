@@ -1,0 +1,8 @@
+@use 'styles/color-schemes/default' as color;
+.automatisk {
+  &__radio {
+    &--disabled {
+      color: color.$gray-inactive !important;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "lastChanged": "Tue Jan 18 2022 13:19:39 GMT+0100 (Central European Standard Time)",
+  "name": "Skikkelig testdata",
+  "templateApplicationStyleId": "default",
+  "content": {
+    "defaultLanguage": "nb",
+    "from": {
+      "name": "Utviklingsorganisasjon",
+      "email": "innbyggerkontakt@innbyggerkontakt.no"
+    },
+    "contentInLanguage": [
+      {
+        "language": "nb",
+        "subject": "Dette er en liste med egendefinerte lister",
+        "previewText": "Som kommer av at du er i en liste",
+        "variables": {
+          "emblem_alt_text": "NO_IMAGE",
+          "overskrift": "Overskriften til mml",
+          "innhold": "<p>Lorem ipsum dolor sit amet.</p>",
+          "previewText": "Som kommer av at du er i en liste",
+          "begrunnelse": "<p>Du st\\u00e5r p\\u00e5 en liste</p>",
+          "bilde": "NO_IMAGE",
+          "org_emblem": "NO_IMAGE",
+          "bilde_alt": "NO_IMAGE",
+          "feedback": "0"
+        }
+      }
+    ]
+  },
+  "recipients": {
+    "manual": [
+      {
+        "listName": "Excel liste",
+        "recipientsCount": 2,
+        "recipientFilter": "manual",
+        "listType": "email",
+        "id": "82bb9895-43f9-4d7d-a706-1a705eb46c75",
+        "createdTimestamp": "1643673600000"
+      },
+      {
+        "listName": "CSV liste",
+        "recipientFilter": "manual",
+        "recipientsCount": 2,
+        "id": "f025e9d8-4774-49d9-96c1-ed37fc814465",
+        "listType": "email",
+        "createdTimestamp": "1643673600000"
+      }
+    ]
+  },
+  "kommunenummer": "3803",
+  "pageNumber": 8,
+  "execution": {
+    "active": false,
+    "datetime": "2022-01-17T11:00:00.000Z",
+    "type": "schedule"
+  },
+  "userId": "nOa5YIfvXddLFifc5piGUtm0JZA3",
+  "sandboxMode": false,
+  "templateApplicationId": "ta_enkelsak",
+  "lastChangedBy": "client",
+  "type": "search",
+  "status": "active",
+  "validatedPageNumberUpTil": 8
+}

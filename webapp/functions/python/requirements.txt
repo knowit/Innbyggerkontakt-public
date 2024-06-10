@@ -1,0 +1,24 @@
+--extra-index-url https://europe-west3-python.pkg.dev/innbyggerkontakt-dev/ik-python-repo/simple/
+--extra-index-url https://europe-west3-python.pkg.dev/innbyggerkontakt/ik-python-repo/simple/
+asyncio~=3.4.3
+cloud_event_model~=0.1.4
+firebase_admin
+freezegun~=1.2.1
+freg_models~=0.1.1
+google-auth~=2.11.1
+google-cloud-pubsub~=2.13.11
+google-cloud-scheduler~=2.7.3
+google-cloud-secret-manager~=2.12.6
+google-cloud-tasks~=2.9.0
+httpx~=0.23.1
+mock-firestore~=0.11.0 # Used to test the firestore triggers, probably why google-cloud-firestore was included
+otel_setup~=0.2.2
+ps_message_freg_fetch_jobbid~=0.1.4
+ps_message_matrikkel_search_event~=0.1.0
+pydantic~=1.10.2
+python-dateutil~=2.8.2
+pytz
+requests~=2.28.1
+responses~=0.21.0
+respx~=0.20.1
+typing_extensions~=4.3.0

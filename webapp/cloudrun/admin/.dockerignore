@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# Except these
+!models/
+!routers/
+!services/
+!main.py
+!requirements.txt
+!packages/

@@ -1,0 +1,14 @@
+.cardListContainer {
+    display: flex;
+    flex-direction: column;
+
+    > div:first-of-type {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        > a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+}

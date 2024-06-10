@@ -1,0 +1,39 @@
+@use '../../styles/functions';
+@use '../../styles/color-schemes/default'as color;
+
+.usersInListWrapper {
+  box-shadow: 0px 3px 6px #00000029;
+  opacity: 1;
+  border-width: 1px;
+  border-radius: 2px;
+  min-height: 40px;
+  height: 60px;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  @include functions.setColors(color.$white, color.$black, color.$even_darker_green);
+  // This should be removed as outline is used by keyboard-users
+  @include functions.removeOutline();
+
+  .recipientText {
+  }
+}
+
+.styleWrapper {
+  .medium14 {
+    display: inline-flex;
+    font-weight: 600;
+    color: black;
+    fill: black;
+  }
+}
+
+.clickableIcon {
+  svg {
+    margin-right: 5px;
+  }
+}

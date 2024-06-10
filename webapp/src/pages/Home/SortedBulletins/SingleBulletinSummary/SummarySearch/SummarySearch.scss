@@ -1,0 +1,42 @@
+@use 'styles/screen-schemes/default' as screen;
+
+.summarySearch {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  > .buttonLineContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    :not(:first-child) {
+      margin-left: 1rem;
+    }
+
+    > button:last-child {
+      margin-top: 1rem;
+      margin-left: 0;
+      width: 100%;
+    }
+
+    @media screen and (screen.$mq-small) {
+      > button:last-child {
+        margin-top: 0;
+        margin-left: 1rem;
+        width: fit-content;
+      }
+    }
+
+    p {
+      align-self: auto;
+    }
+  }
+
+  &__errorMsg {
+    margin-top: 1rem;
+
+    @media screen and (screen.$mq-small) {
+      margin-top: 0;
+    }
+  }
+}

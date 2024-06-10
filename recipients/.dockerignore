@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# Except this
+!src
+!requirements.txt
+!packages
+
+# while still ignoring this
+src/tests

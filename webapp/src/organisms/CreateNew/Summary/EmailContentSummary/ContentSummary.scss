@@ -1,0 +1,77 @@
+@use 'styles/color-schemes/default' as color;
+@use 'styles/screen-schemes/default' as screen;
+@use 'styles/font-classes';
+
+.imagePlaceholder {
+  flex-basis: 45%;
+  background-color: color.$gray-inactive;
+}
+.__textContent {
+  display: grid;
+  gap: 1rem;
+}
+
+.summaryItemContent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+
+  .buttonLineContainer {
+    margin-top: 2rem;
+  }
+
+  .noContent {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+
+    &__heading {
+      color: color.$dark-bright-blue;
+    }
+
+    .icon-button {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.content-summary {
+  &__image {
+    flex-basis: 45%;
+    object-fit: cover;
+    width: 80%;
+    height: 50%;
+    max-width: 800px;
+    max-height: 300px;
+    min-width: 200px;
+
+    @media screen and (screen.$mq-medium) {
+      width: 50%;
+      height: 50%;
+    }
+  }
+
+  &__heading {
+    @include font-classes.semibold18();
+
+    &--light-blue {
+      color: color.$bright-blue;
+    }
+  }
+
+  &__textContent {
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .buttonLineContainer {
+    margin: 1rem 0;
+
+    button:first-child {
+      margin-right: 1rem;
+    }
+  }
+}

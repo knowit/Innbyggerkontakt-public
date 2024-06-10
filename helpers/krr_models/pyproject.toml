@@ -1,0 +1,79 @@
+[tool.poetry]
+name = "krr-models"
+version = "0.1.0"
+description = ""
+authors = ["Lars Brekkå <73285117+larsbrek@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "krr_models"}]
+
+[tool.poetry.dependencies]
+python = "^3.10.0"
+pydantic = [
+    {version = ">=1.5.1,<2.0", extras = ["email"], markers = "python_version < \"3.10\""},
+    {version = ">=1.9.0,<2.0", extras = ["email"], markers = "python_version >= \"3.10\""},
+]
+
+[tool.poetry.group.dev.dependencies]
+datamodel-code-generator = {extras = ["http"], version = "^0.13.1"}
+pytest = "^7.1.2"
+pytest-cov = "^3.0.0"
+black = "^22.6.0"
+flake8-bandit = "^3.0.0"
+flake8-bugbear = "^22.8.23"
+flake8-cognitive-complexity = "^0.1.0"
+flake8-comprehensions = "^3.10.0"
+flake8-quotes = "^3.3.1"
+flake8-simplify = "^0.19.3"
+flakeheaven = "^3.0.0"
+pylint = "^2.15.0"
+"keyrings.google-artifactregistry-auth" = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-dev-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt-dev/ik-python-repo/"
+default = false
+secondary = true
+
+[[tool.poetry.source]]
+name = "google-ik-artifactpy-innbyggerkontakt-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt/ik-python-repo/"
+default = false
+secondary = true
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+skip-string-normalization = 1
+
+[tool.flakeheaven]
+base = "../../pyproject.toml"
+
+[tool.flakeheaven.plugins]
+pyflakes = ["+*"]
+mccabe = ["+C901"]
+flake8-quotes = ["+*"]
+flake8-simplify = ["+*"]
+flake8-cognitive-complexity = ["+*"]
+flake8-docstring = ["-*"]
+# No flake8-docstrings since datamodel-codegen does not create docstrings.
+pylint = [
+    "-C0116", # missing-function-docstring
+    "-C0114", # missing-module-docstring
+    "-C0115", # missing-class-docstring
+    ]
+
+
+[tool.isort]
+known_first_party = ["freg_config", "models", "services"]
+known_local_folder = ["freg_config", "services", "models"]
+lines_after_imports = 2
+profile = "black"
+
+[tool.pytest.ini_options]
+required_plugins = ["pytest-cov"]
+addopts = "--cov=."

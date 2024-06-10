@@ -1,0 +1,26 @@
+@use "../../styles/screen-schemes/default" as screen;
+@import "../../styles/screen-schemes/default";
+@import "../../styles/font-classes";
+@import "../../styles/color-classes";
+
+.globalSearch {
+    max-width: $content-width-small;
+    margin: 0 auto;
+    padding-top: 1.75rem;
+
+    @media screen and (screen.$mq-subsmall) {
+        padding-bottom: 1rem;
+    }
+
+    &__loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+    .settingsExplainText {
+        @include regular14();
+        @include text_explanation();
+        margin-top: 0.5rem;
+    }
+}

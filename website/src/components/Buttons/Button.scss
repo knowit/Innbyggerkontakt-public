@@ -1,0 +1,12 @@
+@use '../../styles/functions' as functions;
+
+button {
+  color: white;
+  border-style: solid;
+  border-width: 0px;
+  border-radius: 3px;
+  width: fit-content;
+  height: fit-content;
+  padding: 12px 24px;
+  @include functions.clickable();
+}

@@ -1,0 +1,20 @@
+@use '../../styles/color-classes';
+@use '../../styles/font-classes';
+@use '../../styles/index';
+@use '../../styles/functions';
+
+.datePicker {
+  .react-datepicker__input-container {
+    padding-top: 10px;
+  }
+  .react-datepicker-wrapper,
+  .react-datepicker__input-container {
+    width: 100% !important;
+  }
+}
+
+.dateSelection {
+  @include index.fieldComponent();
+  position: relative;
+  cursor: pointer;
+}

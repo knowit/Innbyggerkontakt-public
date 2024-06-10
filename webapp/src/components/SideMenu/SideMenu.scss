@@ -1,0 +1,126 @@
+@use '../../styles/screen-schemes/default' as screen;
+@use '../../styles/functions' as functions;
+@use '../../styles/color-classes' as color-classes;
+@use '../../styles/color-schemes/default' as color;
+
+.sidemenu-style {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.breadcrumb__subPath {
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  margin-left: 31px;
+  margin-top: 1rem;
+  display: grid;
+}
+
+.activeBreadcrumb {
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  gap: 1rem;
+  border-radius: 5rem;
+  border: 2px solid;
+
+  @include color-classes.breadcrumb_inactive();
+  display: flex;
+  align-items: center;
+
+  &--disabled {
+    pointer-events: none;
+    @include color-classes.breadcrumb_active();
+  }
+}
+
+.inactiveBreadcrumb {
+  @include color-classes.breadcrumb_inactive();
+}
+
+.disabledBreadcrumb {
+  @include color-classes.breadcrumb_disabled();
+  opacity: 0.5;
+}
+
+.sidemenuOpenButton {
+  display: none;
+  padding: 0rem 0.5rem;
+}
+
+@media screen and (screen.$mq-subsmall) {
+  .sidemenu-style {
+    transition: all 0.3s ease-in-out;
+    transform: translateX(0);
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .activeBreadcrumb {
+
+    transition: all 0.3s ease-in-out;
+    font-size: 1em;
+    padding: 0.5rem 1.5rem;
+    gap: 1rem;
+    border-radius: 11px;
+
+    @include functions.setColors(transparent, color.$dark-bright-blue, transparent);
+    &:hover {
+      @include functions.setColors(color.$light-blue-transparent, color.$dark-bright-blue, transparent);
+    }
+    display: flex;
+    align-items: center;
+
+    &--disabled {
+      pointer-events: none;
+      @include functions.setColors(color.$light-blue-transparent, color.$dark-bright-blue, transparent);
+    }
+
+    &.closedSideMenu {
+      font-size: 0;
+      padding: 0.5rem;
+      display: flex;
+      border-radius: 11px;
+      gap: 0;
+    }
+  }
+
+  .breadcrumb__subPath {
+    transition: all 0.3s ease-in-out;
+    display: flex;
+
+    &.closedSideMenu {
+      font-size: 0;
+      padding: 0;
+      border: 0;
+      margin: 0;
+    }
+
+    &.activeBreadcrumb {
+      &--disabled {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .activeBreadcrumb.activeSubItem {
+    @include functions.setColors(color.$light-blue-transparent, color.$dark-bright-blue, transparent);
+  }
+
+  .navButtonIcon.arrowButton {
+    transition: all 0.3s ease-in-out;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+  .navButtonIcon.arrowButton.closedSideMenu {
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+
+  .sidemenuOpenButton {
+    text-decoration: underline;
+    display: flex;
+    @include functions.setColors(transparent, color.$dark-bright-blue, transparent);
+    &:hover {
+      @include functions.setColors(transparent, color.$dark-bright-blue, transparent);
+    }
+  }
+}

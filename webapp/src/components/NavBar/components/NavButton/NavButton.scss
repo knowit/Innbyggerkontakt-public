@@ -1,0 +1,34 @@
+@use '../../../../styles/font-classes';
+@use '../../../../styles/color-schemes/default' as colors;
+@use '../../../../styles/screen-schemes/default' as screen;
+
+.navButtonContainer {
+    text-decoration: none;
+    color: colors.$light-light-blue;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 5.5rem;
+    transition: all 0.2s ease-in-out;
+    padding: 0.25rem 0.5rem;
+
+    @media screen and (screen.$mq-subsmall) {
+        padding: 0;
+    }
+
+    &--active {
+        color: colors.$bright-green;
+    }
+
+    > :first-child {
+        font-size: 1.5em;
+    }
+
+    > :last-child {
+        @include font-classes.regular14;
+    }
+
+    &:hover {
+        background-color: colors.$light-blue-transparent;
+    }
+}

@@ -1,0 +1,12 @@
+@use '../../styles/color-classes';
+
+.recipientsBlueBorder {
+    @include color-classes.recipients_border();
+    font-size: 11px;
+    border: none;
+    margin-top: 5px;
+    padding: 3px 12px;
+    border-radius: 21px;
+    width: fit-content;
+    height: fit-content;
+  }

@@ -1,0 +1,178 @@
+{
+  "foedselsEllerDNummer": "14079002012",
+  "folkeregisterperson": {
+    "identifikasjonsnummer": [
+      {
+        "ajourholdstidspunkt": "2020-03-25T20:15:22.954+01:00",
+        "erGjeldende": true,
+        "kilde": "KILDE_DSF",
+        "status": "iBruk",
+        "foedselsEllerDNummer": "14079002012",
+        "identifikatortype": "foedselsnummer"
+      }
+    ],
+    "status": [
+      {
+        "ajourholdstidspunkt": "2020-03-25T20:15:22.954+01:00",
+        "erGjeldende": true,
+        "kilde": "KILDE_DSF",
+        "gyldighetstidspunkt": "2020-03-25T20:15:22.954+01:00",
+        "status": "bosatt"
+      }
+    ],
+    "kjoenn": [
+      {
+        "erGjeldende": true,
+        "kilde": "KILDE_DSF",
+        "kjoenn": "kvinne"
+      }
+    ],
+    "navn": [
+      {
+        "erGjeldende": true,
+        "kilde": "KILDE_DSF",
+        "aarsak": "Innvandring",
+        "gyldighetstidspunkt": "2019-01-01T00:00:00+01:00",
+        "fornavn": "FORSTÅELSESFULLBLAUTOPPBLÅST",
+        "mellomnavn": "DYPSINDIG",
+        "etternavn": "SØNDAG",
+        "forkortetNavn": "FORSTÅELSESFULLBLAUTOPPBLÅST D SØNDAG"
+      }
+    ],
+    "bostedsadresse": [
+      {
+        "ajourholdstidspunkt": "2020-10-16T00:00:00+01:00",
+        "erGjeldende": true,
+        "kilde": "KILDE_DSF",
+        "aarsak": "Årsakskode fra DSF: ",
+        "gyldighetstidspunkt": "2020-10-16T00:00:00+01:00",
+        "vegadresse": {
+          "kommunenummer": "3011",
+          "bruksenhetsnummer": "73",
+          "adressenavn": "Barmveien",
+          "adressekode": "00001",
+          "poststed": {
+            "poststedsnavn": "VESTERØY",
+            "postnummer": "1684"
+          },
+          "coAdressenavn": ""
+        },
+        "adresseIdentifikatorFraMatrikkelen": "445474109",
+        "adressegradering": "ugradert",
+        "grunnkrets": 204,
+        "stemmekrets": 2,
+        "skolekrets": 2,
+        "kirkekrets": 1
+      },
+      {
+        "ajourholdstidspunkt": "2020-03-25T00:00:00+01:00",
+        "erGjeldende": false,
+        "kilde": "KILDE_DSF",
+        "aarsak": "Årsakskode fra DSF: ",
+        "gyldighetstidspunkt": "2020-03-25T00:00:00+01:00",
+        "vegadresse": {
+          "kommunenummer": "0301",
+          "bruksenhetsnummer": "73",
+          "adressenavn": "Den andre Barmveien",
+          "adressekode": "00001",
+          "poststed": {
+            "poststedsnavn": "VESTERØY",
+            "postnummer": "1684"
+          },
+          "coAdressenavn": ""
+        },
+        "adresseIdentifikatorFraMatrikkelen": "445474109",
+        "adressegradering": "ugradert",
+        "grunnkrets": 204,
+        "stemmekrets": 2,
+        "skolekrets": 2,
+        "kirkekrets": 1
+      },
+      {
+        "ajourholdstidspunkt": "2018-03-25T00:00:00+01:00",
+        "erGjeldende": false,
+        "kilde": "KILDE_DSF",
+        "aarsak": "Årsakskode fra DSF: ",
+        "gyldighetstidspunkt": "2018-03-25T00:00:00+01:00",
+        "vegadresse": {
+          "kommunenummer": "0301",
+          "bruksenhetsnummer": "73",
+          "adressenavn": "Barmveien",
+          "adressekode": "00001",
+          "poststed": {
+            "poststedsnavn": "VESTERØY",
+            "postnummer": "1684"
+          },
+          "coAdressenavn": ""
+        },
+        "adresseIdentifikatorFraMatrikkelen": "445474109",
+        "adressegradering": "ugradert",
+        "grunnkrets": 204,
+        "stemmekrets": 2,
+        "skolekrets": 2,
+        "kirkekrets": 1
+      }
+    ],
+    "oppholdsadresse": [
+      {
+        "ajourholdstidspunkt": "2020-10-16T00:00:00+01:00",
+        "erGjeldende": true,
+        "kilde": "KILDE_DSF",
+        "aarsak": "Årsakskode fra DSF: ",
+        "gyldighetstidspunkt": "2020-10-16T00:00:00+01:00",
+        "vegadresse": {
+          "kommunenummer": "3011",
+          "bruksenhetsnummer": "73",
+          "adressenavn": "Barmveien",
+          "adressekode": "00001",
+          "poststed": {
+            "poststedsnavn": "VESTERØY",
+            "postnummer": "1684"
+          },
+          "coAdressenavn": ""
+        },
+        "adresseIdentifikatorFraMatrikkelen": "445474109",
+        "adressegradering": "ugradert",
+        "grunnkrets": 204,
+        "stemmekrets": 2,
+        "skolekrets": 2,
+        "kirkekrets": 1
+      }
+    ],
+    "foreldreansvar": [
+      {
+        "erGjeldende": true,
+        "kilde": "KILDE_DSF",
+        "ansvar": "mor",
+        "ansvarssubjekt": "14079002012",
+        "ansvarlig": "01234567890"
+      },
+      {
+        "erGjeldende": true,
+        "kilde": "KILDE_DSF",
+        "ansvar": "far",
+        "ansvarssubjekt": "14079002012",
+        "ansvarlig": "01234567891"
+      }
+    ],
+    "foedsel": [
+      {
+        "erGjeldende": true,
+        "kilde": "KILDE_DSF",
+        "foedselsdato": "2000-1-1",
+        "foedselsaar": "2000"
+      }
+    ],
+    "sivilstand": [
+      {
+        "ajourholdstidspunkt": "2020-10-16T00:00:00+01:00",
+        "erGjeldende": true,
+        "kilde": "KILDE_DSF",
+        "aarsak": "Årsakskode fra DSF: ",
+        "gyldighetstidspunkt": "2020-10-16T00:00:00+01:00",
+        "sivilstand": "gift",
+        "sivilstandsdato": "2020-10-16"
+      }
+    ]
+  }
+}

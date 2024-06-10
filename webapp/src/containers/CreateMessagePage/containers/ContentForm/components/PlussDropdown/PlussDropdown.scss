@@ -1,0 +1,97 @@
+@use '../../variables';
+@use '../../../../../../styles/color-schemes/default' as color;
+
+.plussDropdown {
+  color: color.$gray-border;
+  position: relative;
+  height: variables.$tab-height;
+  z-index: 2;
+  outline: none !important;
+  min-width: 150px;
+  .options {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+    .active {
+      background-color: color.$light-blue;
+      outline: 1px solid color.$black;
+    }
+  }
+
+  &:focus {
+    color: color.$dark-blue;
+  }
+
+  &:hover {
+    color: color.$dark-blue;
+  }
+
+  .iconContainer {
+    height: variables.$tab-height;
+    display: flex;
+    align-items: center;
+    svg {
+      height: 22px;
+      width: 22px;
+      padding-left: 6px;
+      cursor: pointer;
+    }
+    p {
+      cursor: default;
+      padding-left: 6px;
+    }
+  }
+
+  .expandendIcon {
+    display: flex;
+    align-items: center;
+    height: variables.$tab-height;
+    cursor: default;
+    svg {
+      height: 15px;
+      width: 15px;
+      padding-left: 10px;
+      padding-right: 6px;
+    }
+    p {
+      margin: 0;
+    }
+  }
+
+  .expandedClassMenu {
+    background-color: color.$background;
+    border: color.$dark-bright-blue solid 1px;
+    ul {
+      li {
+        padding: 4px;
+
+        cursor: pointer;
+      }
+
+      li:hover {
+        background-color: color.$light-blue;
+      }
+
+      li:focus {
+        background-color: color.$light-blue;
+      }
+      padding-left: 6px;
+      padding-right: 6px;
+      padding-bottom: 15px;
+    }
+  }
+
+  .shortText {
+    display: none;
+  }
+
+  @media screen and (max-width: 1050px) {
+    .longText {
+      display: none;
+    }
+
+    .shortText {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "attributes": {
+        "event_type": "flyttingTilKommune"
+    },
+    "data": {
+        "municipality_number": "0000",
+        "freg_identifier": "01234567890"
+    }
+}

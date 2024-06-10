@@ -1,0 +1,40 @@
+@use 'sass:math';
+
+.colorPickerWrapper {
+  position: fixed;
+  background-color: black;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1002;
+  background-color: rgba($color: #000000, $alpha: 25%) !important;
+}
+
+$popup-padding: 30px;
+$popup-padding-top: 30px;
+$popup-padding-bottom: 30px;
+$popup-width: 300px;
+$popup-height: 150px;
+
+.colorPickerModal {
+  align-items: center;
+  position: fixed;
+  width: $popup-width;
+  min-height: $popup-height;
+  top: calc(50% - #{math.div($popup-height + $popup-padding-bottom + $popup-padding-top, 2)});
+  left: calc(50% - #{math.div($popup-width + 2 * $popup-padding, 2)});
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 6px 6px #00000029;
+  border-radius: 3px;
+  opacity: 1;
+  padding: $popup-padding-top $popup-padding $popup-padding-bottom;
+  .popUpButtons {
+    .primary {
+      margin-right: 10px;
+      margin-top: 20px;
+    }
+  }
+}

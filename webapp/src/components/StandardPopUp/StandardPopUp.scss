@@ -1,0 +1,121 @@
+@use '../../styles/color-schemes/default' as colors;
+@use '../../styles/font-classes' as fonts;
+@use '../../styles/screen-schemes/default' as screen;
+@use '../../styles/functions' as functions;
+
+.popUp {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+
+  opacity: 1;
+  align-items: center;
+  .popUpIcon {
+    font-size: 50px;
+    color: colors.$bright-blue;
+  }
+
+  h3 {
+    @include fonts.semibold24;
+    margin-bottom: 2rem;
+  }
+
+  .genericPopUpIcon {
+    font-size: 42px;
+    margin-bottom: 2rem;
+  }
+
+  // Everything below this point is from color-classes and needs to be sorted and cleaned.
+  .standard__popUpButton {
+    @include functions.setColors(
+      colors.$white,
+      colors.$bright-blue,
+      colors.$bright-blue
+    );
+
+    &:hover {
+      @include functions.setColors(
+        colors.$white,
+        colors.$dark-bright-blue,
+        colors.$dark-bright-blue
+      );
+      border-width: 2px;
+    }
+    &:active {
+      @include functions.setColors(
+        colors.$white,
+        colors.$bright-blue,
+        colors.$bright-blue
+      );
+      border-width: 2px;
+    }
+    &:disabled {
+      @include functions.setColors(
+        colors.$white,
+        colors.$bright-blue,
+        colors.$bright-blue
+      );
+      &:hover {
+        border-width: 2px;
+      }
+    }
+    &:focus {
+      @include functions.setColors(
+        colors.$white,
+        colors.$bright-blue,
+        colors.$bright-blue
+      );
+      border-width: 3px;
+      @include functions.setOutline(colors.$black);
+    }
+  }
+
+  .standard__popUpButtons {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      min-width: 150px;
+    }
+
+    .cancel {
+      margin-bottom: 1rem;
+    }
+
+    @media screen and (screen.$mq-small) {
+      display: block;
+      .cancel {
+        margin-right: 1rem;
+        margin-bottom: 0rem;
+      }
+    }
+  }
+
+  .closeIcon {
+    position: absolute;
+    top: -45px;
+    right: -10px;
+    cursor: pointer;
+
+    svg {
+      font-size: 2rem;
+    }
+  }
+
+  .popUpIcon {
+    &--danger {
+      fill: colors.$error;
+    }
+
+    &--default {
+      fill: colors.$bright-blue;
+    }
+  }
+}
+
+.noStandardIcon {
+  .popUpIcon {
+    color: colors.$bright-blue;
+  }
+}

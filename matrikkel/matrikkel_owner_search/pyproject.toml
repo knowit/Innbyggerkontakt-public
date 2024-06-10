@@ -1,0 +1,68 @@
+[tool.poetry]
+name = "matrikkel-owner-search"
+version = "0.1.0"
+description = "'This is a cloud function that searches for owner data in a bucket'"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "."}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+functions-framework = "^3.2.0"
+otel-setup = "^0.2.2"
+cloud-event-model = "^0.1.1"
+google-cloud-secret-manager = "^2.12.6"
+suds = "^1.1.2"
+pyproj = "^3.4.0"
+google-cloud-storage = "^2.5.0"
+msgspec = "^0.9.1"
+pytz = "^2022.6"
+google-cloud-pubsub = "^2.13.10"
+ps-message-matrikkel-owner-search = "^0.1.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.1.2"
+pytest-mock = "^3.8.2"
+PyYAML = "^6.0"
+black = "^23.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-dev-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt-dev/ik-python-repo/simple/"
+default = false
+secondary = true
+
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt/ik-python-repo/"
+default = false
+secondary = true
+
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+skip-string-normalization = 1
+
+[tool.flakeheaven]
+base = ["../../pyproject.toml"]
+baseline = ""
+
+#  hacking = ["+*"] not compatible with flake 8 v 4.0.1
+[tool.isort]
+#known_first_party = ["freg_config", "models", "services"]
+#known_local_folder = ["freg_config", "services", "models"]
+lines_after_imports = 2
+profile = "black"
+
+#[pytest]
+#mock_use_standalone_module = true
+
+[tool.pytest.ini_options]
+# required_plugins = ["pytest-cov"]
+# addopts = "--cov=."

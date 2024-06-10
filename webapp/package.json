@@ -1,0 +1,152 @@
+{
+  "name": "webapp",
+  "version": "0.23.8",
+  "private": true,
+  "proxy": "https://innbyggerkontakt-dev.firebaseapp.com/",
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
+  "scripts": {
+    "start": "GENERATE_SOURCEMAP=false react-scripts start",
+    "winStart": "set \"GENERATE_SOURCEMAP=false\" && react-scripts start",
+    "start:emulator": "concurrently --kill-others \"yarn run emulator:start:bucket\" \"REACT_APP_USE_EMULATOR=true yarn run start\"",
+    "prebuild": "yarn install && yarn lint",
+    "build": "react-scripts build",
+    "build:dev": "env-cmd -f .env.development --fallback --silent yarn build",
+    "build:ci": "env-cmd -f .env.development --fallback --silent react-scripts build",
+    "compile:ci": "tsc -b",
+    "lint": "eslint --fix --ext .ts --ext .tsx src && echo No linting errors.",
+    "lint:ci": "eslint --format pretty -o lint-ci.txt --no-color --ext .ts --ext .tsx src",
+    "test:firestore": "firebase emulators:exec --only firestore \"env-cmd -f test/test.environment --silent mocha test/firestore --recursive --extension ts --require ts-node/register --color --async-only --forbid-only --exit\"",
+    "test:firestore:no:emulators": "env-cmd -f test/test.environment --silent mocha test/firestore --recursive --extension ts --require ts-node/register --color --async-only --forbid-only --exit",
+    "test:firestore:dev": "firebase emulators:exec --only firestore \"env-cmd -f test/test.environment --silent mocha test/firestore --recursive --watch --extension ts --require ts-node/register --color --async-only --bail --forbid-only\"",
+    "download:emulator:bucket": "gsutil -m cp -r \"gs://innbyggerkontakt-dev-emulator-buckets/2022-08-02T11:10:49_74120\" . && mv 2022-08-02T11:10:49_74120 bucket",
+    "emulator:update:bucket": "rm -r bucket && yarn run download:emulator:bucket || yarn run download:emulator:bucket",
+    "emulator:start:bucket": "yarn run emulator:update:bucket && firebase emulators:start --only firestore --import ./bucket && yarn run start:emulator"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "webapp"
+    ],
+    "rules": {
+      "additional-rule": "warn"
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts?(x)"
+        ],
+        "rules": {
+          "additional-typescript-only-rule": "warn"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      "defaults",
+      "not ie 11"
+    ],
+    "development": [
+      "defaults",
+      "not ie 11"
+    ]
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-react": "5.0.2",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@ibm/plex": "6.0.2",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.9.1",
+    "@mui/styles": "^5.9.1",
+    "@mui/x-date-pickers": "^5.0.0-beta.2",
+    "@mapbox/mapbox-gl-draw": "^1.3.0",
+    "@mapbox/mapbox-gl-geocoder": "^5.0.1",
+    "@turf/area": "6.5.0",
+    "@turf/helpers": "^6.5.0",
+    "@turf/mask": "^6.5.0",
+    "axios": "0.27.2",
+    "browser-image-size": "^1.1.0",
+    "ckeditor5-custom-build": "./src/libraries/CKEditor/ckeditor5",
+    "dompurify": "^2.3.10",
+    "email-validator": "^2.0.4",
+    "firebase": "9.9.1",
+    "innbyggerkontakt-design-system": "^0.4.13",
+    "json2mjml": "^1.0.3",
+    "juice": "^8.0.0",
+    "libphonenumber-js": "^1.10.9",
+    "linkify-react": "^4.0.2",
+    "linkifyjs": "^4.0.2",
+    "mapbox-gl": "^2.11.0",
+    "mjml-browser": "^4.13.0",
+    "papaparse": "^5.3.2",
+    "query-string": "8.1.0",
+    "react": "18.2.0",
+    "react-color": "2.19.3",
+    "react-datepicker": "4.8.0",
+    "react-device-preview": "^1.0.6",
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.33.1",
+    "react-modal": "3.15.1",
+    "react-multi-email": "^0.5.3",
+    "react-phone-number-input": "^3.2.11",
+    "react-router": "6.3.0",
+    "react-router-dom": "6.3.0",
+    "react-select": "5.4.0",
+    "react-shadow": "^19.0.3",
+    "uuid": "8.3.2",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "1.3.15",
+    "@google-cloud/firestore": "5.0.2",
+    "@google-cloud/storage": "^6.2.3",
+    "@testing-library/dom": "8.16.0",
+    "@testing-library/jest-dom": "5.16.4",
+    "@testing-library/react": "13.3.0",
+    "@testing-library/user-event": "14.3.0",
+    "@types/ckeditor__ckeditor5-build-classic": "^29.0.1",
+    "@types/ckeditor__ckeditor5-core": "33.0.3",
+    "@types/dompurify": "^2.3.3",
+    "@types/draftjs-to-html": "0.8.1",
+    "@types/html-to-draftjs": "1.4.0",
+    "@types/jest": "28.1.6",
+    "@types/mapbox-gl": "^2.7.7",
+    "@types/mapbox__mapbox-gl-draw": "^1.3.3",
+    "@types/mapbox__mapbox-gl-geocoder": "^4.7.3",
+    "@types/mjml": "^4.7.0",
+    "@types/mocha": "9.1.1",
+    "@types/node": "18.6.1",
+    "@types/papaparse": "^5.3.2",
+    "@types/react": "18.0.15",
+    "@types/react-color": "3.0.6",
+    "@types/react-datepicker": "4.4.2",
+    "@types/react-dom": "18.0.6",
+    "@types/react-modal": "3.13.1",
+    "@types/react-router": "5.1.18",
+    "@types/react-router-dom": "5.3.3",
+    "@types/uuid": "8.3.4",
+    "@typescript-eslint/eslint-plugin": "5.30.7",
+    "@typescript-eslint/parser": "5.30.7",
+    "babel-cli": "6.26.0",
+    "concurrently": "^7.3.0",
+    "cypress": "^10.4.0",
+    "env-cmd": "10.1.0",
+    "eslint": "8.20.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-formatter-pretty": "4.1.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "7.30.1",
+    "firebase-admin": "11.4.1",
+    "mocha": "10.0.0",
+    "prettier": "2.7.1",
+    "react-scripts": "5.0.1",
+    "sass": "1.54.0",
+    "ts-node": "10.9.1",
+    "typescript": "4.9.4"
+  }
+}

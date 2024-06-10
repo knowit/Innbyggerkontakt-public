@@ -1,0 +1,203 @@
+@use './color-schemes/default' as colors;
+@use './functions';
+
+@mixin default_colors {
+  @include functions.setColors(colors.$background, colors.$black, colors.$background);
+}
+
+@mixin btn_primary {
+  @include functions.setColors(colors.$darker-green, colors.$white, colors.$darker-green);
+  &:hover {
+    @include functions.setColors(colors.$even-darker-green, colors.$white, colors.$even-darker-green);
+  }
+  &:active {
+    @include functions.setColors(colors.$bright-green, colors.$white, colors.$bright-green);
+  }
+  &:disabled {
+    @include functions.setColors(colors.$gray-border, colors.$white, colors.$gray-border);
+  }
+}
+
+@mixin btn_secondary {
+  @include functions.setColors(colors.$bright-blue, colors.$white, colors.$bright-blue);
+  &:hover {
+    @include functions.setColors(colors.$dark-bright-blue, colors.$white, colors.$dark-bright-blue);
+  }
+  &:active {
+    @include functions.setColors(colors.$light-bright-blue, colors.$white, colors.$light-bright-blue);
+  }
+  &:disabled {
+    @include functions.setColors(colors.$gray-border, colors.$white, colors.$gray-border);
+  }
+}
+
+@mixin btn_tertiary {
+  @include functions.setColors(colors.$transparent, colors.$bright-blue, colors.$bright-blue);
+  border-width: 1px;
+  padding: 11px 21px;
+  &:hover {
+    @include functions.setColors(colors.$transparent, colors.$dark-bright-blue, colors.$dark-bright-blue);
+    border-width: 2px;
+    padding: 10px 20px;
+  }
+  &:active {
+    @include functions.setColors(colors.$transparent, colors.$dark-bright-blue, colors.$dark-bright-blue);
+    border-width: 3px;
+    padding: 9px 19px;
+  }
+  &:disabled {
+    @include functions.setColors(colors.$transparent, colors.$gray-border, colors.$gray-border);
+    border-width: 3px;
+    padding: 9px 19px;
+  }
+}
+
+@mixin btn_rounded_small_primary {
+  @include functions.setColors(colors.$light-blue-transparent, colors.$darkest-blue, colors.$transparent);
+
+  &:hover {
+    @include functions.setColors(colors.$light-bright-blue, colors.$white, colors.$light-bright-blue);
+  }
+  &:focus {
+    @include functions.setColors(colors.$light-blue-transparent, colors.$darkest-blue, colors.$dark-blue);
+    outline: none;
+  }
+  &:active {
+    @include functions.setColors(colors.$light-bright-blue, colors.$white, colors.$light-bright-blue);
+  }
+  &:disabled {
+    @include functions.setColors(colors.$gray-inactive, colors.$darkest-blue, colors.$gray-inactive);
+  }
+}
+
+@mixin btn_rounded_small_secondary {
+  @include functions.setColors(colors.$bright-blue, colors.$white, colors.$bright-blue);
+
+  &:hover {
+    @include functions.setColors(colors.$bright-blue, colors.$white, colors.$bright-blue);
+  }
+  &:focus {
+    @include functions.setColors(colors.$bright-blue, colors.$white, colors.$darkest-blue);
+    outline: none;
+  }
+  &:active {
+    @include functions.setColors(colors.$dark-bright-blue, colors.$white, colors.$dark-bright-blue);
+  }
+  &:disabled {
+    @include functions.setColors(colors.$gray-inactive, colors.$darkest-blue, colors.$gray-inactive);
+  }
+}
+
+@mixin black_white {
+  @include functions.setColors(colors.$white, colors.$black, colors.$white);
+}
+
+@mixin clickable_icon {
+  @include functions.setColors(colors.$transparent, colors.$gray-text, colors.$background);
+
+  &:hover {
+    @include functions.setColors(colors.$transparent, colors.$even_darker_green, colors.$background);
+  }
+}
+
+@mixin recipients_box {
+  @include functions.setColors(colors.$white, colors.$bright-blue, colors.$bright-blue);
+}
+
+@mixin recipients_border {
+  @include functions.setColors(
+    colors.$light-blue-transparent,
+    colors.$dark-bright-blue,
+    colors.$light-blue-transparent
+  );
+}
+
+@mixin recipients_button {
+  @include functions.setColors(colors.$white, colors.$bright-blue, colors.$bright-blue);
+
+  &:checked {
+    @include functions.setColors(colors.$light-blue, colors.$black, colors.$background);
+  }
+}
+
+@mixin text_wrapper {
+  @include functions.setColors(colors.$white, colors.$black, colors.$darker_green);
+  &.divDisabled {
+    @include functions.setColors(colors.$white, colors.$gray-text, colors.$gray-inactive);
+  }
+}
+
+@mixin text_explanation {
+  color: colors.$dark-blue;
+}
+
+@mixin text_disabled {
+  color: colors.$gray-text;
+}
+
+@mixin breadcrumb_active {
+  @include functions.setColors(colors.$light-blue-transparent, colors.$dark-bright-blue, colors.$background);
+}
+
+@mixin breadcrumb_inactive {
+  @include functions.setColors(colors.$transparent, colors.$dark-bright-blue, colors.$background);
+  &:hover {
+    @include functions.setColors(colors.$transparent, colors.$dark-bright-blue, colors.$dark-bright-blue);
+  }
+}
+
+@mixin breadcrumb_disabled {
+  @include functions.setColors(colors.$background, colors.$gray-text, colors.$background);
+}
+
+@mixin form_input {
+  border-color: colors.$bright-blue;
+
+  &:hover {
+    border-color: colors.$bright-blue;
+  }
+  &:active {
+    border-color: colors.$bright-blue;
+  }
+  &:disabled {
+    border-color: colors.$bright-blue;
+  }
+  &:focus {
+    border-color: colors.$bright-blue;
+  }
+}
+
+// Might switch to simply background_white
+@mixin summary_box {
+  background: colors.$white;
+}
+
+@mixin background_light_blue {
+  background: colors.$light-blue-transparent;
+}
+
+@mixin ingress_light_blue {
+  background: colors.$light-blue-transparent;
+  .ingressTitle {
+    color: colors.$dark-bright-blue;
+  }
+  p {
+    color: colors.$dark-blue;
+  }
+}
+
+@mixin placeholder_large {
+  fill: colors.$gray-transparent;
+}
+
+@mixin placeholder_default {
+  fill: colors.$gray-inactive;
+}
+
+@mixin error_border {
+  border-color: colors.$error !important;
+}
+
+@mixin error_text {
+  color: colors.$error !important;
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "listName": "Excel liste",
+    "recipientsCount": 2,
+    "recipientFilter": "manual",
+    "listType": "email",
+    "id": "82bb9895-43f9-4d7d-a706-1a705eb46c75",
+    "createdTimestamp": "1645660800000"
+  },
+  {
+    "listName": "CSV liste",
+    "recipientFilter": "manual",
+    "recipientsCount": 2,
+    "id": "f025e9d8-4774-49d9-96c1-ed37fc814465",
+    "listType": "email",
+    "createdTimestamp": "1645660800000"
+  }
+]

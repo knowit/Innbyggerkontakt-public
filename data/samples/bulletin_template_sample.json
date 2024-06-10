@@ -1,0 +1,39 @@
+{
+  "name": "name",
+  "type": "single",
+  "query": {
+    "kjoenn": "mann",
+    "foedselsdato": "2020-08-11",
+    "foedselsaarFraOgMed": "string",
+    "foedselsaarTilOgMed": "string",
+    "adressenavn": "string",
+    "husnummer": "string",
+    "postnummer": "string",
+    "kommunenummer": "string",
+    "fylkesnummer": "string",
+    "inkludererOppholdsadresse": true
+  },
+  "content": {
+    "from": {
+      "name": "Name",
+      "email": "test@innbyggerkontakt.no"
+    },
+    "language": {
+      "nb": {
+        "subject": "subject",
+        "variables": {
+          "HTMLtest": "HTMLtest",
+          "content": "content",
+          "image": "image",
+          "image_alt": "image_alt",
+          "textblocks": "textblocks",
+          "title": "title"
+        }
+      }
+    }
+  },
+  "template_application_id": "RANDOM_ID",
+  "execution": {
+    "type": "continuous|instant|schedule"
+  }
+}

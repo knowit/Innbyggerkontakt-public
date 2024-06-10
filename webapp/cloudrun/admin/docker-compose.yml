@@ -1,0 +1,11 @@
+version: '3'
+services:
+  admin:
+    build: .
+    ports:
+      - "8080:8080"
+    network_mode: host
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: /tmp/keys/google_auth.json
+    volumes: 
+      - ${GOOGLE_APPLICATION_CREDENTIALS}:/tmp/keys/google_auth.json:ro

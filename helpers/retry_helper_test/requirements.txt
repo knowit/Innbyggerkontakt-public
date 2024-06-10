@@ -1,0 +1,5 @@
+--extra-index-url https://europe-west3-python.pkg.dev/innbyggerkontakt-dev/ik-python-repo/simple
+cloudevents
+functions_framework
+python-dateutil
+retry-helper

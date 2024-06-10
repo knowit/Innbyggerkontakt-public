@@ -1,0 +1,16 @@
+@use '../../../../styles/screen-schemes/default' as screen;
+
+.homePageButtons {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    @media screen and (screen.$mq-subsmall) {
+        flex-direction: column;
+    }
+
+    button {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+}

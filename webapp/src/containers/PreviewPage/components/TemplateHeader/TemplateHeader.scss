@@ -1,0 +1,14 @@
+.templateHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    > div {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    > .templateHeaderTags {
+        margin-top: 0.5rem;
+        display: flex;
+    }
+}

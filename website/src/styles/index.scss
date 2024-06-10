@@ -1,0 +1,38 @@
+@use './color-schemes/default' as colors;
+@use './font-schemes/default' as fonts;
+@use './color-classes';
+@use './screen-schemes/default' as display;
+@use './functions' as functions;
+  
+body {
+    @include functions.setColors(colors.$background, colors.$black, colors.$background);
+    @include functions.setFonts(fonts.$font-family);
+    margin: 0;
+    padding: 0;
+}
+
+.heading {
+    font-weight: 700;
+    font-size: 48px;
+    @media screen and (display.$mq-subsmall) {
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+    }
+}
+  
+html {
+  overflow-y: scroll;
+  // scroll-snap-type: proximity; /* for older browsers */
+  // scroll-snap-points-y: repeat(100vh); /* for older browsers */
+  // scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+  scroll-padding-top: 103px;
+  
+  @media screen and (display.$mq-subsmall) {
+    scroll-padding-top: 60px;
+    // scroll-snap-type: block mandatory;
+    // scroll-snap-points-y: repeat(100vh);
+    // scroll-snap-type: y mandatory;
+  }
+}

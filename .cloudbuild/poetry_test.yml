@@ -1,0 +1,55 @@
+steps:
+  # Get the cache
+  - name: gcr.io/cloud-builders/gsutil
+    entrypoint: bash
+    args: ['-c', 'gsutil cp gs://${PROJECT_ID}-my_cache_bucket/${_PACKAGE}/poetry_cache.tar.gz poetry_cache.tar.gz || exit 0']
+      # [
+      #   "cp",
+      #   "gs://${PROJECT_ID}-my_cache_bucket/${_PACKAGE}/poetry_cache.tar.gz",
+      #   "poetry_cache.tar.gz",
+      #   "||",
+      #   "exit 0", # In case no file, do not exit with error
+      # ]
+
+  # Make the cache folder
+  - name: "gcr.io/${PROJECT_ID}/poetry"
+    entrypoint: mkdir
+    args: ["-p", "/builder/home/.cache/pypoetry/"]
+
+  # Unzip the cache
+  - name: "gcr.io/${PROJECT_ID}/poetry"
+    entrypoint: /bin/sh
+    args: ['-c', 'tar -xf poetry_cache.tar.gz -C /builder/home/.cache/pypoetry/ || exit 0']
+    #args: ["-xf", "*.tar.gz", "-C", "/builder/home/.cache/pypoetry/"]
+
+  #install requirements
+  - name: "gcr.io/${PROJECT_ID}/poetry"
+    entrypoint: poetry
+    dir: ${_DIR}
+    args: ["install", "--no-root"]
+
+  # Zip the cache
+  - name: "gcr.io/${PROJECT_ID}/poetry"
+    entrypoint: tar
+    args:
+      [
+        "-C",
+        "/builder/home/.cache/pypoetry/",
+        "-zcf",
+        "poetry_cache.tar.gz",
+        ".",
+      ]
+
+  # Move the new cache to bucket
+  - name: gcr.io/cloud-builders/gsutil
+    args:
+      [
+        "cp",
+        "poetry_cache.tar.gz",
+        "gs://${PROJECT_ID}-my_cache_bucket/${_PACKAGE}/poetry_cache.tar.gz",
+      ]
+
+  # test
+  - name: "gcr.io/${PROJECT_ID}/poetry"
+    dir: ${_DIR}
+    args: ["run", "pytest"]

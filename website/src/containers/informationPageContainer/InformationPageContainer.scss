@@ -1,0 +1,80 @@
+@use '../../styles/color-schemes/default' as colors;
+@use '../../styles/screen-schemes/default'  as display;
+
+.informationPageContainer {
+    // scroll-snap-align: center;
+
+    height: 100vh;
+    width: 65%;
+    min-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: colors.$dark-blue;
+    @media screen and (display.$mq-subsmall) {
+        width: 90%;
+        min-width: 90%;
+        height: 100%;
+
+    }
+
+    .linkButton {
+        margin: 20px;
+    }
+}
+
+// .informationPageContainer > div {
+//     margin: 20px
+// }
+
+.informationPageContainer > p {
+    margin: 0px 0px 10px 0px
+}
+.iPageHeading {
+    margin: 0px 0px 20px 0px;
+}
+
+.iPageContact {
+    margin: 10px 0px 20px 0px;
+
+    align-self: flex-start;
+    font-size: 24px;
+    // color: #0853B0!important;
+    color: colors.$dark-bright-blue
+}
+
+.iPageEmail {
+    margin: 10px 0px 20px 0px;
+    align-self: flex-start;
+    font-size: 24px;
+    // color: #0853B0!important;
+    color: colors.$dark-bright-blue
+}
+
+.iPageHeading {
+    margin: 20px 0px 20px 0px;
+
+    font-size: 48px;
+    font-weight: 400;
+    align-self: flex-start;    
+    @media screen and (display.$mq-subsmall) {
+        font-size: 24px;
+    }
+}
+
+.iPageButtons {
+    margin: 20px 0px 20px 0px;
+    display: flex;
+    @media screen and (display.$mq-subsmall) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.informationPageIllustration {
+    margin-top: 40px;
+    height: 200px;
+}

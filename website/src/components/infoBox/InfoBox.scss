@@ -1,0 +1,27 @@
+@use '../../styles/color-schemes/default' as colors;
+@use '../../styles/functions' as functions;
+@use '../../styles/screen-schemes/default'  as display;
+
+.infoBoxContainer {
+    // height: 620px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    // background-color: $light-bright-blue;
+    @include functions.setColors(colors.$light-bright-blue, colors.$white, colors.$light-bright-blue);
+    @media screen and (display.$mq-subsmall) {
+        border-radius: 15px;
+        width: 90%;
+
+    }
+}
+
+.innerContainer {
+    padding: 70px 130px 70px 130px;
+
+    display: flex;
+
+    @media screen and (display.$mq-subsmall) {
+        padding: 40px 20px 40px 20px;
+        flex-direction: column;
+    }
+}

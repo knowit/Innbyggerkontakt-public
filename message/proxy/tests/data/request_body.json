@@ -1,0 +1,54 @@
+{
+  "globals": {
+    "from": {
+      "email": "test@test.no",
+      "name": "Test Testersen"
+    },
+    "subject": "Test",
+    "variables": {
+      "var0": "var0",
+      "var1": "var1",
+      "var2": "var2"
+    },
+    "TemplateID": 0,
+    "TemplateLanguage": true,
+    "CustomCampaign": "test",
+    "DeduplicateCampaign": true
+  },
+  "messages": [
+    {
+      "to": [
+        {
+          "email": "test1@test.no",
+          "name": "Test1"
+        }
+      ],
+      "variables": {
+        "name": "Test1"
+      }
+    },
+    {
+      "to": [
+        {
+          "email": "test2@test.no",
+          "name": "Test2"
+        }
+      ],
+      "variables": {
+        "name": "Test2"
+      }
+    },
+    {
+      "to": [
+        {
+          "email": "test3@test.no",
+          "name": "Test3"
+        }
+      ],
+      "variables": {
+        "name": "Test3"
+      }
+    }
+  ],
+  "SandboxMode": false
+}

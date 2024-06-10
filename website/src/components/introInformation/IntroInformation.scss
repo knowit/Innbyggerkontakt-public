@@ -1,0 +1,86 @@
+@use '../../styles/color-schemes/default' as colors;
+@use '../../styles/functions' as functions;
+@use '../../styles/screen-schemes/default'  as display;
+
+#introInformation {
+    @media screen and (display.$mq-subsmall) {
+        margin-top:60px;
+    }
+}
+
+.introInformationContainer {
+    // scroll-snap-align: center;
+    // height: 100vh;
+    min-height: calc(100vh - 103px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (display.$mq-subsmall) {
+        width: 100%;
+        // height: calc(100vh - 60px);
+        min-height: 100vh;
+        margin-top: 60px;
+    }
+}
+
+.textBlock {
+    width: 50% ;
+    @media screen and (display.$mq-subsmall) {
+        width: 100%;
+    }
+}
+
+.actionButtons {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    @media screen and (display.$mq-subsmall) {
+        justify-content: space-around;
+        margin-top: 20px;
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+.iiDescription {
+    font-size: 18px;
+    font-weight: 400;
+    @media screen and (display.$mq-subsmall) {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+
+.iiDescription p {
+    margin-top: 20px;
+}
+
+.seDokumentasjon {
+    background-color: colors.$dark-blue;
+    width: 180px;
+    @media screen and (display.$mq-subsmall) {
+        // todo set font size mindre og mindre bredde
+
+    }
+}
+
+.iiTryOutButton {
+    width: 180px;
+
+    background-color: colors.$bright-green;
+    &:hover {
+        @include functions.setColors(colors.$darker-green, colors.$white, colors.$darker-green);
+    }
+    margin-top: 20px;
+}
+
+.mailwhiteImage {
+    height: 200px;
+    @media screen and (display.$mq-subsmall) {
+        height: 100px;
+
+    }
+}

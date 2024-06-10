@@ -1,0 +1,44 @@
+@use 'styles/color-schemes/default' as color;
+@use 'styles/functions';
+@use 'styles/font-classes';
+
+.listObject {
+  text-align: left;
+  border-radius: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px;
+
+  width: fit-content;
+  height: fit-content;
+
+  background-color: color.$bright-green;
+  box-shadow: 0 3px 6px color.$border-shadow;
+  border-color: color.$bright-green;
+  @include functions.setColors(color.$white, color.$black, color.$background);
+
+  .regular11 {
+    margin-left: 5px;
+  }
+
+  &:hover {
+    box-shadow: none;
+    background: color.$light-blue-transparent;
+  }
+
+  .listObjectTag {
+    padding: 3px 12px;
+    width: fit-content;
+    height: fit-content;
+    background: color.$light-blue-transparent;
+    border-radius: 21px;
+    color: color.$dark-bright-blue;
+    display: inline-flex;
+    order: 1;
+    flex-grow: 0;
+    margin: 5px 5px 0 0;
+
+    @include font-classes.regular11;
+  }
+}

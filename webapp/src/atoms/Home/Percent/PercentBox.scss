@@ -1,0 +1,16 @@
+.percentBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  .lightBlueBackground {
+    width: inherit;
+  }
+  .wrapperHorizontal {
+    display: grid;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,11 @@
+@use 'styles/color-schemes/default' as colors;
+
+.latestNewsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  > h1 {
+    color: colors.$dark-blue;
+  }
+}

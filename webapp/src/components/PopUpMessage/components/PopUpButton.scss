@@ -1,0 +1,17 @@
+@use '../../../styles/color-schemes/default' as colors;
+@use '../../../styles/font-classes';
+
+.popUpButton {
+    transition: all 0.1s ease-in-out;
+    border: none;
+    border-radius: 100px;
+    padding: 1rem 1.5rem;
+    background-color: colors.$light-blue-transparent;
+    @include font-classes.regular18();
+    color: colors.$darkest-blue;
+    min-width: 125px;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}

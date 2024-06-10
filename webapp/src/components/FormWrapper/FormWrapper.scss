@@ -1,0 +1,19 @@
+@use '../../styles/index';
+@use '../../styles/color-schemes/default' as colors;
+
+.inputFieldComponent {
+  @include index.fieldComponent();
+  resize: none;
+  input {
+    @include index.defaultField();
+  }
+
+  .labelIcon {
+    fill: colors.$bright-blue;
+    margin-right: 0.5rem;
+  }
+}
+
+.fieldTitle.hidden {
+  display: none;
+}

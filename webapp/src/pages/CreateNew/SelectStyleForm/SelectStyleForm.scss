@@ -1,0 +1,24 @@
+@use 'styles/functions';
+
+.templatePageForm {
+  @include functions.setFromOutline();
+  button {
+    display: flex;
+    align-items: center;
+  }
+  .templateSelector {
+    width: 50%;
+    margin: auto;
+    .templateTitle {
+      padding-bottom: 40px;
+      text-align: center;
+    }
+    .styleSelector {
+      .fieldTitle,
+      .hidden,
+      .appendices {
+        display: none !important;
+      }
+    }
+  }
+}

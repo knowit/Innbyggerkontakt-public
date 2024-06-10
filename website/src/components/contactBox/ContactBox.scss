@@ -1,0 +1,73 @@
+
+@use '../../styles/color-schemes/default' as colors;
+@use '../../styles/functions' as functions;
+@use '../../styles/screen-schemes/default'  as display;
+
+
+.contactBoxContainer {
+    // scroll-snap-align: center;
+    // height: 100vh;
+
+    min-height: calc(100vh - 103px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (display.$mq-subsmall) {
+        width: 90%;
+        min-height: calc(100vh - 60px);
+    }
+}
+
+.contactBoxTextBlock {
+    width: 50% ;
+    // height: 400px;
+    @media screen and (display.$mq-subsmall) {
+        width: 100%;
+        height: auto;
+        line-height: 22px;
+
+    }
+}
+
+.contactBoxActionButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    @media screen and (display.$mq-subsmall) {
+        width: 100%;
+        margin-top: 20px;
+        font-size: 14px;
+        // height: auto;
+    }
+}
+
+.contactBoxDescription {
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 30px;
+    @media screen and (display.$mq-subsmall) {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+}
+
+.iiDescription p {
+    margin-top: 20px;
+}
+
+.contactBoxTryOutButton {
+    background-color: colors.$bright-green;
+    &:hover {
+        @include functions.setColors(colors.$darker-green, colors.$white, colors.$darker-green);
+    }
+}
+
+.contactImage {
+    height: 150px;
+    @media screen and (display.$mq-subsmall) {
+        height: 100px;
+
+    }
+}

@@ -1,0 +1,52 @@
+@use 'styles/color-schemes/default' as colors;
+@use 'styles/screen-schemes/default' as screen;
+@use 'styles/font-classes';
+
+.statisticsComponentMinimalContainer {
+  border-top: 2px solid colors.$dark-bright-blue;
+  width: 15.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (screen.$mq-subsmall) {
+    display: none;
+  }
+
+  > h2 {
+    @include font-classes.regular18();
+    color: colors.$dark-bright-blue;
+    white-space: wrap;
+    text-align: center;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    background-color: colors.$light-blue-transparent;
+    padding: 1rem;
+    gap: 1rem;
+    justify-content: space-between;
+
+    div {
+      text-align: center;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      :first-child {
+        color: colors.$dark-bright-blue;
+        @include font-classes.medium18();
+      }
+      :last-child {
+        color: colors.$dark-bright-blue;
+        @include font-classes.bold24();
+      }
+    }
+  }
+}

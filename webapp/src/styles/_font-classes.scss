@@ -1,0 +1,201 @@
+@use './font-schemes/default' as fonts;
+@use './functions';
+
+/*
+h1 {
+  margin: 0;
+  @extend .textTitle;
+}
+
+h2 {
+  margin: 0;
+  @extend .textLabel;
+}
+
+h3 {
+  margin: 0;
+  @extend .textLabel;
+}
+
+h6 {
+  margin: 0;
+  @extend .textObligatory;
+}
+p {
+  margin: 0;
+}
+*/
+/*
+.textPlaceholder {
+  @include setFonts($font-family);
+  @include setFontSize($descriptors, $regular);
+}
+
+.textDescriptors {
+  @include setFonts($font-family);
+  @include setFontSize($descriptors, $medium);
+}
+
+.textImageOr {
+  @include setFonts($font-family);
+  @include setFontSize($small, $medium);
+}
+
+.textError {
+  @include setFonts($font-family);
+  @include setFontSize($small, $medium);
+}
+
+.textSucess {
+  @include setFonts($font-family);
+  @include setFontSize($small, $medium);
+}
+
+.infoTextfalse {
+  @include setFonts($font-family);
+  @include setFontSize($small, $small);
+}
+
+.infoTexttrue {
+  @include setFonts($font-family);
+  @include setFontSize($small, $small);
+}
+
+.textNav {
+  @include setFonts($font-family);
+  @include setFontSize($nav, $medium);
+}
+
+.textButton {
+  @include setFonts($font-family);
+  @include setFontSize($descriptors, $medium);
+}
+
+.textText {
+  @include setFonts($font-family);
+  @include setFontSize($input, $text);
+}
+
+.textTitle {
+  @include setFonts($font-family);
+  @include setFontSize($h1, $medium);
+}
+
+.textCriteria {
+  @include setFonts($font-family);
+  @include setFontSize($descriptors, $text);
+}
+
+.textObligatory {
+  @include setFonts($font-family);
+  @include setFontSize($small, $regular);
+}
+
+.textBreadcrumb {
+  @include setFonts($font-family);
+  @include setFontSize($descriptors, $medium);
+}
+
+.textLabel {
+  @include setFonts($font-family);
+  @include setFontSize($input, $semibold);
+}
+*/
+
+@mixin h1 {
+  margin: 0;
+}
+
+@mixin h2 {
+  margin: 0;
+}
+
+@mixin h3 {
+  margin: 0;
+}
+
+@mixin h4 {
+  margin: 0;
+}
+
+@mixin h5 {
+  margin: 0;
+}
+
+@mixin h6 {
+  margin: 0;
+}
+
+@mixin default_fonts {
+  @include functions.setFonts(fonts.$font-family);
+}
+
+@mixin regular11 {
+  @include functions.setFonts(fonts.$font-family);
+  @include functions.setFontSize(fonts.$px11, fonts.$regular);
+}
+
+@mixin semibold11 {
+  @include functions.setFonts(fonts.$font-family);
+  @include functions.setFontSize(fonts.$px11, fonts.$semibold);
+}
+
+@mixin regular14 {
+  @include functions.setFonts(fonts.$font-family);
+  @include functions.setFontSize(fonts.$px14, fonts.$regular);
+}
+
+@mixin medium14 {
+  @include functions.setFonts(fonts.$font-family);
+  @include functions.setFontSize(fonts.$px14, fonts.$medium);
+}
+
+@mixin bold14 {
+  @include functions.setFonts(fonts.$font-family);
+  @include functions.setFontSize(fonts.$px14, fonts.$bold);
+}
+
+@mixin regular18 {
+  @include functions.setFonts(fonts.$font-family);
+  @include functions.setFontSize(fonts.$px18, fonts.$regular);
+}
+
+@mixin medium18 {
+  @include functions.setFonts(fonts.$font-family);
+  @include functions.setFontSize(fonts.$px18, fonts.$medium);
+}
+
+@mixin semibold18 {
+  @include functions.setFonts(fonts.$font-family);
+  @include functions.setFontSize(fonts.$px18, fonts.$semibold);
+}
+
+@mixin bold18 {
+  @include functions.setFonts(fonts.$font-family);
+  @include functions.setFontSize(fonts.$px18, fonts.$bold)
+}
+
+@mixin regular24 {
+  @include functions.setFonts(fonts.$font-family);
+  @include functions.setFontSize(fonts.$px24, fonts.$regular);
+}
+
+@mixin semibold24 {
+  @include functions.setFonts(fonts.$font-family);
+  @include functions.setFontSize(fonts.$px24, fonts.$semibold);
+}
+
+@mixin bold24 {
+  @include functions.setFonts(fonts.$font-family);
+  @include functions.setFontSize(fonts.$px24, fonts.$bold);
+}
+
+@mixin regular48 {
+  @include functions.setFonts(fonts.$font-family);
+  @include functions.setFontSize(fonts.$px48, fonts.$regular);
+}
+
+@mixin bold48 {
+  @include functions.setFonts(fonts.$font-family);
+  @include functions.setFontSize(fonts.$px48, fonts.$bold);
+}

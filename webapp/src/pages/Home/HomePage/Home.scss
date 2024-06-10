@@ -1,0 +1,163 @@
+@use '../../../styles/color-schemes/default' as color;
+@use '../../../styles/screen-schemes/default' as screen;
+@use '../../../styles/functions';
+@use '../../../styles/index.scss';
+
+.homePage {
+  display: flex;
+  gap: 6rem;
+  padding-top: 1.75rem;
+  @media screen and (screen.$mq-subsmall) {
+    padding-top: 0;
+    gap: 4rem;
+  }
+
+  > .homePageSideMenu {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.lightBlueBackground {
+  .lightBlueBackgroundContent {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (screen.$mq-subsmall) {
+  .wrapperHome {
+    .whiteButton {
+      margin-right: 0 !important;
+      width: 100%;
+    }
+  }
+}
+@media screen and (screen.$mq-submedium) {
+  .wrapperHome {
+    flex-flow: row wrap;
+    .whiteButton {
+      width: 100%;
+    }
+  }
+}
+
+.homepageContent {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.kommuneVaapen {
+  width: 50%;
+  max-width: 600px;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+.homeButtons {
+  margin-top: 40px;
+}
+
+.wrapperHome {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+
+  .recipientsTypeItemWrapper {
+    height: fit-content;
+
+    &:hover {
+      box-shadow: none;
+
+      @include functions.setColors(color.$light-blue, color.$black, color.$background);
+    }
+  }
+  > div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  > div:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    > div:last-child {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      > div:first-of-type {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+
+        @media screen and (screen.$mq-subsmall) {
+          flex-direction: column;
+        }
+
+        > :last-child {
+          text-decoration: none;
+          color: color.$dark-bright-blue;
+        }
+      }
+
+      > .statisticsComponentContainer {
+        display: none;
+      }
+
+      @media screen and (screen.$mq-subsmall) {
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+
+        > .statisticsComponentContainer {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// TODO: clean up in aisle Home
+.whiteButton {
+  width: 48%;
+  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 3px 6px color.$border-shadow;
+  &:hover {
+    @include functions.setColors(color.$background, color.$black, color.$background);
+    background: color.$light-blue-transparent;
+  }
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 90px;
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+
+  margin: 14px 0;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.lastNewsButton {
+  width: 100%;
+  padding: 30px;
+  justify-content: flex-start;
+}
+
+.statisticsAlignmentAdjusment {
+  align-self: flex-end;
+}

@@ -1,0 +1,94 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "sms-sender"
+version = "0.1.0"
+authors = []
+description = ""
+readme = "README.md"
+packages = [{include = "lib"}, {include = "models"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^1.10.2"
+functions-framework = "^3.2.0"
+firebase_admin = "5.3.0"
+google-cloud-secret-manager = "^2.12.4"
+google-cloud-storage = "^2.5.0"
+msgspec = "^0.8.0"
+otel-setup = "^0.2.2"
+cloud-event-model = "^0.1.1"
+ps-message-sms-event = "^0.1.0"
+
+[tool.poetry.group.dev.dependencies]
+black = ">=22.6.0,<22.7.0"
+isort = ">=5.10.1,<5.11.0"
+flakeheaven = ">=2.1.3,<2.2.0"
+cognitive-complexity = ">=1.3.0,<1.4.0"
+flake8-bandit = ">=3.0.0,<3.1.0"
+flake8-bugbear = ">=22.7.1,<22.8.0"
+flake8-cognitive-complexity = ">=0.1.0,<0.2.0"
+flake8-comprehensions = ">=3.10.0,<3.11.0"
+flake8-docstrings = ">=1.6.0,<1.7.0"
+flake8-simplify = ">=0.19.3,<0.20.0"
+flake8-quotes = ">=3.3.1,<3.4.0"
+mccabe = ">=0.6.1,<0.7.0"
+pylint = ">=2.14.5,<2.15.0"
+pre-commit = "^2.20.0"
+datamodel-code-generator = {extras = ["http"], version = "^0.13.1"}
+trio = "^0.21.0"
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-dev-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt-dev/ik-python-repo/simple/"
+default = false
+secondary = false
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt/ik-python-repo/simple/"
+default = false
+secondary = false
+
+[tool.datamodel-codegen]
+field-constraints = true
+snake-case-field = true
+strip-default-none = false
+target-python-version = "3.10"
+
+# <===FOrmatting===>
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+skip-string-normalization = 1
+
+[tool.flakeheaven]
+base = ["../pyproject.toml"]
+
+# match by glob
+[tool.flakeheaven.exceptions."**/__init__.py"]
+pylint = ["-*"]
+flake8-docstrings = ["-D104"]
+pyflakes = ["-F401"]
+
+[tool.flakeheaven.exceptions."*test_*.py"]
+pylint = ["-*"]
+flake8-docstrings = ["-*"]
+
+[tool.flakeheaven.exceptions."webapp/functions/python/main.py"]
+flake8-docstrings = ["-D103"]
+
+[tool.flakeheaven.exceptions."webapp/functions/python/gcp/*.py"] #theese will have to be fixed lated
+flake8-docstrings = ["-*"]
+
+[tool.flakeheaven.exceptions."webapp/functions/python/firebase/*"] #theese will have to be fixed lated
+flake8-docstrings = ["-*"]
+
+#  hacking = ["+*"] not compatible with flake 8 v 4.0.1
+[tool.isort]
+known_local_folder = ["lib", "models"]
+lines_after_imports = 2
+profile = "black"

@@ -1,0 +1,168 @@
+[tool.black]
+line-length = 88
+target-version = ['py37', 'py310']
+skip-string-normalization = true
+
+[tool.flakeheaven]
+jobs = "1"
+baseline = "baseline.txt"
+format = "colored"
+show_source = true
+# 80 chars aren't enough in 21 century
+# Also black should take care of this.
+max_line_length = 121
+max-line-length = 99
+# show line of source code in output
+
+# From old .flake8 file
+# Prefere max cognitive complexity and relax mccabe complexity
+max_cognitive_complexity = 7
+max_complexity = 13
+# extend_immutable_calls = ["fastapi.Header, fastapi.Depends"]
+rcfile = "pylintrc"
+exclude = [
+    "__pycache__",
+    ".venv",
+    ".pytest_cache",
+    ".git",
+    "website",
+    "cache",
+    "env",
+    "build",
+    "node_modules",
+    "*/migration/versions/*.py",
+    #  ====Default from flake8===
+    ".svn",
+    "CVS",
+    ".bzr",
+    ".hg",
+    ".git",
+    "__pycache__",
+    ".tox",
+    ".nox",
+    ".eggs",
+    "*.egg",
+    #  ====Default from flake8===
+]
+
+[tool.flakeheaven.plugins]
+flake8-bugbear = ["+*", "-B008"]
+pycodestyle = [
+    "+*",
+    "-E501",
+    "-W505",
+    "-E201",
+    "-W503",
+    "-E121",
+    "-E123",
+    "-E126",
+    "-E704",
+    "-E133",
+]
+pyflakes = ["+*"]
+mccabe = ["+C901"]
+flake8-quotes = ["+*"]
+flake8-simplify = ["+*"]
+flake8-cognitive-complexity = ["+*"]
+flake8-docstrings = ["+*", "-D107", "-D106", "-D401"]
+pylint = [
+    "+*",
+    "-C0116", # missing-function-docstring
+    "-C0200", # consider-using-enumerate
+    "-C0301", # line-too-long - black and flake8 takes care of this
+    "-C0305", # trailing-newlines
+    "-C0411", # wrong-import-order
+    "-E0012", # bad-option-value
+    "-E0401", # import-error
+    "-E0611", # no-name-in-module
+    "-E1101", # no-member
+    "-I0001", # raw-checker-failed
+    "-I0010", # bad-inline-option
+    "-I0011", # locally-disabled
+    "-I0013", # file-ignored
+    "-I0020", # suppressed-message
+    "-I0021", # useless-suppression
+    "-I0022", # deprecated-pragma
+    "-I0023", # use-symbolic-message-instead
+    "-I1101", # c-extension-no-member
+    "-R0201", # no-self-use
+    "-R0205", # useless-object-inheritance
+    "-R0801", # duplicate-code
+    "-R0901", # too-many-ancestors
+    "-R0902", # too-many-instance-attributes
+    "-R0903", # too-few-public-methods
+    "-R0904", # too-many-public-methods
+    "-R0911", # too-many-return-statements
+    "-R0912", # too-many-branches
+    "-R0913", # too-many-arguments
+    "-R0914", # too-many-locals
+    "-R0915", # too-many-statements
+    "-R0916", # too-many-boolean-expressions
+    "-R1702", # too-many-nested-blocks
+    "-R1705", # no-else-return
+    "-R1710", # inconsistent-return-statements
+    "-R1720", # no-else-raise
+    "-R1723", # no-else-break
+    "-R1724", # no-else-continue
+    "-W0107", # unnecessary-pass
+    "-W0120", # useless-else-on-loop
+    "-W0201", # attribute-defined-outside-init
+    "-W0221", # arguments-differ
+    "-W0222", # signature-differs
+    "-W0223", # abstract-method
+    "-W0232", # no-init
+    "-W0406", # import-self
+    "-W0511", # fixme
+    "-W0603", # global-statement
+    "-W1404", # implicit-str-concat
+    "-E0213",
+    "-E1123",
+    "-E1102",
+    "-C0415", # import-outside-toplevel
+    "-C0103"  # invalid-name
+    ]
+
+
+# match by glob
+[tool.flakeheaven.exceptions."**/__init__.py"]
+pylint = ["-*"]
+flake8-docstrings = ["-D104","-D*"]
+pyflakes = ["-F401"]
+
+[tool.flakeheaven.exceptions."*test_*.py"]
+pylint = ["-*"]
+flake8-docstrings = ["-*"]
+
+[tool.flakeheaven.exceptions."data/neworg/firestore.py"]
+pylint = ["-*"]
+flake8-docstrings = ["-*"]
+flake8-cognitive-complexity = ["-CCR001"]
+
+[tool.flakeheaven.exceptions."webapp/functions/python/main.py"]
+flake8-docstrings = ["-D103"]
+
+[tool.flakeheaven.exceptions."webapp/functions/python/gcp/*.py"] #theese will have to be fixed lated
+flake8-docstrings = ["-*"]
+
+[tool.flakeheaven.exceptions."webapp/functions/python/firebase/*"] #theese will have to be fixed lated
+flake8-docstrings = ["-*"]
+
+[tool.flakeheaven.exceptions."helpers/freg_models/"] # These are generated with datamodel-codegen and does not contain docs
+flake8-docstrings = ["-*"]
+pylint = ["-C011*"]
+
+[tool.flakeheaven.exceptions."helpers/krr_models/"] # These are generated with datamodel-codegen and does not contain docs
+flake8-docstrings = ["-*"]
+pylint = ["-C011*"]
+
+#  hacking = ["+*"] not compatible with flake 8 v 4.0.1
+[tool.isort]
+known_first_party = ["freg_config", "models", "services"]
+known_local_folder = ["freg_config", "services", "models"]
+lines_after_imports = 2
+profile = "black"
+
+[tool.pytest.ini_options]
+#  required_plugins = ["pytest-cov"]
+filterwarnings = ["error", "ignore:.*You should use InstrumentationScope.*:DeprecationWarning"]
+#  addopts = "--cov=."

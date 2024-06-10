@@ -1,0 +1,22 @@
+{
+  "projects": {
+    "prod": "innbyggerkontakt",
+    "dev": "innbyggerkontakt-dev"
+  },
+  "targets": {
+    "innbyggerkontakt-dev": {
+      "hosting": {
+        "website": [
+          "innbyggerkontakt-info-dev"
+        ]
+      }
+    },
+    "innbyggerkontakt": {
+      "hosting": {
+        "website": [
+          "innbyggerkontakt-infopage"
+        ]
+      }
+    }
+  }
+}

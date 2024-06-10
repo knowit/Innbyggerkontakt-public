@@ -1,0 +1,15 @@
+@use '../../styles/index';
+@use '../../styles/color-schemes/default' as color;
+
+.formInputDisabled {
+  background-color: transparent;
+}
+
+.iconWrapper {
+  position: absolute;
+  right: 1rem;
+  top: 66%;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: color.$dark_bright_blue;
+}

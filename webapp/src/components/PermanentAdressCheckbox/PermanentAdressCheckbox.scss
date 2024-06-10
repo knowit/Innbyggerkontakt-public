@@ -1,0 +1,13 @@
+@use 'styles/font-schemes/default' as font;
+.adresseCheckbox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  &--header {
+    margin: 0;
+  }
+  &--header {
+    font-size: font.$px18;
+    font-weight: font.$regular;
+  }
+}

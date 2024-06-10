@@ -1,0 +1,31 @@
+@use '../../../../styles/font-classes';
+@use '../../../../styles/color-schemes/default' as colors;
+
+.sortDropdownContainer {
+    background-color: colors.$bright-blue;
+    min-width: 148px;
+    height: 52px;
+    border-radius: 4px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: white;
+    @include font-classes.medium14();
+
+    > select {
+        background-color: transparent;
+        color: transparent;
+        border: none;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 10;
+
+        > option {
+            color: black;
+            background-color: white;
+        }
+    }
+}

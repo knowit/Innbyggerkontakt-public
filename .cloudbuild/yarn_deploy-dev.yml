@@ -1,0 +1,157 @@
+steps:
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:alpine
+    id: KmsDecryptEnv
+    dir: $_DIR
+    entrypoint: gcloud
+    args:
+      - 'kms'
+      - 'decrypt'
+      - '--ciphertext-file=.env.$_BUILD_ENV.enc'
+      - '--plaintext-file=.env.$_BUILD_ENV'
+      - '--key=$_KMS_CRYPTOKEY'
+      - '--keyring=$_KMS_KEYRING'
+      - '--location=global'
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:alpine
+    id: DownloadYarnCache
+    dir: $_DIR
+    entrypoint: ash
+    args:
+      - '-c'
+      - |
+        branch_name=$$(echo "$BRANCH_NAME" | sed -e 's/\//_/g' )
+        yarn_hash=$$(git hash-object yarn.lock)
+
+        gsutil -q stat gs://$PROJECT_ID-yarn-cache/$$branch_name-$$yarn_hash.tar.zstd
+
+        if [ $$? -eq 0 ]
+        then
+          echo "Cache hit => $$branch_name-$$yarn_hash.tar.zstd"
+          echo "Downloading cache"
+          apk add --no-cache --quiet zstd tar
+          gsutil -q cp gs://$PROJECT_ID-yarn-cache/$$branch_name-$$yarn_hash.tar.zstd .
+          unzstd $$branch_name-$$yarn_hash.tar.zstd --stdout | tar -xf -
+        else
+          echo "Cache miss => $$branch_name-$$yarn_hash.tar.zstd"
+        fi
+
+  - name: 'node:$_NODE_VERSION'
+    id: YarnInstall
+    dir: $_DIR
+    entrypoint: 'yarn'
+    args: ['install', '--frozen-lockfile', '--network-timeout', '1000000']
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:alpine
+    id: UploadYarnCache
+    dir: $_DIR
+    entrypoint: ash
+    args:
+      - '-c'
+      - |
+        branch_name=$$(echo "$BRANCH_NAME" | sed -e 's/\//_/g' )
+        yarn_hash=$$(git hash-object yarn.lock)
+
+        gsutil -q stat gs://$PROJECT_ID-yarn-cache/$$branch_name-$$yarn_hash.tar.zstd
+
+        if [ $$? -eq 1 ]
+        then
+          echo "Cache miss => $$branch_name-$$yarn_hash.tar.zstd"
+          echo "Uploading new cache"
+          apk add --no-cache --quiet zstd tar
+          tar -cf - node_modules | zstd -q -o $$branch_name-$$yarn_hash.tar.zstd
+          gsutil -q cp $$branch_name-$$yarn_hash.tar.zstd gs://$PROJECT_ID-yarn-cache
+        else
+          echo "Cache hit => $$branch_name-$$yarn_hash.tar.zstd"
+          echo "Skipping upload of cache"
+        fi
+
+  - name: 'node:$_NODE_VERSION'
+    id: FirebaseDeploy
+    dir: $_DIR
+    entrypoint: 'ash'
+    args:
+      - '-c'
+      - |
+        export NODE_OPTIONS="--max-old-space-size=4096"
+        echo $$FIREBASE_CREDENTIALS > /tmp/credentials.json
+        export GOOGLE_APPLICATION_CREDENTIALS="/tmp/credentials.json"
+        apk add --no-cache --quiet python3 jq curl
+        npm install --quiet -g firebase-tools
+
+        yarn build:ci
+
+        build_status=$$?
+
+        if [ $$build_status -eq 0 ]
+        then
+          if [ "$_LIVE" = true ]
+          then
+            firebase \
+                deploy \
+                --only \
+                hosting \
+                --project=$PROJECT_ID \
+                --json | tee hosting-info.txt
+          else
+            firebase \
+                hosting:channel:deploy \
+                test-$_PR_NUMBER \
+                --project=$PROJECT_ID \
+                --json \
+                --expires=3d | tee hosting-info.txt
+          fi
+
+          deploy_status=$$?
+
+          if [ "$_LIVE" = true ]
+          then
+            exit $$deploy_status
+          fi
+
+          pr_response=$$( \
+            curl \
+                -L \
+                -H 'Accept: application/vnd.github.v3+json' \
+                -X GET "https://api.github.com/repos/$_GH_OWNER/$REPO_NAME/pulls/$_PR_NUMBER" \
+                -u $_GH_USER:$$GH_API_KEY \
+          )
+
+          if [ $$(echo $$pr_response | jq length) -eq 0 ]
+          then
+            echo "Unable to post back hosting information"
+          else
+            pr_comment_url=$$(echo $$pr_response | jq -r "._links.comments.href")
+
+            # create sanitized input for github by first escaping backslashed and then another pass escaping newlines
+            # Sed is magic, don't ask, trust me, don't ask.
+            compile_result_json=$$(printf "{\n\"body\": \"<pre>\\\n%s\\\n</pre>\"\n}" "$$(sed '1,2d;$d' hosting-info.txt | sed -e 's/\\/\\\\/g' | sed ':a;N;$!ba;s/\n/\\n/g' | sed 's/"/\\"/g')")
+
+            curl \
+                -L \
+                -H 'Accept: application/vnd.github.v3+json' \
+                -H 'Content-Type: application/json' \
+                -X POST $$pr_comment_url \
+                -d "$$compile_result_json" \
+                -u $_GH_USER:$$GH_API_KEY
+          fi
+          exit $$deploy_status
+        else
+          exit $$build_status
+        fi
+    env:
+      - 'CI=$_SUPPRESS_OUTPUT'
+
+    secretEnv:
+      - 'GH_API_KEY'
+      - 'FIREBASE_CREDENTIALS'
+
+timeout: 900s
+options:
+  machineType: 'E2_HIGHCPU_8'
+
+availableSecrets:
+  secretManager:
+    - versionName: projects/innbyggerkontakt-dev/secrets/GITHUB_ACCESS_TOKEN/versions/latest
+      env: GH_API_KEY
+    - versionName: projects/innbyggerkontakt-dev/secrets/FIREBASE_CREDENTIALS/versions/latest
+      env: FIREBASE_CREDENTIALS

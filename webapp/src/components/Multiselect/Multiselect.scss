@@ -1,0 +1,30 @@
+@use "../../styles/index";
+@use "../../styles/color-schemes/default" as color;
+@use "../../styles/functions";
+
+.multiselect {
+  .reactSelect__value-container {
+    justify-content: flex-start !important;
+  }
+  .reactSelect__input {
+    input {
+      margin-top: 0 !important;
+    }
+  }
+
+  .reactSelect__control {
+    padding: 0 3px !important;
+  }
+
+  .reactSelect__multi-value {
+    padding: 0 5px 0 10px;
+    margin-right: 2px;
+    background-color: color.$bright-blue;
+    border: 0;
+
+    .reactSelect__multi-value__remove,
+    .reactSelect__multi-value__label {
+      color: color.$black;
+    }
+  }
+}

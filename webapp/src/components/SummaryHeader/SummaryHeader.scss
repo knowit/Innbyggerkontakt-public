@@ -1,0 +1,57 @@
+@use '../../styles/screen-schemes/default' as screen;
+@use '../../styles/color-classes';
+@use '../../styles/font-classes';
+@use '../../styles/color-schemes/default' as colors;
+
+.summary-header {
+  @media screen and (screen.$mq-small) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__heading {
+    @include font-classes.semibold24();
+    color: colors.$dark-blue;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+
+    @media screen and (screen.$mq-small) {
+      margin-top: 0;
+    }
+  }
+
+  &__text {
+    @include font-classes.regular11();
+    margin-right: 1rem;
+  }
+
+  &__tag {
+    @include color-classes.recipients_border();
+    @include font-classes.regular14();
+    display: flex;
+    align-items: center;
+    border-radius: 20%;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 21px;
+    padding: 5px 15px;
+  }
+
+  &__icon {
+    margin-right: 0.5rem;
+    font-size: 1rem;
+
+    &--enlarged {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__tag-text {
+    margin: 0;
+  }
+}

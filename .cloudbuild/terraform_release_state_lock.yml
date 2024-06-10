@@ -1,0 +1,9 @@
+steps:
+- name: 'gcr.io/$PROJECT_ID/deployment:terraform-$_TERRAFORM_VERSION'
+  dir: $_DIR
+  entrypoint: 'sh'
+  args:
+  - '-c'
+  - |
+      terraform init -reconfigure -backend-config=$PROJECT_ID.tfbackend
+      terraform force-unlock -force $_LOCK_ID

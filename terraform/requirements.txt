@@ -1,0 +1,2 @@
+deterministic_zip==0.1
+terraform-external-data==1.0.3

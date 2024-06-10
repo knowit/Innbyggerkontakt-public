@@ -1,0 +1,22 @@
+@use '../../../../styles/color-schemes/default' as colors;
+
+.buttonAndSaveContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: flex-end;
+
+  .navigationButton {
+    display: flex;
+    align-items: center;
+  }
+
+  .loadContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 0.65rem;
+    align-items: center;
+
+    color: colors.$darker-green;
+  }
+}

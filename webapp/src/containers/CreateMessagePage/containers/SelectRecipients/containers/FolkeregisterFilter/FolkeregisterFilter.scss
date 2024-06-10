@@ -1,0 +1,21 @@
+.folkeregisterFilter {
+  display: flex;
+  flex-direction: column;
+  gap: 3.75rem;
+  &--age {
+    flex-wrap: wrap;
+    .inputDropdownComponent {
+      flex-basis: 55%;
+    }
+  }
+  &--filterButton {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

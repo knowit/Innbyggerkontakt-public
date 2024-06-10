@@ -1,0 +1,179 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function getAuthUser() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+
+    match /users/{user} {
+      function isSelf() {
+        return request.auth.uid == resource.id;
+      }
+
+      function isAllowedToReadAnotherUser() {
+        let user = getAuthUser();
+        return userHasRole(user, ["support", "superadmin"]);
+      }
+
+      function isAllowedToChangeAnotherUser() {
+        let user = getAuthUser();
+        return userHasRole(user, ["superadmin"]);
+      }
+
+      function newUserBelongsToOrg() {
+        let user = getAuthUser();
+        return request.resource.data.orgId == user.data.orgId;
+      }
+
+      allow read: if isSignedIn() && (isSelf() || isAllowedToReadAnotherUser());
+      allow write: if isSignedIn() && isAllowedToChangeAnotherUser();
+      allow write: if isSignedIn() && (isAdminForOrg(request.auth.uid) && newUserBelongsToOrg());
+    }
+
+    match /postalCodeData/{municipality_number=**} {
+      allow read: if isSignedIn();
+    }
+
+    match /postalCodeData/{municipality_number=**} {
+      allow read: if isSignedIn();
+    }
+
+    match /organization/{organization} {
+      // TODO Add granular controls to organization
+      // Allow read and write for superadmins
+      // Allow read for support
+      // Allow write for support if enabled
+      // Allow read,write for users belonging to the organization
+      allow read, write: if isSignedIn() && userIsAllowedToMakeChanges(request, resource);
+
+      match /bulletin_templates/{bulletin_template} {
+      	allow read, write: if isSignedIn();
+      }
+
+      match /bulletin/{bulletin} {
+        function isInOrg() {
+          return exists(/databases/$(database)/documents/organization/$(organization)/users/$(request.auth.uid));
+        }
+
+        function userIsAllowedToRead() {
+          let user = getAuthUser();
+          return userHasRole(user, ["support", "superadmin"]);
+        }
+
+        function supportIsAllowedAccess() {
+          let user = getAuthUser();
+          let org = get(/databases/$(database)/documents/organization/$(organization));
+          let supportTimeThreshold = org.data.support.allowExternalSupportUntil;
+          let allowExternalSupport = org.data.support.allowExternalSupport;
+
+          // Support is allowed, and the request time is less than the threshold time for support
+          let supportAllowed = allowExternalSupport && request.time.toMillis() <= supportTimeThreshold.toMillis();
+
+          return userHasRole(user, ["support"]) && supportAllowed;
+        }
+
+        function userIsAllowedToWrite() {
+          let user = getAuthUser();
+          return supportIsAllowedAccess() || userHasRole(user, ["superadmin"]);
+        }
+
+        function documentIsNotProtected(id) {
+          return (id in ["active", "draft", "finished"]) == false;
+        }
+
+      	allow read: if isSignedIn() && (isInOrg() || userIsAllowedToRead());
+      	allow write: if isSignedIn() && (isInOrg() || userIsAllowedToWrite()) && documentIsNotProtected(bulletin);
+
+        match /{bulletin}/{document=**} {
+          allow read: if isSignedIn() && (isInOrg() || userIsAllowedToRead());
+          allow write: if isSignedIn() && (isInOrg() || userIsAllowedToWrite()) && documentIsNotProtected(document);
+        }
+
+      }
+
+      match /template_application/{template_application} {
+        allow read, write: if isSignedIn();
+
+        match /mailjet_template_ids/{template_ids} {
+        	allow read, write: if isSignedIn();
+        }
+      }
+
+      match /users/{user} {
+      	allow read: if isSignedIn();
+      	allow write: if isSignedIn() ; // add check for admin in org
+      }
+
+      match /statistics/{statistics} {
+      	allow read, write: if isSignedIn();
+      }
+
+      match /styles/{style} {
+        allow read, write: if isSignedIn();
+      }
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdminForOrg(userId) {
+      let user = get(/databases/$(database)/documents/users/$(userId));
+      let orgUser = get(/databases/$(database)/documents/organization/$(user.data.orgId)/users/$(userId));
+
+      return userHasRole(orgUser, ["admin"]);
+    }
+
+    function userIsAllowedToMakeChanges(request, resource) {
+      let userObject = get(/databases/$(database)/documents/users/$(request.auth.uid));
+
+      // Check access escalating privilege check as necessary
+      return userBelongToOrganization(userObject, resource.id) || supportIsAllowedLoginToOrganization(userObject, request.time, resource.id) || userIsSuperAdmin(userObject);
+    }
+
+    function userIsSuperAdmin(user) {
+      return userHasRole(user, ["superadmin"]);
+    }
+
+    function supportIsAllowedLoginToOrganization(user, requestTime, organizationId) {
+      let orgObject = get(/databases/$(database)/documents/organization/$(organizationId));
+      let supportTimeThreshold = orgObject.data.support.allowExternalSupportUntil;
+      let allowExternalSupport = orgObject.data.support.allowExternalSupport;
+
+      // Support is allowed, and the request time is less than the threshold time for support
+      let supportAllowed = allowExternalSupport && requestTime.toMillis() <= supportTimeThreshold.toMillis();
+
+      return userHasRole(user, ["support"]) && supportAllowed;
+    }
+
+   	function userBelongToOrganization(user, organizationId) {
+      return user.data.orgId == organizationId;
+    }
+
+    function userHasRole(user, roles) {
+      return [user.data.rolle].hasAny(roles);
+    }
+
+    match /templates/{template} {
+      function isEditorUser() {
+        let user = getAuthUser();
+        return userHasRole(user, ["editor", "superadmin"]);
+      }
+
+      function isInOrg(orgId) {
+        return exists(/databases/$(database)/documents/organization/$(orgId)/users/$(request.auth.uid));
+      }
+
+      // Can only create templates for it's own organization
+      allow create: if isSignedIn() && isEditorUser() && (isInOrg(request.resource.data.orgId) || userIsSuperAdmin(getAuthUser())) && request.resource.data.keys().hasAll(["orgId", "name", "type", "contentArray", "tags"]);
+      // A editor can only delete their organization's templates
+      allow delete: if isSignedIn() && isEditorUser() && (isInOrg(resource.data.orgId) || userIsSuperAdmin(getAuthUser()));
+      // Update restricts to the same organization, and can not be changed for a template
+      allow update: if isSignedIn() && isEditorUser() && ((isInOrg(resource.data.orgId) && request.resource.data.orgId == resource.data.orgId) || userIsSuperAdmin(getAuthUser()));
+
+      // Allows reading a template if it is published, or belongs to the organization, and the requester is an editor
+      allow read: if isSignedIn() && (resource.data.type == 'published' || (isInOrg(resource.data.orgId) && isEditorUser()) || userIsSuperAdmin(getAuthUser()));
+    }
+  }
+}

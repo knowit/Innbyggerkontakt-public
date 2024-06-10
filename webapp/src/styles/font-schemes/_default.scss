@@ -1,0 +1,25 @@
+$font-prefix: '~@ibm/plex';
+
+@import '~@ibm/plex/scss/ibm-plex.scss';
+
+$font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+
+$light: 200;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+//$text: 450;
+
+//$small: 11px;
+//$descriptors: 14px;
+//$nav: 15px;
+//$input: 18px;
+//$h1: 24px;
+//$large: 48px;
+
+$px11: 11px;
+$px14: 14px;
+$px18: 18px;
+$px24: 24px;
+$px48: 48px;

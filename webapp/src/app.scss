@@ -1,0 +1,558 @@
+@use './styles/color-schemes/default' as colors;
+@use './styles/font-schemes/default' as fonts;
+@use './styles/color-classes';
+@use './styles/font-classes';
+@use './styles/screen-schemes/default' as display;
+@use './styles/functions' as functions;
+@use './styles/index';
+@use './styles/display-classes';
+@use './styles/screen-schemes/default' as screen;
+
+html {
+  font-size: 16px;
+}
+
+body {
+  @include color-classes.default_colors();
+  @include font-classes.default_fonts();
+  margin: 0;
+  padding: 0;
+
+  > #root {
+    box-sizing: border-box;
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      > .content {
+        max-width: 90rem;
+        margin-bottom: 3rem;
+
+        padding-bottom: 2rem;
+
+        @media screen and (screen.$mq-subsmall) {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+button {
+  @include index.clickable;
+}
+
+input {
+  @include font-classes.regular18();
+  @include color-classes.black_white();
+  @include functions.removeOutline();
+  width: inherit;
+  border-style: none;
+}
+
+.clickableIcon {
+  @include color-classes.clickable_icon();
+  @include index.clickable();
+}
+
+.datePickerVisibleOnFocus {
+  .datePicker {
+    display: block;
+  }
+}
+
+.textWrapper {
+  @include color-classes.text_wrapper();
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+  min-height: 40px;
+  height: fit-content;
+  width: fit-content;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include functions.removeOutline();
+  @include index.clickable;
+
+  &.divDisabled {
+    pointer-events: none;
+  }
+
+  input {
+    display: none;
+
+    & + i {
+      display: none;
+    }
+  }
+
+  .dropdown {
+    display: none;
+  }
+
+  .rdw-editor-wrapper {
+    display: none;
+  }
+
+  &:focus {
+    display: block;
+    padding: 8px 15px 8px 11px;
+    cursor: default;
+
+    input {
+      @include font-classes.regular18();
+      margin-left: 10px;
+      display: inline-block;
+    }
+
+    .dropdown {
+      @include font-classes.regular18();
+      margin-left: 10px;
+      display: inline-block;
+    }
+
+    .rdw-editor-wrapper {
+      margin-left: 10px;
+      display: block;
+      position: relative;
+
+      .rdw-editor-toolbar {
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+      }
+      @extend .datePickerVisibleOnFocus;
+    }
+  }
+
+  &:focus-within {
+    display: block;
+    padding: 8px 15px 8px 11px;
+    cursor: default;
+
+    input {
+      @include font-classes.regular18();
+      margin-left: 10px;
+      display: inline-block;
+    }
+
+    .dropdown {
+      @include font-classes.regular18();
+      margin-left: 10px;
+      display: inline-block;
+    }
+
+    .rdw-editor-wrapper {
+      margin-left: 10px;
+      display: block;
+      position: relative;
+
+      .rdw-editor-toolbar {
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+      }
+    }
+    @extend .datePickerVisibleOnFocus;
+  }
+}
+
+.dropdown {
+  width: -webkit-fill-available;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.noDisplay {
+  display: None;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.disabledText {
+  @include color-classes.text_disabled();
+}
+
+.stepExplainText {
+  @include color-classes.text_disabled();
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.settingsExplainText {
+  @include color-classes.text_disabled();
+}
+
+.lightBlueBackground {
+  @include color-classes.background_light_blue();
+}
+
+// TODO: Clean up naming conventions, this class is edited here and 2 other places...
+.lightBlueIngress {
+  @include color-classes.ingress_light_blue();
+  padding: 20px 40px 20px 20px;
+
+  .ingressTitle {
+    padding-bottom: 8px;
+    @include font-classes.regular24();
+  }
+  p {
+    @include font-classes.regular14();
+  }
+}
+
+// TODO: Rydd opp i hvpr font klassene blir brukt som dette. Lag heller en egen klasse som ekstender fontklasser, istedet for å 'overskrive' klassen for hele applikasjonen
+.regular18 {
+  margin: 0;
+  margin-bottom: 4px;
+  padding: 0;
+}
+
+.semibold24 {
+  margin: 0;
+  padding: 0;
+}
+
+.placeholderLarge {
+  @include color-classes.placeholder_large();
+}
+
+.placeholder {
+  @include color-classes.placeholder_default();
+}
+
+// Multiple places, edited in Dropdown.scss, but not used in Dropdown but other places
+.formError {
+  .field,
+  .reactSelect__control {
+    @include color-classes.error_border();
+    border-width: 2px;
+  }
+}
+
+.errorMessage {
+  margin-top: 0;
+  margin-bottom: 0;
+  @include color-classes.error_text();
+}
+
+.fieldTitle {
+  @include font-classes.regular18();
+  display: flex;
+  justify-content: left;
+  padding-bottom: 4px;
+}
+
+.header {
+  @include functions.setColors(
+    colors.$dark-blue,
+    colors.$light-light-blue,
+    colors.$dark-blue
+  );
+  .navHeader {
+    @include functions.setColors(
+      colors.$dark-blue,
+      colors.$light-light-blue,
+      colors.$dark-blue
+    );
+    .navButton {
+      @include functions.setColors(
+        NONE,
+        colors.$light-light-blue,
+        colors.$light-light-blue
+      );
+      &:hover {
+        @include functions.setColors(
+          NONE,
+          colors.$light-light-blue,
+          colors.$light-light-blue
+        );
+      }
+      &:active {
+        @include functions.setColors(
+          colors.$dark-blue,
+          colors.$light-light-blue,
+          colors.$light-light-blue
+        );
+      }
+    }
+    .right {
+      .clickable {
+        &:hover {
+          @include functions.setColors(
+            colors.$dark-blue,
+            colors.$white,
+            colors.$light-light-blue
+          );
+        }
+        &:active {
+          @include functions.setColors(
+            colors.$darkest-blue,
+            colors.$white,
+            colors.$darkest-blue
+          );
+        }
+      }
+    }
+    .activePage {
+      @include functions.setColors(
+        NONE,
+        colors.$bright-green,
+        colors.$light-light-blue
+      );
+      &:hover {
+        @include functions.setColors(
+          NONE,
+          colors.$light-light-blue,
+          colors.$light-light-blue
+        );
+      }
+      &:active {
+        @include functions.setColors(
+          colors.$dark-blue,
+          colors.$bright-green,
+          colors.$dark-blue
+        );
+      }
+    }
+  }
+}
+
+.lightBlue {
+  color: colors.$bright-blue;
+}
+
+.darkBrightBlue {
+  color: colors.$dark-bright-blue;
+}
+
+.gray {
+  color: colors.$gray-text;
+}
+
+.lightGreen {
+  color: colors.$darker-green;
+}
+
+.darkBlue {
+  color: colors.$dark-blue;
+}
+
+.error {
+  color: colors.$error;
+}
+
+.linkButton {
+  color: colors.$black;
+}
+
+.textDescriptors {
+  color: colors.$gray-text;
+}
+
+.textImageOr {
+  color: colors.$gray-text;
+}
+
+.textError {
+  color: colors.$error;
+}
+
+.textSucess {
+  color: colors.$darker-green;
+}
+
+.infoTextfalse {
+  color: colors.$error;
+}
+
+.infoTexttrue {
+  color: colors.$darker-green;
+}
+
+// Everything below this is stupid classnames to get fonts back in the system
+.regular11 {
+  @include font-classes.regular11;
+}
+
+.semibold11 {
+  @include font-classes.semibold11;
+  font-style: italic;
+}
+
+.regular14 {
+  @include font-classes.regular14;
+}
+
+.medium14 {
+  @include font-classes.medium14;
+}
+
+.bold14 {
+  @include font-classes.bold14;
+}
+
+.regular18 {
+  @include font-classes.regular18;
+}
+
+.medium18 {
+  @include font-classes.medium18;
+}
+
+.semibold18 {
+  @include font-classes.semibold18;
+}
+
+.bold18 {
+  @include font-classes.bold18;
+}
+
+.semibold24 {
+  @include font-classes.semibold24;
+}
+
+.bold24 {
+  @include font-classes.bold24;
+}
+
+.regular24 {
+  @include font-classes.regular24;
+}
+
+.bold48 {
+  @include font-classes.bold48;
+}
+
+.regular48 {
+  @include font-classes.regular48;
+}
+
+h1 {
+  margin: 0;
+  //@extend .textTitle;
+  @include font-classes.semibold24;
+}
+
+h3 {
+  margin: 0;
+  //@extend .textLabel;
+  @include font-classes.semibold18;
+}
+
+h6 {
+  margin: 0;
+  //@extend .textObligatory;
+  @include font-classes.regular11;
+}
+p {
+  margin: 0;
+}
+
+// This is here temporary untill the styling is cleared up, this is not recommended
+
+.textPlaceholder {
+  //@include setFonts($font-family);
+  //@include setFontSize($descriptors, $regular);
+  @include font-classes.regular14;
+}
+
+.textDescriptors {
+  //@include setFonts($font-family);
+  //@include setFontSize($descriptors, $medium);
+  @include font-classes.medium14;
+}
+
+.textImageOr {
+  //@include setFonts($font-family);
+  //@include setFontSize($small, $medium);
+  @include font-classes.regular11;
+}
+
+.textError {
+  //@include setFonts($font-family);
+  //@include setFontSize($small, $medium);
+  @include font-classes.regular11;
+}
+
+.textSucess {
+  //@include setFonts($font-family);
+  //@include setFontSize($small, $medium);
+  @include font-classes.regular14;
+}
+
+.infoTextfalse {
+  //@include setFonts($font-family);
+  //@include setFontSize($small, $medium);
+  @include font-classes.regular11;
+}
+
+.infoTexttrue {
+  //@include setFonts($font-family);
+  //@include setFontSize($small, $small);
+  @include font-classes.regular11;
+}
+
+.textNav {
+  //@include setFonts($font-family);
+  //@include setFontSize($nav, $medium);
+  @include font-classes.regular14;
+}
+
+.textButton {
+  //@include setFonts($font-family);
+  //@include setFontSize($descriptors, $medium);
+  @include font-classes.medium14;
+}
+
+.textText {
+  //@include setFonts($font-family);
+  //@include setFontSize($input, $text);
+  @include font-classes.regular18;
+}
+
+.textTitle {
+  //@include setFonts($font-family);
+  //@include setFontSize($h1, $medium);
+  @include font-classes.semibold24;
+}
+
+.textCriteria {
+  //@include setFonts($font-family);
+  //@include setFontSize($descriptors, $text);
+  @include font-classes.regular14;
+}
+
+.textObligatory {
+  //@include setFonts($font-family);
+  //@include setFontSize($small, $regular);
+  @include font-classes.regular11;
+}
+
+.textBreadcrumb {
+  //@include setFonts($font-family);
+  //@include setFontSize($descriptors, $medium);
+  @include font-classes.medium14;
+}
+
+.textLabel {
+  //@include setFonts($font-family);
+  //@include setFontSize($input, $semibold);
+  @include font-classes.semibold18;
+}

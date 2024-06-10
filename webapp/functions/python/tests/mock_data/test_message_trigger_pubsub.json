@@ -1,0 +1,40 @@
+{
+  "search_dummy" : {
+    "attributes": {
+      "bulletin_id": "test_bulletin",
+      "organization_id": "test_organization",
+      "trace_string": "test_context",
+      "bulletin_type": "search"
+    },
+    "data": {
+      "hits": 1000,
+      "path": "test/path/"
+    }
+  },
+  "event_dummy":
+  {
+    "attributes": {
+      "bulletin_id": "test_bulletin",
+      "organization_id": "test_organization",
+      "trace_string": "test_context",
+      "bulletin_type": "event"
+    },
+    "data": {
+      "freg_identifier": "01234567890",
+      "name": "Test Testersen"
+    }
+  },
+  "mml_dummy":
+  {
+    "attributes": {
+      "bulletin_id": "test_bulletin",
+      "organization_id": "test_organization",
+      "trace_string": "test_context",
+      "bulletin_type": "search"
+    },
+    "data": {
+      "hits": 1000,
+      "path": "test/path/"
+    }
+  }
+}

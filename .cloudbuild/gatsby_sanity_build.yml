@@ -1,0 +1,44 @@
+steps:
+  - name: 'node:$_NODE_VERSION'
+    id: yarn_install
+    entrypoint: 'ash'
+    args: 
+      - '-c'
+      - |
+        apk add --no-cache make automake autoconf libtool libpng libpng-dev g++ nasm
+        yarn --cwd $_DIR install
+
+  - name: 'node:$_NODE_VERSION'
+    id: 'gatsby_build'
+    entrypoint: 'yarn'
+    args: ['--cwd', '$_DIR', 'build']
+    env: 
+      - 'CI=$_SUPPRESS_OUTPUT'
+      - 'SANITY_DATASET=$_SANITY_DATASET'
+      - 'SANITY_PROJECT_ID=$_SANITY_PROJECT_ID'
+      - 'GATSBY_DEPLOY_ENVIROMENT=$_BUILD_ENV'
+    secretEnv:
+      - 'SANITY_TOKEN'
+
+  - name: 'node:$_NODE_VERSION'
+    id: firebase_deploy
+    entrypoint: 'ash'
+    args: 
+      - '-c'
+      - |
+        cd $_DIR
+        apk add --no-cache python3
+        npm install -g firebase-tools
+        firebase deploy --project=$_FIREBASE_PROJECT_ID --token=$$FIREBASE_TOKEN
+    secretEnv:
+      - 'FIREBASE_TOKEN'
+
+timeout: 900s
+
+availableSecrets:
+  secretManager:
+    - versionName: projects/innbyggerkontakt-dev/secrets/firebase_ci_login_token/versions/latest
+      env: FIREBASE_TOKEN
+    - versionName: projects/innbyggerkontakt-dev/secrets/sanity_api_token/versions/latest 
+      env: SANITY_TOKEN
+

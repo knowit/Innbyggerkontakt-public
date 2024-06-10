@@ -1,0 +1,18 @@
+@use '../../../styles/screen-schemes/default' as screen;
+.createNew {
+  display: flex;
+  column-gap: 10rem;
+  padding-top: 1.75rem;
+  @media screen and (screen.$mq-submedium) {
+    display: flex;
+    flex-direction: column;
+  }
+  @media screen and (screen.$mq-subsmall) {
+    margin-left: 4.75rem;
+  }
+
+  form {
+    width: 100%;
+    max-width: 50rem;
+  }
+}

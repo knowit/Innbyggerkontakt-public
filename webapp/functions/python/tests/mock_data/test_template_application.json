@@ -1,0 +1,28 @@
+{
+  "name": "navn på template",
+  "html_part": "Html content",
+  "local_variables": [
+    "name"
+  ],
+  "global_variables": [
+    {
+      "variable_name": "HTMLtest"
+    },
+    {
+      "variable_name": "content"
+    },
+    {
+      "variable_name": "image"
+    },
+    {
+      "variable_name": "image_alt"
+    },
+    {
+      "variable_name": "textblocks"
+    },
+    {
+      "variable_name": "title"
+    }
+  ],
+  "mailjet_template": 1455992
+}

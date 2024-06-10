@@ -1,0 +1,51 @@
+@use 'styles/color-schemes/default' as colors;
+
+.polygonMap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-height: 700px;
+    &--selfCenter {
+        align-self: flex-start;
+    }
+    &__map {
+        flex-grow: 1;
+        &.static {
+            position: static;
+        }
+        &.relative {
+            position: relative;
+        }
+        &--background {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            flex-grow: 1;
+            background-color: white;
+            padding: 1rem;
+        }
+    }
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &__hidden {
+        display: none;
+    }
+
+    &__fullscreen {
+        min-height: auto;
+    }
+
+    &__error {
+        margin-bottom: 1rem;
+        text-align: center;
+        color: colors.$error;
+    }
+}
+.polygon_map__button {
+    background-color: colors.$bright-blue !important;
+    color: white !important;
+}

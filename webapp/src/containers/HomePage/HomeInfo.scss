@@ -1,0 +1,21 @@
+@use '../../styles/color-schemes/default' as color;
+@use '../../styles/screen-schemes/default' as screen;
+@use '../../styles/functions';
+@use '../../styles/index.scss';
+
+.overviewMeny {
+  @include index.sideMenu();
+  margin-right: 0;
+  @media screen and (screen.$mq-subsmall) {
+    width: auto;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: color.$light-light-light-blue;
+    border-radius: 0 0 20px 0;
+    padding: 0 1rem;
+    min-width: 0;
+    z-index: 10;
+  }
+}

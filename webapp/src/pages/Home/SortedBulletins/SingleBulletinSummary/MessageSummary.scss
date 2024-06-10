@@ -1,0 +1,89 @@
+@use "styles/color-classes";
+
+.summaryBox {
+  @include color-classes.summary_box();
+
+  border-radius: 1px;
+
+  max-width: 900px;
+  border-radius: 13px;
+  width: fit-content;
+  height: fit-content;
+  padding: 20px;
+  padding-top: 20px;
+  .regular11 {
+    width: 200px;
+    line-height: 24px;
+  }
+  .flexWrapperNoSpace {
+    .wrapperContent {
+      .regular11 {
+        margin-top: 15px;
+      }
+    }
+  }
+  .regular11 .gray {
+    margin-top: 30px;
+  }
+
+  .wrapper {
+    display: inline-flex;
+  }
+
+  .wrapperHorizontal {
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 100%;
+    display: flex;
+  }
+}
+
+.messageSummary {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.flexWrapperNoSpace,
+.flexWrapper {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  h2 {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .imageLarge {
+      width: 100%;
+    }
+  }
+
+  .wrapperContent {
+    margin-left: 10px;
+    max-width: 45%;
+    flex-direction: column;
+
+    p {
+      margin-top: 0;
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    .wrapperContent {
+      max-width: 100%;
+      p {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.buttons {
+  width: 110%;
+  margin-top: 20px;
+}

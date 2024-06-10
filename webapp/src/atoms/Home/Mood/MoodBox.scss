@@ -1,0 +1,22 @@
+@use "styles/color-schemes/default" as color;
+@use "styles/functions";
+.moodItem {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.moodBoxIcon {
+  color: color.$bright-blue;
+}
+
+.horizontalDivAlign {
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+}

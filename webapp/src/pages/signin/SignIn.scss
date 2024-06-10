@@ -1,0 +1,52 @@
+@use '../../styles/index';
+@use '../../styles/screen-schemes/default' as screen;
+@use '../../styles/color-schemes/default' as color;
+
+.signIn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50%;
+  max-width: 450px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .signin__input {
+    width: 100%;
+  }
+
+  .helperText {
+    text-align: center;
+    color: color.$error;
+    font-weight: normal;
+    margin: 0.25rem 0px 0.25rem 0px;
+    gap: 5px;
+  }
+
+  .signin__button {
+    flex-basis: 50%;
+    &--wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: 100%;
+    }
+  }
+
+  @media screen and (screen.$mq-subsmall) {
+    @include index.display-breakpoint('mobile') {
+      transform: none;
+      top: 25%;
+      left: 0;
+      margin: 20px;
+      width: calc(
+        100% - 40px
+      ); // Take the entire width minus the margin on both sides
+      .inputField {
+        width: 100%;
+      }
+    }
+  }
+}

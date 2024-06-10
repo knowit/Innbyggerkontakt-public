@@ -1,0 +1,11 @@
+alembic==1.4.3
+fastapi==0.65.2
+google-cloud-firestore==2.1.1 # Not sure if this one is required here...
+mailjet_rest==1.3.3
+psycopg2-binary~=2.9.5
+pydantic==1.8.2
+requests==2.31.0
+SQLAlchemy==1.3.22
+SQLAlchemy-Utils==0.37.8
+uvicorn==0.13.4
+# packages_source/python/ # 307f5faacd8340ceac9c0226473f5e88

@@ -1,0 +1,13 @@
+@use '../../../../../../styles/color-schemes/default' as color;
+
+.internalMoving {
+  .lightBlueIngress {
+    .helpInfo {
+      color: color.$dark-bright-blue !important;
+    }
+  }
+
+  .subHeader {
+    margin: 40px 0 8px 0;
+  }
+}

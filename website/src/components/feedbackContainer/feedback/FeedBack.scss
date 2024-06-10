@@ -1,0 +1,52 @@
+// @use '../../styles/color-schemes/default' as colors;
+// @use '../../styles/functions' as functions;
+@use '../../../styles/screen-schemes/default'  as display;
+
+.feedback {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-self: center;
+    @media screen and (display.$mq-subsmall) {
+        font-size: 14px;
+        width: 90%;
+    }
+}
+
+.feedbackImage {
+    border-radius: 50%;
+    width: 190px;
+    height: 190px;
+    object-fit:cover;
+    margin: 50px;
+    @media screen and (display.$mq-subsmall) {
+        margin: 20px 0px 20px 0px;
+        width: 75px;
+        height: 75px;
+    }
+}
+
+.feedbackQuote {
+    font-size: 24px;
+    font-weight: 400;
+    width: 80%;
+    @media screen and (display.$mq-subsmall) {
+        font-size: 14px;
+        // height: auto;
+    }
+}
+.feedbackInformation {
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 20px;
+    @media screen and (display.$mq-subsmall) {
+        font-size: 14px;
+        margin-top: 10px;
+
+        // height: auto;
+    }
+}
+

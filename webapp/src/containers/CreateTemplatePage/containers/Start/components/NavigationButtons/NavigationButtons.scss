@@ -1,0 +1,9 @@
+.navigationButtonsContainer {
+    display: flex;
+    justify-content: space-between;
+
+    .navigationButton {
+        display: flex;
+        align-items: center;
+      }
+}

@@ -1,0 +1,29 @@
+@use '../../styles/screen-schemes/default'  as display;
+
+
+.salesPointContainer {
+    // scroll-snap-align: center;
+    // height: 100vh;
+    min-height: calc(100vh - 103px);
+    display: flex;
+    align-items: center;
+    @media screen and (display.$mq-subsmall) {
+        width: 90%;
+        // height: calc(100vh - 60px);
+        min-height: 100vh;
+        // margin-bottom: 50px;
+    }
+}
+
+.salesPointContent {
+    // margin-top: 100px;
+    // margin-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    @media screen and (display.$mq-subsmall) {
+        flex-direction: column;
+        height: 70%;
+        // width: 90%;
+    }
+}

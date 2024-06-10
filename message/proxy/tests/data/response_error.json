@@ -1,0 +1,15 @@
+{
+  "Errors": [
+    {
+      "ErrorIdentifier": "88b5ca9f-5f1f-42e7-a45e-9ecbad0c285e",
+      "ErrorCode": "send-0003",
+      "StatusCode": 400,
+      "ErrorMessage": "At least \"HTMLPart\", \"TextPart\" or \"TemplateID\" must be provided.",
+      "ErrorRelatedTo": [
+        "HTMLPart",
+        "TextPart"
+      ]
+    }
+  ],
+  "Status": "error"
+}

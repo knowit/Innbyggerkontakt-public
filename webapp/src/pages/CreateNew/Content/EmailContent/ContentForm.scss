@@ -1,0 +1,124 @@
+@use 'styles/color-schemes/default' as colors;
+@use 'styles/index.scss';
+@use 'styles/screen-schemes/default' as screen;
+
+.contentFormFields {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 2em;
+  max-width: 1024px;
+
+  &--blue {
+    > .componentInForm input {
+      @include index.secondaryFieldBorders;
+      &:focus {
+        border-color: colors.$dark-bright-blue;
+        border-width: 2px;
+      }
+      &:focus-within {
+        border-color: colors.$dark-bright-blue;
+        border-width: 2px;
+      }
+    }
+  }
+
+  &__elements {
+    > div {
+      margin-top: 0.5rem;
+    }
+
+    &--condensed {
+      width: 100%;
+      margin: 0 auto !important;
+
+      @media screen and (screen.$mq-small) {
+        width: 75%;
+      }
+    }
+
+    &--invalid {
+      > p {
+        color: colors.$error;
+      }
+
+      .formInput,
+      .editorComponent {
+        border: 1px solid colors.$error !important;
+      }
+    }
+
+    .display--extraspacing {
+      margin-top: 3.5rem;
+    }
+
+    .lightBlueBackground {
+      padding: 0 2.5rem 2.5rem 2.5rem;
+      margin-top: 2.5rem;
+      width: calc(100% - 80px);
+
+      input {
+        border: 1px solid colors.$light-bright-blue;
+      }
+    }
+  }
+
+  .checkbox {
+    padding-top: 10px;
+    margin-bottom: -10px;
+    .checkbox-label {
+      font-weight: 500;
+    }
+  }
+
+  .editorComponent {
+    min-height: 10px !important;
+  }
+
+  .imageUploaderInForm {
+    min-height: 230px !important;
+  }
+
+  .controlInputInForm {
+    .fieldComponent {
+      padding: 20px 0;
+    }
+  }
+
+  .buttonLineContainer {
+    margin-top: 2.5rem;
+  }
+}
+
+.labelIcon {
+  fill: colors.$bright-blue;
+  margin-right: 0.5rem;
+}
+
+.innhold__title > div {
+  padding-top: 2.5rem;
+}
+.contentFormFields > * {
+  flex-grow: 0;
+}
+
+.contentTitle {
+  margin-bottom: 50px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.addLanguage {
+  margin-left: 40px;
+}
+
+.hide {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.SMSContent {
+  max-width: 50rem;
+  width: 100%;
+}

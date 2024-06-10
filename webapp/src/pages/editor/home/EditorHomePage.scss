@@ -1,0 +1,12 @@
+@use "../../../styles/index.scss";
+
+.editorHomePage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1.75rem;
+
+    .sideMenu {
+        @include index.sideMenu();
+    }
+}

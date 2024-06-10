@@ -1,0 +1,45 @@
+@use './../../../../styles/index.scss';
+@use './../../../../styles/color-schemes/default' as colors;
+@use './../../../../styles/font-classes';
+
+.wrappedDateInput {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include index.defaultField;
+  @include index.secondaryFieldBorders;
+  width: 100%;
+  padding: 15px 24px;
+
+  input {
+    margin: 0 !important;
+    @include font-classes.regular18();
+    color: colors.$black;
+  }
+
+  .calendarIcon {
+    position: absolute;
+    right: 10px;
+    padding-right: 10px;
+    fill: colors.$light-bright-blue;
+  }
+
+  .datePlaceholderText {
+    position: absolute;
+    min-width: 100px;
+    max-width: 300px;
+    padding-right: 20px;
+    @include font-classes.regular18();
+    color: colors.$gray-text;
+  }
+
+  &:focus-within {
+    .calendarIcon {
+      display: none;
+    }
+    .datePlaceholderText {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@use '../../styles/color-schemes/_default' as color;
+@use '../../styles/color-classes';
+@use '../../styles/font-classes';
+
+
+.page-not-found {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-content: center;
+    margin-top: 19.25rem;
+
+    &__content {
+        justify-self: end;
+        margin-right: 0.5rem;
+        display: grid;
+    }
+
+    &__heading {
+
+        &--h1 {
+            @include font-classes.h1();
+            @include font-classes.regular18();
+            color: color.$dark-bright-blue;
+            margin-bottom: 0.5rem;
+        }
+
+        &--h2 {
+            @include font-classes.h2();
+            @include font-classes.bold48();
+            color: color.$dark-bright-blue;
+            line-height: 62px;
+            margin-bottom: 0.5rem;
+        }
+
+        &--h3 {
+            @include font-classes.h3();
+            @include font-classes.semibold24();
+            color: color.$bright-blue;
+            line-height: 32px;
+            margin-bottom: 7rem;
+        }
+
+    }
+
+    &__illustration {
+        height: 400px;
+        margin-left: -4rem;
+    }
+
+    &__navigation-button {
+        @include color-classes.btn_secondary();
+        @include font-classes.medium14();
+        align-self: end;
+
+        // Keeping the chevron and the text center aligned
+        display: flex;
+        align-items: center;
+    }
+}

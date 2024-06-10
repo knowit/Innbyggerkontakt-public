@@ -1,0 +1,140 @@
+@use 'styles/color-schemes/default' as color;
+@use 'styles/font-schemes/default' as fonts;
+@use 'styles/screen-schemes/default' as screen;
+@use 'styles/color-classes';
+
+.basedOnBulletin {
+  &--active {
+    background-color: color.$bright-blue;
+    border-color: color.$bright-blue;
+    div {
+      color: color.$white;
+    }
+    .listObjectTag {
+      color: color.$white;
+    }
+    &:hover {
+      background-color: color.$bright-blue;
+      border-color: color.$bright-blue;
+    }
+  }
+}
+
+.searchInput {
+  margin: 1rem 0;
+
+  .formInput {
+    @include color-classes.form_input();
+    padding: 15px !important;
+  }
+  .formInput::placeholder {
+    font-weight: fonts.$light;
+  }
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @media screen and (screen.$mq-small) {
+    flex-direction: row;
+  }
+
+  &__filters {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    p {
+      font-weight: fonts.$medium;
+    }
+  }
+
+  &__counter {
+    background-color: color.$light-blue-transparent;
+    color: color.$dark-bright-blue;
+    font-weight: fonts.$medium;
+    padding: 3px 10px;
+    border-radius: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    height: fit-content;
+    width: fit-content;
+  }
+
+  &__date {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+
+    @media screen and (screen.$mq-small) {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    .separator {
+      display: none;
+
+      @media screen and (screen.$mq-small) {
+        display: inline;
+      }
+    }
+
+    > div {
+      padding: 0;
+    }
+
+    > p {
+      margin-top: 1.75rem; // estimated
+    }
+  }
+}
+
+.search__notFoundMessage {
+  grid-column: 1/-1; // span all grid columns
+  text-align: center;
+}
+
+.search__headerContainer {
+  width: 100%;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 53px;
+  padding: 1rem 0;
+
+  .searchInput {
+    width: 90%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .search__resetButton {
+    white-space: nowrap;
+    height: 100%;
+
+    /* some modifications to the button from the design system... */
+    span {
+      display: flex;
+      margin: 0;
+      gap: 0.75rem;
+
+      > svg {
+        margin: 0;
+      }
+    }
+  }
+}

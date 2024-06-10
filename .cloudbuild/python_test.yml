@@ -1,0 +1,38 @@
+steps:
+  - name: 'python:3.10-slim'
+    id: venv
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        python -m venv env
+  - name: 'python:3.10-slim'
+    id: pip
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        source /workspace/env/bin/activate
+        python -m pip install --upgrade pip
+  - name: 'python:3.10-slim'
+    dir: $_DIR
+    id: Test
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        source /workspace/env/bin/activate
+
+        # Check if variable is set and if it matches
+        if [[ -v PYTHON_PIP_QUIET_INSTALL && "$$PYTHON_PIP_QUIET_INSTALL" == "true" ]]
+        then
+          pip install --quiet --upgrade -r requirements_test.txt
+          pip install --quiet pytest pytest-tldr pytest-clarity pytest-cov
+        else
+          pip install --upgrade -r requirements_test.txt
+          pip install pytest pytest-tldr pytest-clarity pytest-cov
+        fi
+
+        pytest -vv
+    env:
+      - 'PYTHON_PIP_QUIET_INSTALL=$_PIP_QUIET'

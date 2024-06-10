@@ -1,0 +1,191 @@
+[tool.poetry]
+name = "otel_setup"
+version = "0.2.3"
+description = ""
+authors = ["Anders Steen <anders.steen@knowit.no>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+Flask = "^2.0.2"
+requests = "^2.2.1"
+opentelemetry-exporter-gcp-trace="~1.3.0"
+opentelemetry-instrumentation-flask="~0.34b0"
+opentelemetry-instrumentation-requests="~0.34b0"
+opentelemetry-propagator-gcp="~1.3.0"
+opentelemetry-sdk="^1.13"
+functions-framework = "^3.1.0"
+
+# [[tool.poetry.source]]
+# name="google"
+# url = "https://europe-west3-python.pkg.dev/innbyggerkontakt-dev/ik-python-repo/simple/"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.1.2"
+tox = "^3.25.1"
+twine = "^4.0.1"
+"keyrings.google-artifactregistry-auth" = "^1.0.0"
+
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-dev-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt-dev/ik-python-repo/"
+default = false
+secondary = true
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt/ik-python-repo/"
+default = false
+secondary = true
+
+[build-system]
+requires = ["poetry-core==1.1.0b3"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+skip-string-normalization = 1
+
+[tool.flakeheaven]
+jobs = "1"
+baseline = "baseline.txt"
+format = "colored"
+show_source = true
+# 80 chars aren't enough in 21 century
+# Also black should take care of this.
+max_line_length = 121
+max-line-length = 99
+# show line of source code in output
+
+# From old .flake8 file
+# Prefere max cognitive complexity and relax mccabe complexity
+max_cognitive_complexity = 7
+max_complexity = 13
+# extend_immutable_calls = ["fastapi.Header, fastapi.Depends"]
+rcfile = "pylintrc"
+exclude = [
+    "__pycache__",
+    ".venv",
+    ".pytest_cache",
+    ".git",
+    "website",
+    "cache",
+    "env",
+    "build",
+    "node_modules",
+    "*/migration/versions/*.py",
+    #  ====Default from flake8===
+    ".svn",
+    "CVS",
+    ".bzr",
+    ".hg",
+    ".git",
+    "__pycache__",
+    ".tox",
+    ".nox",
+    ".eggs",
+    "*.egg",
+    #  ====Default from flake8===
+]
+
+[tool.flakeheaven.plugins]
+flake8-bugbear = ["+*", "-B008"]
+pycodestyle = [
+    "+*",
+    "-E501",
+    "-W505",
+    "-E201",
+    "-W503",
+    "-E121",
+    "-E123",
+    "-E126",
+    "-E704",
+    "-E133",
+]
+pyflakes = ["+*"]
+mccabe = ["+C901"]
+flake8-quotes = ["+*"]
+flake8-simplify = ["+*"]
+flake8-cognitive-complexity = ["+*"]
+flake8-docstrings = ["+*", "-D107", "-D106"]
+pylint = [
+    "+*",
+    "-C0116", # missing-function-docstring
+    "-C0200", # consider-using-enumerate
+    "-C0301", # line-too-long - black and flake8 takes care of this
+    "-C0305", # trailing-newlines
+    "-C0411", # wrong-import-order
+    "-E0012", # bad-option-value
+    "-E0401", # import-error
+    "-E0611", # no-name-in-module
+    "-E1101", # no-member
+    "-I0001", # raw-checker-failed
+    "-I0010", # bad-inline-option
+    "-I0011", # locally-disabled
+    "-I0013", # file-ignored
+    "-I0020", # suppressed-message
+    "-I0021", # useless-suppression
+    "-I0022", # deprecated-pragma
+    "-I0023", # use-symbolic-message-instead
+    "-I1101", # c-extension-no-member
+    "-R0201", # no-self-use
+    "-R0205", # useless-object-inheritance
+    "-R0801", # duplicate-code
+    "-R0901", # too-many-ancestors
+    "-R0902", # too-many-instance-attributes
+    "-R0903", # too-few-public-methods
+    "-R0904", # too-many-public-methods
+    "-R0911", # too-many-return-statements
+    "-R0912", # too-many-branches
+    "-R0913", # too-many-arguments
+    "-R0914", # too-many-locals
+    "-R0915", # too-many-statements
+    "-R0916", # too-many-boolean-expressions
+    "-R1702", # too-many-nested-blocks
+    "-R1705", # no-else-return
+    "-R1710", # inconsistent-return-statements
+    "-R1720", # no-else-raise
+    "-R1723", # no-else-break
+    "-R1724", # no-else-continue
+    "-W0107", # unnecessary-pass
+    "-W0120", # useless-else-on-loop
+    "-W0201", # attribute-defined-outside-init
+    "-W0221", # arguments-differ
+    "-W0222", # signature-differs
+    "-W0223", # abstract-method
+    "-W0232", # no-init
+    "-W0406", # import-self
+    "-W0511", # fixme
+    "-W0603", # global-statement
+    "-W1404", # implicit-str-concat
+    "-E1123",
+    "-E1102",
+    "-C0415", # import-outside-toplevel
+    "-C0103"  # invalid-name
+    ]
+
+
+# match by glob
+[tool.flakeheaven.exceptions."*test_*.py"]
+pylint = ["-*"]
+flake8-docstrings = ["-*"]
+
+[tool.flakeheaven.exceptions."webapp/functions/python/main.py"]
+flake8-docstrings = ["-D103"]
+
+[tool.flakeheaven.exceptions."webapp/functions/python/gcp/*.py"] #theese will have to be fixed lated
+flake8-docstrings = ["-*"]
+
+[tool.flakeheaven.exceptions."webapp/functions/python/firebase/*"] #theese will have to be fixed lated
+flake8-docstrings = ["-*"]
+
+#  hacking = ["+*"] not compatible with flake 8 v 4.0.1
+[tool.isort]
+known_first_party = ["freg_config", "models", "services"]
+known_local_folder = ["freg_config", "services", "models"]
+lines_after_imports = 2
+profile = "black"
+
+[tool.pytest.ini_options]
+filterwarnings = ["error", "ignore:.*You should use InstrumentationScope.*:DeprecationWarning"]

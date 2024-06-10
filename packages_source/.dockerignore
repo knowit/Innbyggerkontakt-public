@@ -1,0 +1,6 @@
+# Ignore everything
+*
+
+# Except these
+!python/innbyggerkontakt
+!python/setup.py

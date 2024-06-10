@@ -1,0 +1,45 @@
+//Farger fra figma designsystem
+$background: #f2fffc;
+
+
+//Primary
+$bright-green: #1dd19d;
+$darker-green: #16a078;
+$primary-border: rgba(#128664, 0.5);
+$primary: #128664; //even-darker-green
+$darkest-green: #095f46;
+
+//Secondary
+$light-blue-transparent: rgba(134, 188, 255, 0.2);
+$light-light-blue: #b0d3ff;
+$light-blue: #86bcff;
+$light-bright-blue: #4392f4;
+$bright-blue: #0e72ed; // bright-blue
+$dark-bright-blue: #0853b0;
+$dark-blue: #052b58;
+$darkest-blue: #031934;
+
+//Tertiary
+$bright-yellow: #f3a310;
+$darker-yellow: #c8850a;
+$darkest-yellow: #a46a00;
+
+//Other
+$error: #e8582d;
+$black: #0a0a0a;
+$white: #ffffff;
+
+$gray-text: #666666;
+$gray-border: #898989;
+$gray-inactive: #c5ccd3;
+$gray-transparent: rgba(137, 137, 137, 0.2);
+$border-shadow: #00000029;
+$transparent: rgba($white, 0);
+
+
+//under skal fjernes
+$tertiary: $background;
+$tertiary-clicked: #fef8ed;
+$datepicker-select-and-day-background: #f2fffc;
+$datepicker-border-color: #00000029;
+$datepicker-overall-background-color: #ffffff;

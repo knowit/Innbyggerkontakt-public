@@ -1,0 +1,37 @@
+@use '../../styles/index';
+@use '../../styles/color-schemes/default' as color;
+
+.choiceSlider {
+  @include index.fieldComponent();
+  resize: none;
+  .choiceSliderButtons {
+    display: flex;
+    .choiceButton {
+      border: 1px solid color.$bright-blue;
+      border-left: 0;
+      background-color: color.$background;
+      color: color.$bright-blue;
+      border-radius: 0;
+      $slider-broder-radius: 4px;
+      min-width: 100px;
+      &:first-child {
+        border-left: 1px solid color.$bright-blue !important;
+        border-top-left-radius: $slider-broder-radius;
+        border-bottom-left-radius: $slider-broder-radius;
+      }
+
+      &:last-child {
+        border-radius: 0 $slider-broder-radius $slider-broder-radius 0;
+      }
+
+      &.activeChoiceButton {
+        background-color: color.$bright-blue;
+        color: color.$background;
+      }
+    }
+
+    button {
+      font-size: 16px;
+    }
+  }
+}

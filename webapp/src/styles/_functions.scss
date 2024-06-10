@@ -1,0 +1,60 @@
+@mixin setColors($background, $text, $border) {
+  background-color: $background;
+  color: $text;
+  border-color: $border;
+}
+
+@mixin setFonts($font-family) {
+  font-family: $font-family;
+}
+
+@mixin setOutline($color) {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: $color;
+}
+
+@mixin setFontSize($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+  font-style: normal;
+}
+
+@mixin removeOutline() {
+  outline-width: 0px;
+  outline-color: black;
+  outline-style: none;
+  outline-offset: 0;
+}
+
+@mixin setFromOutline() {
+  $breaking-height: 800px;
+  height: 100%;
+  width: 80%;
+
+  @media screen and (max-width: 48em) {
+    height: 75vh;
+    width: 100%;
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@mixin setFromOutlinePassword() {
+  $breaking-height: 800px;
+  @media (min-height: $breaking-height) {
+    height: 80vh;
+  }
+
+  @media (max-height: $breaking-height) {
+    .buttonLineContainer {
+      margin-top: 50px;
+    }
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}

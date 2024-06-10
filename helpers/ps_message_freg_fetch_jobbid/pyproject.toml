@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "ps-message-freg-fetch-jobbid"
+version = "0.1.4"
+description = ""
+authors = ["Anders Steen <anders.steen@knowit.no>"]
+readme = "README.md"
+packages = [{include = "ps_message"}]
+
+[tool.poetry.dependencies]
+python = "^3.7.2" # Wish we coud upgrade 😥. but used in webapp/functions
+cloud-event-model = "^0.1.4"
+freg-models = "^0.1.1"
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-dev-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt-dev/ik-python-repo/"
+default = false
+secondary = true
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt/ik-python-repo/"
+default = false
+secondary = true
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-dev-artifact-simple"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt-dev/ik-python-repo/simple/"
+default = false
+secondary = false
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-artifact-simple"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt/ik-python-repo/simple/"
+default = false
+secondary = false
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.1.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

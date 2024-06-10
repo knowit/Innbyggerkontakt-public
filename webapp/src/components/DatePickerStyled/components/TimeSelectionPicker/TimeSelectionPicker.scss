@@ -1,0 +1,42 @@
+@use './../../../../styles/color-schemes/default' as color;
+@use './../../../../styles/font-classes';
+.MuiFormControl-root {
+  padding-top: 10px;
+}
+
+.MuiFormControl-root .MuiInputBase-root {
+  background-color: white;
+  fieldset {
+    border: 1px solid color.$bright-blue;
+  }
+  input {
+    @include font-classes.regular18();
+    color: color.$black;
+  }
+}
+
+.MuiOutlinedInput-root {
+  border-radius: 2px;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: color.$dark-bright-blue;
+  border-width: 2px;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: color.$bright-blue;
+  border-width: 1px;
+}
+
+.MuiOutlinedInput-inputAdornedEnd {
+  padding-left: 24px;
+}
+
+.MuiInputAdornment-root button {
+  margin-right: 2px;
+}
+
+.MuiIconButton-sizeMedium svg {
+  color: color.$light-bright-blue;
+}

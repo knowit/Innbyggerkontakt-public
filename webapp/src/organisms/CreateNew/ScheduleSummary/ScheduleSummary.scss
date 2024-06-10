@@ -1,0 +1,64 @@
+@use 'styles/color-schemes/default' as colors;
+@use 'styles/screen-schemes/default' as screen;
+@use 'styles/color-classes';
+@use 'styles/font-classes';
+
+.dateSelection {
+  width: 100%;
+  .controller {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .controller > * {
+    flex-grow: 0;
+    flex-basis: 25%;
+  }
+}
+
+.schedule-summary {
+  flex-direction: column;
+  color: colors.$dark-bright-blue;
+
+  @media screen and (screen.$mq-small) {
+    flex-direction: row;
+  }
+
+  &__textContent {
+    flex: 3;
+    display: inline-flex;
+    align-items: center;
+    @media screen and (screen.$mq-submedium) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__icon {
+    padding-left: 16px;
+    padding-right: 24px;
+    fill: colors.$bright-blue;
+    font-size: 2rem;
+  }
+
+  &__send-time {
+    @include font-classes.semibold24();
+    margin-bottom: 0.5rem;
+  }
+
+  &__help-text {
+    @include font-classes.regular14();
+    width: 90%;
+  }
+
+  &__calendar-button {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    margin-left: 2rem;
+  }
+
+  &__date-container {
+    flex: 4;
+    padding-left: 1rem;
+  }
+}

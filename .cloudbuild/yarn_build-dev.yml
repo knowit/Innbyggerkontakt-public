@@ -1,0 +1,140 @@
+steps:
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:alpine
+    id: DownloadYarnCache
+    dir: $_DIR
+    entrypoint: ash
+    args:
+      - '-c'
+      - |
+        branch_name=$$(echo "$BRANCH_NAME" | sed -e 's/\//_/g' )
+        yarn_hash=$$(git hash-object yarn.lock)
+
+        gsutil -q stat gs://$PROJECT_ID-yarn-cache/$$branch_name-$$yarn_hash.tar.zstd
+
+        if [ $$? -eq 0 ]
+        then
+          echo "Cache hit => $$branch_name-$$yarn_hash.tar.zstd"
+          echo "Downloading cache"
+          apk add --no-cache --quiet zstd tar
+          gsutil -q cp gs://$PROJECT_ID-yarn-cache/$$branch_name-$$yarn_hash.tar.zstd .
+          unzstd $$branch_name-$$yarn_hash.tar.zstd --stdout | tar -xf -
+        else
+          echo "Cache miss => $$branch_name-$$yarn_hash.tar.zstd"
+        fi
+
+  - name: 'node:$_NODE_VERSION'
+    id: YarnInstall
+    dir: $_DIR
+    entrypoint: 'yarn'
+    args: ['install', '--frozen-lockfile', '--network-timeout', '1000000']
+
+  - name: 'node:$_NODE_VERSION'
+    id: YarnLintCI
+    dir: $_DIR
+    entrypoint: 'ash'
+    args:
+      - '-c'
+      - |
+        yarn lint:ci
+
+        lint_status=$$?
+
+        if test -s "lint-ci.txt"
+        then
+          apk add --no-cache --quiet jq curl
+
+          pr_response=$$( \
+            curl \
+                -L \
+                -H 'Accept: application/vnd.github.v3+json' \
+                -X GET "https://api.github.com/repos/$_GH_OWNER/$REPO_NAME/pulls/$_PR_NUMBER" \
+                -u $_GH_USER:$$GH_API_KEY \
+          )
+
+          if [ $$(echo $$pr_response | jq length) -eq 0 ]
+          then
+            echo "No PR found to update"
+          else
+            pr_comment_url=$$(echo $$pr_response | jq -r "._links.comments.href")
+
+            echo "comments url: $$pr_comment_url"
+
+            # create sanitized input for github by first escaping backslashed and then another pass escaping newlines
+            # Sed is magic, don't ask, trust me, don't ask.
+            lint_result_json=$$(printf "{\n\"body\": \"<pre>\\\n%s\\\n</pre>\"\n}" "$$(sed -e 's/\\/\\\\/g' lint-ci.txt | sed ':a;N;$!ba;s/\n/\\n/g' | sed 's/"/\\"/g')")
+
+            echo "linting result: $$lint_result_json"
+
+            curl \
+                -L \
+                -H 'Accept: application/vnd.github.v3+json' \
+                -H 'Content-Type: application/json' \
+                -X POST $$pr_comment_url \
+                -d "$$lint_result_json" \
+                -u $_GH_USER:$$GH_API_KEY
+          fi
+
+        fi
+        exit $$lint_status
+    secretEnv:
+      - 'GH_API_KEY'
+
+  - name: 'node:$_NODE_VERSION'
+    id: TSCCompileCI
+    dir: $_DIR
+    entrypoint: 'ash'
+    args:
+      - '-c'
+      - |
+        yarn compile:ci | tee tsc-ci.txt
+
+        if [ $$? -eq 0 ]
+        then
+          echo "No errors during compilation!"
+          exit 0
+        else
+          echo "Errors during compilation!"
+          apk add --no-cache --quiet jq curl
+
+          pr_response=$$( \
+            curl \
+                -L \
+                -H 'Accept: application/vnd.github.v3+json' \
+                -X GET "https://api.github.com/repos/$_GH_OWNER/$REPO_NAME/pulls/$_PR_NUMBER" \
+                -u $_GH_USER:$$GH_API_KEY \
+          )
+
+          if [ $$(echo $$pr_response | jq length) -eq 0 ]
+          then
+            echo "No PR found to update"
+          else
+            pr_comment_url=$$(echo $$pr_response | jq -r "._links.comments.href")
+
+            echo "comments url: $$pr_comment_url"
+
+            # create sanitized input for github by first escaping backslashed and then another pass escaping newlines
+            # Sed is magic, don't ask, trust me, don't ask.
+            compile_result_json=$$(printf "{\n\"body\": \"<pre>\\\n%s\\\n</pre>\"\n}" "$$(sed '1,2d;$d' tsc-ci.txt | sed -e 's/\\/\\\\/g' | sed ':a;N;$!ba;s/\n/\\n/g' | sed 's/"/\\"/g')")
+
+            echo "compile result: $$compile_result_json"
+
+            curl \
+                -L \
+                -H 'Accept: application/vnd.github.v3+json' \
+                -H 'Content-Type: application/json' \
+                -X POST $$pr_comment_url \
+                -d "$$compile_result_json" \
+                -u $_GH_USER:$$GH_API_KEY
+          fi
+
+          exit 1
+        fi
+    secretEnv:
+      - 'GH_API_KEY'
+
+timeout: 900s
+
+availableSecrets:
+  secretManager:
+    - versionName: projects/innbyggerkontakt-dev/secrets/GITHUB_ACCESS_TOKEN/versions/latest
+      env: GH_API_KEY

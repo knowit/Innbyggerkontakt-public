@@ -1,0 +1,44 @@
+{
+  "name": "test",
+  "kommunenummer": "0000",
+  "status": "active",
+  "recipients": {
+    "matrikkel_map": [
+      {
+        "polygoner": "[{\"type\":\"Feature\",\"properties\":{},\"geometry\":{\"type\":\"Polygon\",\"coordinates\":[[[7.951179572396812,58.16436823586303],[7.956317677619063,58.155427179484406],[7.97690281200238,58.156727086081105],[7.9697451809449085,58.164765243800744],[7.951179572396812,58.16436823586303]]]}}]",
+        "fritidsbolig": true
+      }
+    ]
+  },
+  "content": {
+    "from": {
+      "name": "Test",
+      "email": "test@test.no"
+    },
+    "contentInLanguage": [
+      {
+        "language": "nb",
+        "subject": "test",
+        "variables": {
+          "HTMLtest": "test",
+          "content": "test",
+          "image": "test",
+          "image_alt": "test",
+          "textblocks": "test",
+          "title": "test"
+        }
+      }
+    ],
+    "defaultLanguage": "nb"
+  },
+  "execution": {
+    "datetime": "2020-08-11T08:00:00+02:00",
+    "type": "instant",
+    "active": true
+  },
+  "templateApplicationId": "test_template_application",
+  "templateApplicationStyleId": "default",
+  "sandboxMode": false,
+  "lastChangedBy": "client",
+  "type": "search"
+}

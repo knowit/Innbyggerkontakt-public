@@ -1,0 +1,41 @@
+@use '../../../styles/color-schemes/default' as colors;
+@use '../../../styles/screen-schemes/default'  as display;
+
+.salesPoint {
+    width: 21%;
+    text-align: center;
+    @media screen and (display.$mq-subsmall) {
+        display: flex;
+        width: 100%;
+        text-align: left;
+    }
+}
+
+.spImage {
+    height: 250px;
+    @media screen and (display.$mq-subsmall) {
+        height: 120px;
+    }
+}
+
+.spInformation {
+    margin-left: 10px;
+}
+
+.spHeading {
+    font-weight: 600;
+    font-size: 24px;
+    color: colors.$dark-blue;
+    @media screen and (display.$mq-subsmall) {
+        padding: 0px;
+        margin: 0px;
+        font-size: 18px;
+    }
+}
+
+.spText {
+    font-size: 18px;
+    @media screen and (display.$mq-subsmall) {
+        font-size: 14px;
+    }
+}

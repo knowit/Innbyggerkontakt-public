@@ -1,0 +1,85 @@
+@use 'styles/color-schemes/default' as colors;
+
+.drawmap_container {
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 5rem);
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.drawmap__button {
+  position: absolute;
+  pointer-events: auto;
+
+  &__first {
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+
+  &__second {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  &__third {
+    bottom: 1.5rem;
+    left: 1.5rem;
+  }
+
+  &__zoomIn {
+    bottom: 5rem;
+    right: 1.5rem;
+    padding: 0.5rem !important;
+  }
+
+  &__zoomOut {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 0.5rem !important;
+  }
+
+  &__cancel {
+    bottom: 1.5rem;
+    left: 1.5rem;
+  }
+
+  &__change {
+    bottom: 5rem;
+    right: 1.5rem;
+  }
+
+  &__delete {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  &__editback {
+    top: 4rem;
+    left: 1.5rem;
+  }
+
+  &__newstyle {
+    background-color: colors.$bright-green !important;
+    border: 1px solid colors.$bright-green !important;
+    color: colors.$black !important;
+  }
+}
+
+.drawmap_banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 1.5rem);
+  background-color: colors.$bright-green;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  color: colors.$black;
+  font-weight: bold;
+  gap: 1rem;
+}

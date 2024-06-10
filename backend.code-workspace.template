@@ -1,0 +1,68 @@
+// Copy this template and delete the `.template` in the filename.
+{
+    "folders": [
+        {
+            "path": ".",
+            "name": "ik"
+        },
+        {
+            "path": ".cloudbuild"
+        },
+        {
+            "path": "config"
+        },
+        {
+            "path": "data"
+        },
+        {
+            "path": "hooks"
+        },
+        {
+            "path": "message/message"
+        },
+        {
+            "path": "message/proxy"
+        },
+        {
+            "path": "outcome/src",
+            "name": "outcome_src"
+        },
+        {
+            "path": "packages_source/python",
+            "name": "innbyggerkontakt-util"
+        },
+        {
+            "path": "recipients"
+        },
+        {
+            "path": "slack_notifier"
+        },
+        {
+            "path": "terraform"
+        },
+        {
+            "path": "webapp/functions/python/",
+            "name": "webapp-functions"
+        },
+        {
+            "path": "webapp/cloudrun/admin/",
+            "name": "webapp-cloudrun-admin"
+        }
+    ],
+    "settings": {
+        "python.formatting.provider": "black",
+        "python.linting.enabled": true,
+        "python.linting.flake8Enabled": true,
+
+        // Needs to be set to your flake8heavend script.
+        // Install with `pip install flakeheaven` and Run `where flake8heavened to find correct path
+        "python.linting.flake8Path": "${workspaceFolder}/.venv/bin/flake8heavened",
+
+        "python.linting.flake8Args": [
+            // This allows local flake8 to show all errors.
+            // Remove theese args to only show new flake8-errors, same as cloudbuild will see.
+            "--baseline",
+            ""
+        ]
+    }
+}

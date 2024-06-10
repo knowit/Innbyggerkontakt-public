@@ -1,0 +1,9 @@
+.postalCodeSelector{
+  .fieldComponent .dropdownInForm, .inputDropdownComponent .dropdownInForm {
+    min-height: 0 !important;
+  }
+
+  .choiceSliderPostalcode{
+    padding-top: 30px;
+  }
+}

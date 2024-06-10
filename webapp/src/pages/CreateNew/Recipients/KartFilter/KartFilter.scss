@@ -1,0 +1,46 @@
+.withPolygon {
+  &__button {
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+.withoutPolygon {
+  display: grid;
+  justify-content: center;
+  grid-row-gap: 40px;
+}
+
+.mapOwnerType {
+  margin-bottom: 24px;
+}
+
+.recipientItemContent--relative {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.displayNone {
+  display: none;
+}
+
+.kartFilter {
+  &__mapWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    &--wrap {
+      display: flex;
+      gap: 2rem;
+
+    }
+}
+
+}

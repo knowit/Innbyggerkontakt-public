@@ -1,0 +1,1 @@
+from delete_mailjet_contacts.mailjet import get_contact_ids, run_auto_delete

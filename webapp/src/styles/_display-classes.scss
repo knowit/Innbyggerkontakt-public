@@ -1,0 +1,189 @@
+@use './screen-schemes/default' as screen;
+@use './color-schemes/default' as color;
+
+@mixin breakpoint($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key(screen.$breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media (max-width: map-get(screen.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys(screen.$breakpoints)}.";
+  }
+}
+
+@media screen and (screen.$mq-subsmall) {
+  .right {
+    display: none;
+  }
+  .rightSmall {
+    display: inline-block;
+    .navbarDropdown {
+      position: absolute;
+      right: 0;
+      z-index: -10;
+      top: 60px;
+      width: 100%;
+      background-color: color.$dark-blue;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      box-shadow: 0px 4px 8px -2px rgba(0, 0, 0, 0.25);
+
+      gap: 2rem;
+      padding: 1rem 0rem;
+
+      transition: all 0.3s ease-in-out;
+      transform: translateY(-100%);
+      opacity: 0;
+
+
+      .dropdownSmall {
+        align-items: center;
+        height: 44px;
+        width: fit-content;
+        display: flex;
+
+        text-decoration: none;
+        text-align: right;
+
+        * {
+          display: inline-flex;
+        }
+      }
+    }
+
+    .navbarDropdown.openMenu {
+      transform: translateY(0%);
+      z-index: 1;
+      opacity: 1;
+      pointer-events: all;
+    }
+    .navbarDropdown.closeMenu {
+      pointer-events: none;
+    }
+  }
+
+
+
+  .content {
+    width: 90%;
+  }
+
+  .horizontalDivAlign {
+    flex-wrap: wrap;
+    .indentOnWideDisplay {
+      margin-left: 0%;
+      display: flex;
+      margin-bottom: 1em;
+      * {
+        flex-grow: 1;
+      }
+    }
+    * {
+      flex-grow: 1;
+    }
+  }
+}
+
+@media screen and (screen.$mq-small) and (screen.$mq-submedium) {
+  .right {
+    display: inline-flex;
+  }
+  .rightSmall {
+    display: none;
+  }
+
+  // General content width
+  .content {
+    width: calc(min(#{screen.$bp-small}, 90%));
+  }
+
+  // ============= Home screen =============
+  .horizontalDivAlign {
+    flex-wrap: wrap;
+    .indentOnWideDisplay {
+      margin-left: 0%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1em;
+    }
+    * {
+      flex-grow: 1;
+    }
+  }
+}
+
+@media screen and (screen.$mq-medium) and (screen.$mq-sublarge) {
+  .right {
+    display: inline-flex;
+  }
+  .rightSmall {
+    display: none;
+  }
+
+  .content {
+    width: calc(min(#{screen.$bp-medium}, 90%));
+  }
+
+  .indentOnWideDisplay {
+    margin-left: 5%;
+  }
+}
+
+@media screen and (screen.$mq-large) and (screen.$mq-subxlarge) {
+  .right {
+    display: inline-flex;
+  }
+  .rightSmall {
+    display: none;
+  }
+
+  .content {
+    width: calc(min(#{screen.$bp-large}, 90%));
+  }
+
+  .indentOnWideDisplay {
+    margin-left: 5%;
+  }
+}
+
+@media screen and (screen.$mq-xlarge) and (screen.$mq-subxxlarge) {
+  .right {
+    display: inline-flex;
+  }
+  .rightSmall {
+    display: none;
+  }
+
+  .content {
+    width: calc(min(#{screen.$bp-large}, 90%));
+  }
+
+  .indentOnWideDisplay {
+    margin-left: 5%;
+  }
+}
+
+@media screen and (screen.$mq-xxlarge) {
+  .right {
+    display: inline-flex;
+  }
+  .rightSmall {
+    display: none;
+  }
+
+  .content {
+    width: calc(min(#{screen.$bp-large}, 90%));
+  }
+
+  .indentOnWideDisplay {
+    margin-left: 5%;
+  }
+}

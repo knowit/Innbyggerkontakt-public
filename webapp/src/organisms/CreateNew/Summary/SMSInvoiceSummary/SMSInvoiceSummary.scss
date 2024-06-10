@@ -1,0 +1,37 @@
+@use 'styles/font-schemes/default' as font;
+@use 'styles/color-schemes/default' as color;
+@use 'styles/screen-schemes/default' as screen;
+
+.smsInvoice {
+  box-sizing: border-box;
+
+  width: 100%;
+  height: fit-content;
+
+  display: grid;
+  justify-content: normal;
+  gap: 1rem;
+  padding: 1rem;
+  &__row {
+    /* Auto layout */
+    display: flex;
+    gap: 4rem;
+    padding: 0px;
+    width: 100%;
+    @media screen and (screen.$mq-subsmall) {
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    span {
+      flex-basis: 50%;
+      font-family: font.$font-family;
+      font-size: font.$px14;
+      font-weight: font.$regular;
+      p {
+        font-family: font.$font-family;
+        font-size: font.$px18;
+        font-weight: font.$semibold;
+      }
+    }
+  }
+}

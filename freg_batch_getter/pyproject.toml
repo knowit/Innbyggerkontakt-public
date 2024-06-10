@@ -1,0 +1,67 @@
+[tool.poetry]
+name = "freg-batch-getter"
+version = "0.1.0"
+description = "'This is a cloud function that gets a jobb_id and bucket path, downloads the freg_jobbid_batch_n and creates a pubsub for the next fetch'"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "."}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+functions-framework = "^3.2.0"
+requests = "^2.28.1"
+freg-models = "^0.1.1"
+validators = "^0.20.0"
+cloudevents = "^1.6.1"
+google-events = "^0.2.0"
+innbyggerkontakt = "^1.0.2"
+otel-setup = "^0.2.2"
+cloud-event-model = "^0.1.2"
+ps-message-krr-message = "^0.1.1"
+ps-message-freg-batch-getter = "^0.1.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.1.2"
+pytest-mock = "^3.8.2"
+PyYAML = "^6.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-dev-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt-dev/ik-python-repo/simple/"
+default = false
+secondary = false
+
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt/ik-python-repo/simple/"
+default = false
+secondary = false
+
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+skip-string-normalization = 1
+
+[tool.flakeheaven]
+base = ["../pyproject.toml"]
+baseline = ""
+
+#  hacking = ["+*"] not compatible with flake 8 v 4.0.1
+[tool.isort]
+known_first_party = ["freg_config", "models", "services"]
+known_local_folder = ["freg_config", "services", "models"]
+lines_after_imports = 2
+profile = "black"
+
+#[pytest]
+#mock_use_standalone_module = true
+
+[tool.pytest.ini_options]
+# required_plugins = ["pytest-cov"]
+# addopts = "--cov=."

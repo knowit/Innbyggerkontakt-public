@@ -1,0 +1,35 @@
+@use 'styles/screen-schemes/default' as screen;
+
+.inspirationRowContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  > div:first-of-type {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-right: 2rem;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    @media screen and (screen.$mq-subsmall) {
+      flex-direction: column;
+    }
+  }
+
+  > div:last-of-type {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    @media screen and (screen.$mq-sublarge) {
+      justify-content: start;
+      flex-wrap: wrap;
+    }
+    @media screen and (screen.$mq-subsmall) {
+      flex-direction: column;
+    }
+  }
+}

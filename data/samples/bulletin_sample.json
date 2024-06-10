@@ -1,0 +1,53 @@
+{
+  "name": "name",
+  "kommunenummer": "string",
+  "status": "draft|test|active|finished",
+  "recipients": {
+    "query": {
+      "kjoenn": "mann",
+      "foedselsdato": "2020-08-11",
+      "foedselsaarFraOgMed": "string",
+      "foedselsaarTilOgMed": "string",
+      "adressenavn": "string",
+      "husnummer": "string",
+      "postnummer": "string",
+      "fylkesnummer": "string",
+      "inkludererOppholdsadresse": true
+    },
+    "event": {
+      "eventType": "endringIBostedsadresse",
+      "reason": [
+        "Flytting innen kommunen",
+        "endringIBostedsadresse",
+        "Innflytting til annen kommune",
+        "Adresseendring fra matrikkelen",
+        "Adressekorreksjon"
+      ]
+    }
+  },
+  "content": {
+    "from": {
+      "name": "Name",
+      "email": "test@innbyggerkontakt.no"
+    },
+    "language": {
+      "nb": {
+        "subject": "subject",
+        "variables": {
+          "HTMLtest": "HTMLtest",
+          "content": "content",
+          "image": "image",
+          "image_alt": "image_alt",
+          "textblocks": "textblocks",
+          "title": "title"
+        }
+      }
+    }
+  },
+  "templateApplicationId": "RANDOM_ID",
+  "execution": {
+    "datetime": "2020-08-11T08:00:00+02:00",
+    "type": "continuous|instant|schedule|event",
+    "active": true
+  }
+}

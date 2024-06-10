@@ -1,0 +1,62 @@
+@use 'styles/color-schemes/default' as colors;
+@use 'styles/screen-schemes/default' as screens;
+@use 'styles/font-schemes/default' as fonts;
+@use 'styles/font-classes';
+
+.ageDropdown {
+  display: flex;
+  justify-content: flex-start;
+  gap: 32px;
+  align-items: flex-end;
+
+  .inputFieldComponent {
+    input {
+      border-color: colors.$bright-blue;
+      padding: 15px 16px;
+      width: 7rem;
+
+      &:focus-within {
+        padding: 14px 16px;
+      }
+    }
+  }
+
+  .inputDropdownComponent {
+    .dropdown {
+      height: inherit;
+
+      .reactSelect__control {
+        border-radius: 3px;
+      }
+      .reactSelect__menu-list {
+        max-height: fit-content;
+      }
+    }
+  }
+
+  @media screen and (screens.$mq-subsmall) {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .dateSelection {
+    height: inherit;
+  }
+}
+
+.ageDropdown > * {
+  flex-grow: 0;
+  flex-basis: 300px;
+}
+
+.turnXYears {
+  width: 50px !important;
+  input {
+    border-color: blue;
+  }
+  &:focus-within {
+    input {
+      border-color: blue;
+    }
+  }
+}

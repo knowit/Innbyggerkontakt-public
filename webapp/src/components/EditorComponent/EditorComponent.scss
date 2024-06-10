@@ -1,0 +1,100 @@
+@use '../../styles/index';
+@use '../../styles/color-schemes/default' as color;
+@use '../../styles/functions';
+
+.inputEditorComponent {
+  @include index.fieldComponent();
+  .public-DraftEditor-content {
+    height: 100%;
+  }
+  .editorComponent {
+    @include index.defaultField();
+    padding: 0 !important;
+    .rdw-editor-main {
+      min-height: 100px;
+    }
+  }
+}
+
+// The new editor has the following structure for future styling, although it already is working well
+
+/*
+.ck-editor
+  .ck-editor__top
+    .ck-sticky-panel
+      .ck-toolbar
+  .ck-editor__main
+    .ck-content
+*/
+/*
+.ck-editor:focus,
+.ck-editor:focus-within {
+  .ck-editor__top {
+    .ck-sticky-panel {
+      .ck-toolbar {
+        background-color: cyan;
+      }
+    }
+  }
+}
+.ck-editor:not(:focus),
+.ck-editor:not(:focus-within) {
+  .ck-editor__main.ck-content:focus,
+  .ck-editor__main.ck-content:focus-within {
+    & ~ .ckeditor-editor__top {
+      .ck-sticky-panel {
+        .ck-toolbar {
+          background-color: crimson;
+        }
+      }
+    }
+  }
+}
+.ck-editor:not(:focus),
+.ck-editor:not(:focus-within) {
+  .ck-editor__main:not(:focus),
+  .ck-editor__main:not(:focus-within) {
+    .ck-content {
+      background-color: darkgreen;
+    }
+  }
+}
+*/
+
+// The following is kept incase the new editor should also use the same type of styling as the old one
+
+.activeEditor {
+  .rdw-editor-wrapper:not(:focus-within),
+  .rdw-editor-wrapper:not(:focus) {
+    .rdw-editor-toolbar {
+      display: none;
+    }
+  }
+
+  .rdw-editor-wrapper,
+  .rdw-editor-wrapper:focus-within,
+  .rdw-editor-wrapper:focus {
+    margin-left: 10px;
+    display: block;
+    position: relative;
+
+    .rdw-editor-toolbar {
+      display: flex;
+      position: absolute;
+      z-index: 1000;
+      top: 0;
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+    }
+  }
+
+  &:not(:focus) {
+    padding-right: 0px;
+    cursor: default;
+  }
+
+  &:not(:focus-within) {
+    padding-right: 0px;
+    cursor: default;
+  }
+}

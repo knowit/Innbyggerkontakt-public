@@ -1,0 +1,7 @@
+@use '../../../../../../styles/color-schemes/default' as color;
+@use '../../../../../../styles/font-classes';
+
+.createNewFilterSubHeader {
+  color: color.$dark-bright-blue;
+  margin: 0;
+}

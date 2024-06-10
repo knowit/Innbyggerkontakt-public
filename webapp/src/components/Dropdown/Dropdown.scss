@@ -1,0 +1,105 @@
+@use '../../styles/index';
+@use '../../styles/color-schemes/default' as color;
+@use '../../styles/font-schemes/default' as fonts;
+@use '../../styles/font-classes';
+@use '../../styles/functions';
+
+.inputDropdownComponent {
+  resize: none;
+
+  .dropdown {
+    @include functions.removeOutline();
+    padding: 0;
+    @include index.clickable;
+
+    @include font-classes.regular18();
+
+    .reactSelect__menu {
+      @include index.secondaryFieldBorders;
+      border-top: none;
+      border-radius: 0;
+      box-shadow: none;
+      margin-top: -1px;
+    }
+
+    .reactSelect__control {
+      @include index.defaultField;
+      @include index.secondaryFieldBorders;
+      box-shadow: none;
+      border-bottom: 1px solid color.$bright-blue;
+      padding: 16px 24px;
+
+      &:focus-within {
+        border-bottom: 2px solid color.$bright-blue;
+        padding: 15px 23px;
+      }
+
+      .reactSelect__value-container {
+        justify-content: left;
+        padding: 0;
+
+        &::placeholder {
+          color: color.$gray-border;
+        }
+      }
+
+      .reactSelect__indicator-separator {
+        display: none;
+      }
+
+      .reactSelect__single-value {
+        color: color.$gray;
+      }
+      .reactSelect__dropdown-indicator {
+        color: color.$black;
+        padding: 0;
+        transition: all 0.5s;
+      }
+    }
+
+    .reactSelect__control--menu-is-open {
+      border-bottom: 2px solid color.$bright-blue;
+
+      .reactSelect__single-value {
+        font-weight: fonts.$semibold;
+        color: color.$black;
+      }
+
+      .reactSelect__dropdown-indicator {
+        transform: rotate(180deg);
+        transition: all 0.5s;
+      }
+
+      &:focus,
+      &:focus-within {
+        border-bottom: 3.3px solid color.$bright-blue;
+      }
+    }
+
+    .reactSelect__menu {
+      border: none;
+      .reactSelect__option {
+        padding: 18px 24px;
+      }
+      .reactSelect__option--is-selected {
+        background-color: color.$bright-blue;
+      }
+    }
+
+    .reactSelect__menu-list {
+      @include index.secondaryFieldBorders;
+      margin-top: 4px;
+      padding: 0;
+    }
+  }
+
+  .formError {
+    .reactSelect__control {
+      border-color: color.$error !important;
+      border-width: 2px;
+    }
+    .errorMessage {
+      color: color.$error !important;
+    }
+  }
+}

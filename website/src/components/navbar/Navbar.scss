@@ -1,0 +1,288 @@
+@use '../../styles/color-schemes/default' as colors;
+@use '../../styles/functions' as functions;
+@use '../../styles/screen-schemes/default'  as display;
+
+
+// todo: cleanup this whole file
+.header {
+  height: 103px;
+  width: calc(100% - 20px);
+
+  .navBar {
+    max-width: 120em;
+  }
+
+  @media screen and (display.$mq-subsmall) {
+    height: 60px;
+    width: 100%;
+    .navBar {
+      width: 100%;
+      padding: 0.2em;
+    }
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .header {
+    display: flex;
+    justify-content: center;
+    height: 103px;
+    width: calc(100% - 20px);
+  }
+}
+
+.navBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    margin: 0;
+    height: 103px;
+    width: calc(100% - 20px);
+    flex-direction: row;
+    position: fixed;
+    top: 0px;
+    z-index: 9999;
+    @media screen and (display.$mq-subsmall) {
+      height: 60px;
+    }
+  }
+
+.pagename {
+  font-size: 24px;
+  margin-left: 20px;
+  font-weight: bold;
+  color: colors.$bright-green;
+  @media screen and (display.$mq-subsmall) {
+    font-size: 18px;
+  }
+}
+  
+.header {
+  position: fixed;
+  top: 0px;
+  z-index: 9999;
+}
+
+.navButton {
+  // padding: 0px 20px;
+  margin: 0px 20px;
+  display: inline-flex;
+  text-decoration: none;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  //flex-grow: 3;
+}
+
+.navbuttons {
+  margin-left: 3em;
+}
+
+.homelink {
+  // width: 40px;
+  text-align: center;
+  // margin-left: 40px;
+  margin-left: 2em;
+  margin-top: 0.5em;
+  @media screen and (display.$mq-subsmall) {
+    margin-left: 1.2em;
+  }
+}
+
+.navLogo {
+  height: 35px;
+  // margin-left: 40px;
+  @media screen and (display.$mq-subsmall) {
+    // margin-left: 20px;
+  }
+}
+
+.kfLogo {
+  height: 1.3rem;
+  margin-right: 1.5rem;
+  @media screen and (display.$mq-subsmall) {
+      height: 1rem;
+      margin-right: 0;
+    }
+}
+
+.right {
+  display: inline-flex;
+  flex-basis: 50%;
+  justify-content: flex-end;
+  height: inherit;
+  align-items: center;
+
+  .navButton {
+    margin: 0 1.5rem 0 0;
+  }
+}
+
+.rightSmall {
+  display: inline-flex;
+  flex-basis: 50%;
+  justify-content: flex-end;
+  height: inherit;
+  margin-right: 1.2em;
+}
+
+.left {
+  flex: 1 auto;
+  display: inline-flex;
+  flex-basis: 40%;
+  height: inherit;
+  align-items: center;
+}
+
+.burgerMenu {
+  margin: 20px;
+}
+
+.navbarTryOutButton {
+  background-color: colors.$bright-green;
+  &:hover {
+    @include functions.setColors(colors.$darker-green, colors.$white, colors.$darker-green);
+  }
+  // text-decoration: none;
+  @media screen and (display.$mq-subsmall) {
+    height: 26px;
+    padding: 4px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+
+  }
+} 
+
+
+// MOBILSKJERMER
+@media screen and (display.$mq-subsmall) {
+  .right {
+    display: none;
+  }
+  .navbuttons {
+    display: none;
+  }
+
+  // .navBar {
+  //   // height: 73px;
+  // }
+
+  .header {
+    height: 60px;
+  }
+
+  .navbarTryOutButton {
+    font-size: 14px;
+
+  }
+
+  .leftSmall {
+    display: inline-flex;
+
+  }
+
+  .rightSmall {
+    // background-color: aqua;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    .navbarDropdown {
+      position: absolute;
+      right: 0;
+      z-index: 1;
+      top: 60px;
+      width: 100%;
+      background-color: colors.$background;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+      box-shadow: 0px 4px 8px -2px rgba(0, 0, 0, 0.25);
+      
+      a {
+        color: colors.$dark-blue;
+      }
+      a:visited {
+        color: colors.$dark-blue;
+      }
+
+      .dropdownSmall {
+        height: 44px;
+        width: fit-content;        
+        display: flex;
+        margin-right: 15px;
+        text-decoration: none;
+        text-align: right;
+
+        * {
+          display: inline-flex;
+        }
+      }
+    }
+
+    .navbarDropdownButtonContainer {
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+      margin-bottom: 1em;
+      margin-top: 1em;
+      a {
+        color: colors.$bright-blue
+      }
+      a:visited {
+        color: colors.$bright-blue;
+      }
+      
+    }
+  }
+}
+
+@media screen and (display.$mq-small) and (display.$mq-submedium) {
+  .right {
+    display: inline-flex;
+  }
+  .rightSmall {
+    display: none;
+  }
+}
+
+@media screen and (display.$mq-medium) and (display.$mq-sublarge) {
+  .right {
+    display: inline-flex;
+  }
+  .rightSmall {
+    display: none;
+  }
+
+}
+
+@media screen and (display.$mq-large) and (display.$mq-subxlarge) {
+  .right {
+    display: inline-flex;
+  }
+  .rightSmall {
+    display: none;
+  }
+}
+
+@media screen and (display.$mq-xlarge) and (display.$mq-subxxlarge) {
+  .right {
+    display: inline-flex;
+  }
+  .rightSmall {
+    display: none;
+  }
+}
+
+@media screen and (display.$mq-xxlarge) {
+  .right {
+    display: inline-flex;
+  }
+  .rightSmall {
+    display: none;
+  }
+}

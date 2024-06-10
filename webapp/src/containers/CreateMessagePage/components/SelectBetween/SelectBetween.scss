@@ -1,0 +1,83 @@
+@use '../../../../styles/color-schemes/default' as colors;
+@use '../../../../styles/font-schemes/default' as fonts;
+
+.selectBetween.flexStart {
+  .selectBetweenFields {
+    justify-content: flex-start;
+  }
+}
+
+.selectBetween.ageBetweenDates {
+  flex-basis: 70%;
+  .selectBetweenFields {
+    max-width: initial;
+    justify-content: flex-start;
+  }
+
+  .dateSelection {
+    width: 50%;
+  }
+}
+
+.selectBetween {
+  .inputFieldComponent,
+  .dateSelection {
+    padding: 0 0;
+  }
+  .ageSelector {
+    &--foedselsaar {
+      display: flex;
+      align-items: center;
+      width: 70px;
+      color: colors.$dark-bright-blue;
+      font-weight: fonts.$medium;
+      font-size: fonts.$px14;
+    }
+  }
+  .betweenAnd,
+  .years,
+  .years--betweenAnd {
+    margin-bottom: 0;
+    color: colors.$dark-bright-blue;
+    font-weight: fonts.$bold;
+  }
+
+  .betweenAnd {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+
+  .years {
+    padding-right: 32px;
+    padding-left: 16px;
+  }
+
+  .years--betweenAnd {
+    padding-left: 0;
+    padding-right: 32px;
+  }
+
+  .selectBetweenFields {
+    display: flex;
+    max-width: 500px;
+    align-items: center;
+    .fieldComponent {
+      padding: 0;
+    }
+    .formInputItems {
+      width: 100%;
+      flex-grow: 1;
+    }
+    &--foedselsaar {
+      display: flex;
+      gap: 1rem;
+      &--flex {
+        display: flex;
+        justify-items: center;
+      }
+    }
+  }
+}
+.formInput {
+  margin-top: 0 !important;
+}

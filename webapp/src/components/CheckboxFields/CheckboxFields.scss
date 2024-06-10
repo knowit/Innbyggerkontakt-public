@@ -1,0 +1,17 @@
+@use '../../styles/index';
+
+.checkboxFields {
+  @include index.fieldComponent();
+  resize: none;
+  .checkboxes {
+    display: flex;
+    flex-direction: column;
+    max-height: 150px;
+    flex-flow: column wrap;
+    justify-content: left;
+    max-width: 600px;
+    .checkboxLabel {
+      width: 200px;
+    }
+  }
+}

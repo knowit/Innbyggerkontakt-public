@@ -1,0 +1,45 @@
+@use '../../../styles/color-schemes/default' as colors;
+@use '../../../styles/screen-schemes/default'  as display;
+
+.documentationNavigation {
+    display: flex;
+    // width: 100%;
+    flex-direction: column;
+
+    @media screen and (display.$mq-subsmall) {
+        // flex-direction: row;
+        // overflow-y: scroll;
+        align-items: left;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    button {
+        width: 100%;
+        background-color: inherit;
+        color: gray;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 12px 24px;
+        text-align: left;
+        font-size: 14px;
+    }
+    button:hover {
+        color: colors.$darker-green;
+        font-weight: bold;
+
+    }
+    button.activeButton {
+        color: colors.$darker-green;
+        font-weight: bold;
+        
+    }
+}
+
+
+

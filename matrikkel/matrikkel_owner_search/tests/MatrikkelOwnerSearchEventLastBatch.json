@@ -1,0 +1,8 @@
+{
+    "organization_id": "123456",
+    "bulletin_id": "789012",
+    "municipality_number": "1234",
+    "current_batch": 2,
+    "total_batches": 2,
+    "filter_id": "345678"
+}

@@ -1,0 +1,44 @@
+@use '../../../../styles/color-schemes/default' as colors;
+@use '../../../../styles/screen-schemes/default' as screen;
+
+.createMessageHeader {
+  &--inline {
+    display: flex;
+    column-gap: 1.5rem;
+
+    @media screen and (screen.$mq-subsmall) {
+      flex-direction: column;
+    }
+  }
+  .darkGreen {
+    color: colors.$darker-green;
+  }
+
+  .descriptionText {
+    margin-top: 0.5rem;
+  }
+
+  .title {
+    align-self: start;
+  }
+
+  .loadContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 0.65rem;
+    align-items: center;
+
+    .rotatingIcon {
+      animation: rotation 3s infinite linear;
+    }
+
+    @keyframes rotation {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }
+    }
+  }
+}

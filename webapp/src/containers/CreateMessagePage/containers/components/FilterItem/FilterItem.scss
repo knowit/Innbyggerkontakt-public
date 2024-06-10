@@ -1,0 +1,64 @@
+@use 'styles/index';
+@use 'styles/color-schemes/default' as color;
+@use 'styles/functions';
+@use 'styles/screen-schemes/default' as screen;
+@use 'styles/font-classes';
+
+.recipientItem {
+  .recipientItemContent {
+    max-width: 700px;
+    min-height: 100px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    @media screen and (screen.$mq-subsmall) {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .recipientItemContentItem {
+      padding: 5px;
+      color: color.$darkest-blue;
+      @include font-classes.regular14;
+    }
+  }
+
+  &__actionButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    color: color.$bright-blue;
+    float: right;
+
+    svg {
+      cursor: pointer;
+    }
+  }
+}
+
+.recipientsIcon {
+  text-align: center;
+  .recipientsIconText {
+    margin: 5px;
+    width: 150px;
+    color: color.$darkest-blue;
+  }
+  .filterIcon {
+    color: color.$bright-blue;
+  }
+
+  svg {
+    fill: color.$bright-blue;
+  }
+}
+
+@media screen and (screen.$mq-subsmall) {
+  .recipientsIcon {
+    padding: 5px;
+
+    .recipientsIconText {
+      max-width: 100px;
+    }
+  }
+}

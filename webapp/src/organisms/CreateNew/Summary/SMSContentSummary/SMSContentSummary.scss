@@ -1,0 +1,65 @@
+@use 'styles/color-schemes/default' as color;
+@use 'styles/screen-schemes/default' as screen;
+
+.smsContentSummary {
+  &--blue {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+  }
+  &__wrapper {
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    gap: 10px;
+
+    width: 262px;
+    height: 483px;
+
+    background-color: color.$white;
+    /* Gray - text */
+    border: 1px solid color.$gray-text;
+    border-radius: 12px;
+    @media screen and (screen.$mq-submedium) {
+      width: auto;
+      max-width: 233px;
+    }
+  }
+  &__sms {
+    box-sizing: border-box;
+    white-space: pre-line;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    -ms-word-break: break-all;
+    word-break: break-word;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px;
+    gap: 10px;
+
+    width: 233px;
+    min-height: 269px;
+
+    /* grå gjennomsiktig */
+    background: rgba(137, 137, 137, 0.2);
+    border-radius: 16px;
+    @media screen and (screen.$mq-submedium) {
+      overflow-y: scroll;
+      width: auto;
+      max-width: 233px;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@use 'styles/font-classes';
+@use 'styles/index';
+@use 'styles/color-schemes/default' as color;
+@use 'styles/functions';
+@use 'styles/screen-schemes/default' as screen;
+@use 'styles/color-classes';
+
+.summary-page {
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    &--gap {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}
+.testEmail {
+  width: 100%;
+  text-align: initial;
+
+  &_title {
+    @include font-classes.regular18;
+    margin-top: 0;
+  }
+  &_explanation {
+    @include font-classes.regular11;
+    margin-top: 0;
+  }
+
+  + .popUpButtons {
+    width: 100%;
+    text-align: initial;
+  }
+
+  .emailInput {
+    @include functions.setColors(color.$white, color.$black, color.$darker-green);
+    @include font-classes.regular14;
+    padding: 0.4em 0.5em;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0.28571429rem;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+
+    .acceptedMails {
+      background-color: color.$light-blue-transparent;
+      border-radius: 26px;
+      opacity: 1;
+      color: color.$dark-bright-blue;
+      position: relative;
+      padding-left: 23px;
+      padding-right: 40px;
+      @include font-classes.regular14;
+
+      .removeTestEmailIcon {
+        @include font-classes.regular14;
+        position: absolute;
+        cursor: pointer;
+        right: 0;
+        padding: 15px;
+      }
+    }
+
+    &.focused {
+      @include functions.setColors(color.$white, color.$black, color.$darker-green);
+    }
+
+    input {
+      @include font-classes.regular14;
+      display: inline-flex !important;
+      flex-grow: 1 !important;
+    }
+  }
+}

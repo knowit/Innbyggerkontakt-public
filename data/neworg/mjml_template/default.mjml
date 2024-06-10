@@ -1,0 +1,427 @@
+<mjml owa="desktop" version="4.6.3">
+  <mj-head>
+    <mj-attributes>
+      <mj-class
+        background-color="#f4f4f4 !important"
+        color="#911313 !important"
+        font-family="Arial !important"
+        name="primaryStyle"
+      ></mj-class>
+      <mj-class
+        background-color="#ffffff !important"
+        color="#000000 !important"
+        font-family="Arial !important"
+        name="secondaryStyle"
+      ></mj-class>
+      <mj-class
+        background-color="#f4f4f4 !important"
+        color="#666666 !important"
+        font-family="Arial !important"
+        name="tertiaryStyle"
+      ></mj-class>
+    </mj-attributes>
+    <mj-style inline="inline"> a {color: #911313 !important} </mj-style>
+    <mj-style>
+         .content h1  {
+      margin-bottom: 4px;
+      }
+    </mj-style>
+    <mj-style>
+         .content h2  {
+      margin-bottom: 4px;
+      }
+    </mj-style>
+    <mj-style>
+         .content h3  {
+      margin-bottom: 4px;
+      }
+    </mj-style>
+     <mj-style>
+         .content p  {
+      margin-bottom: 4px;
+      line-height: 14px;
+            line-height: 16px;
+            margin-bottom: px;
+            margin-top: 0px;
+      }
+    </mj-style>
+    <mj-preview> {{var:previewText:"Fallback preview value"}} </mj-preview>
+  </mj-head>
+  <mj-body mj-class="primaryStyle">
+    <mj-raw> {% if var:org_emblem != "NO_IMAGE" and var:org_emblem != "0" %} </mj-raw>
+    <mj-section
+      mj-class="primaryStyle"
+      background-repeat="repeat"
+      padding="20px 0"
+      text-align="center"
+    >
+      <mj-column width="40%">
+        <mj-image
+          mj-class="primaryStyle"
+          align="center"
+          alt="{{var:emblem_alt_text}}"
+          border="none"
+          href=""
+          padding="10px 25px 10px 25px"
+          src="{{var:org_emblem}}"
+          target="_blank"
+          title=""
+        ></mj-image>
+      </mj-column>
+    </mj-section>
+    <mj-raw> {% endif %} </mj-raw>
+    <mj-raw> {% if var:bilde != "NO_IMAGE" and var:bilde != "0" %} </mj-raw>
+    <mj-section
+      mj-class="secondaryStyle"
+      background-repeat="repeat"
+      padding="20px 0"
+      text-align="center"
+    >
+      <mj-column>
+        <mj-image
+          mj-class="secondaryStyle"
+          align="center"
+          alt="{{var:bilde_alt}}"
+          border-radius="0px"
+          border="none"
+          href=""
+          padding="20px 20px 10px 20px"
+          src="{{var:bilde}}"
+          target="_blank"
+          title=""
+          width="1200px"
+        ></mj-image>
+      </mj-column>
+    </mj-section>
+    <mj-raw> {% endif %} </mj-raw>
+    <mj-section
+      mj-class="secondaryStyle"
+      background-repeat="repeat"
+      background-size="auto"
+      padding="20px 0"
+      text-align="center"
+    >
+      <mj-column>
+        <mj-text
+          mj-class="secondaryStyle"
+          align="center"
+          letter-spacing="10%"
+          padding="0px 25px 0px 25px"
+        >
+          <h1
+            class="text-build-content"
+            data-testid="8oCXI-pHU1"
+            style="margin-top: 10px; margin-bottom: 10px"
+          >
+            <span style="font-size: 24px"
+              ><b>{{var:overskrift:"Placeholder"}}</b></span
+            >
+          </h1>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section
+      mj-class="secondaryStyle"
+      background-repeat="repeat"
+      background-size="auto"
+      padding="8px 24px 8px 24px"
+      text-align="center"
+    >
+      <mj-column>
+        <mj-text
+          mj-class="secondaryStyle"
+          align="left"
+          font-size="13px"
+          letter-spacing="100%"
+          padding="0px 0px 0px 0px"
+        >
+          <p
+            class="text-build-content"
+            data-testid="RdAJevCqrf"
+            style="margin: 0px 0; margin-top: 0px"
+          >
+            <span style="font-size: 13px; line-height: 16px; font-weight: 600"
+              >{{var:ingress:""}}</span
+            >
+          </p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-raw> {% if var:name != "" %} </mj-raw>
+    <mj-section
+      mj-class="secondaryStyle"
+      background-repeat="repeat"
+      padding="10px 25px 0px 25px"
+      text-align="center"
+    >
+      <mj-column>
+        <mj-text
+          mj-class="secondaryStyle"
+          align="left"
+          container-background-color="transparent"
+          font-size="13px"
+          letter-spacing="100%"
+          padding="0px 0px 0px 0px"
+        >
+          <p
+            class="text-build-content"
+            data-testid="_QTEUnQ-7e"
+            style="margin: 10px 0; margin-top: 10px; margin-bottom: 10px"
+          >
+            <span style="font-size: 13px">Hei, {{var:name}}</span>
+          </p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-raw> {% endif %} </mj-raw>
+    <mj-section
+      mj-class="secondaryStyle"
+      css-class="content"
+      background-repeat="repeat"
+      padding="0px 25px 10px 25px"
+      text-align="center"
+    >
+      <mj-column>
+        <mj-text
+          mj-class="secondaryStyle"
+          align="left"
+          font-size="13px"
+          letter-spacing="100%"
+          padding="0px 0px 0px 0px"
+        >
+          <p
+            class="text-build-content"
+            data-testid="b2pxNmZuJ2z"
+          >
+            <span style="font-size: 13px">{{var:innhold:""}}</span>
+          </p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-raw> {% if var:feedback == "1" %} </mj-raw>
+    <mj-section
+      mj-class="tertiaryStyle"
+      background-repeat="repeat"
+      padding="15px 25px 5px 25px"
+      text-align="center"
+    >
+      <mj-column>
+        <mj-text
+          align="left"
+          mj-class="tertiaryStyle"
+          font-size="15px"
+          letter-spacing="100%"
+          padding="0px 0px 0px 0px"
+        >
+          <p
+            class="text-build-content"
+            style="text-align: center; margin: 10px 0"
+            data-testid="vNvCdkyio"
+          >
+            <span style="font-size: 15px"
+              >Hva syns du om å få denne e-posten?</span
+            >
+          </p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-raw> {% endif %} </mj-raw>
+    <mj-raw> {% if var:feedback == "1" %} </mj-raw>
+    <mj-section
+      mj-class="tertiaryStyle"
+      background-repeat="repeat"
+      padding="0px 10px 5px 10px"
+      text-align="center"
+    >
+      <mj-group vertical-align="middle">
+        <mj-column vertical-align="middle" width="33%">
+          <mj-image
+            mj-class="tertiaryStyle"
+            align="center"
+            alt="positiv smilefjes"
+            border-radius="50%"
+            border="none"
+            container-background-color="transparent"
+            fluid-on-mobile="true"
+            href="{{var:positive_smiley}}"
+            padding="0px 10px 0px 30px"
+            src="https://xn78o.mjt.lu/tplimg/xn78o/b/0hqu0/s0s8.png"
+            target="_blank"
+            title=""
+            width="80%"
+          ></mj-image>
+        </mj-column>
+        <mj-column vertical-align="middle" width="33%">
+          <mj-image
+            mj-class="tertiaryStyle"
+            align="center"
+            alt="neutral smilefjes"
+            border-radius="50%"
+            border="none"
+            container-background-color="transparent"
+            fluid-on-mobile="true"
+            href="{{var:neutral_smiley}}"
+            padding="0px 20px 0px 20px"
+            src="https://xn78o.mjt.lu/tplimg/xn78o/b/0hqu0/s0sy.png"
+            target="_blank"
+            title=""
+            width="80%"
+          ></mj-image>
+        </mj-column>
+        <mj-column vertical-align="middle" width="33%">
+          <mj-image
+            mj-class="tertiaryStyle"
+            align="center"
+            alt="negativ smilefjes"
+            border-radius="50%"
+            border="none"
+            container-background-color="transparent"
+            fluid-on-mobile="true"
+            href="{{var:negative_smiley}}"
+            padding="0px 30px 0px 10px"
+            src="https://xn78o.mjt.lu/tplimg/xn78o/b/0hqu0/s0s9.png"
+            target="_blank"
+            title=""
+            width="80%"
+          ></mj-image>
+        </mj-column>
+      </mj-group>
+    </mj-section>
+    <mj-raw> {% endif %} </mj-raw>
+    <mj-raw> {% if var:feedback == "1" %} </mj-raw>
+    <mj-section
+      mj-class="tertiaryStyle"
+      background-repeat="repeat"
+      padding="5px 0px 20px 0px"
+      text-align="center"
+      align="center"
+    >
+      <mj-group vertical-align="middle">
+      <mj-column  vertical-align="middle" align="center" width="33%">
+        <mj-text
+          mj-class="tertiaryStyle"
+          align="right"
+          font-size="13px"
+          letter-spacing="100%"
+          padding="0px 10px 0px 20%"
+        >
+          <p
+            class="text-build-content"
+            style="text-align: center; margin: 10px 0"
+            data-testid="JzD6ZSyzH"
+          >
+            <span style="font-size: 13px">Liker det</span>
+          </p>
+        </mj-text>
+      </mj-column>
+      <mj-column  vertical-align="middle" align="center" width="33%">
+        <mj-text
+          mj-class="tertiaryStyle"
+          align="center"
+          font-size="13px"
+          letter-spacing="100%"
+          padding-bottom="0px"
+          padding-top="0px"
+          padding="0px 30% 0px 30%"
+        >
+          <p
+            class="text-build-content"
+            data-testid="hyLaerIVJ"
+            style="margin: 10px 0"
+          >
+            <span style="font-size: 13px">Greit nok</span>
+          </p>
+        </mj-text>
+      </mj-column>
+      <mj-column  vertical-align="middle" align="center" width="33%">
+        <mj-text
+          mj-class="tertiaryStyle"
+          align="center"
+          font-size="13px"
+          letter-spacing="100%"
+          padding="0px 20% 0px 10px"
+        >
+          <p
+            class="text-build-content"
+            data-testid="Z93ePvHzE"
+            style="margin: 10px 0"
+          >
+            <span style="font-size: 13px">Misliker det</span>
+          </p>
+        </mj-text>
+      </mj-column>
+      </mj-group>
+    </mj-section>
+    <mj-raw> {% endif %} </mj-raw>
+    <mj-section
+      mj-class="primaryStyle"
+      background-repeat="repeat"
+      padding="10px 25px 10px 25px"
+      text-align="center"
+    >
+      <mj-column>
+        <mj-text
+          mj-class="primaryStyle"
+          align="center"
+          font-size="13px"
+          letter-spacing="100%"
+          padding="0px 0px 0px 0px"
+        >
+          <p
+            class="text-build-content"
+            data-testid="rSanbZuQxrM"
+            style="margin: 10px 0"
+          >
+            <span style="font-size: 13px">{{var:begrunnelse:"None"}}</span>
+          </p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section
+      mj-class="primaryStyle"
+      css-class="footerText"
+      background-repeat="repeat"
+      padding="20px 0px 20px 0px"
+      text-align="center"
+    >
+      <mj-column>
+        <mj-text
+          mj-class="primaryStyle"
+          align="left"
+          font-size="13px"
+          letter-spacing="100%"
+          padding="0px 25px"
+        >
+          <p
+            id="footerText"
+            class="text-build-content"
+            style="text-align: center; margin: 10px 0"
+            data-testid="cVIfo7FJq"
+            style="font-size: 13px"
+          >
+            footervariable
+          </p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-raw> {% if var:org_emblem != "NO_IMAGE" and var:org_emblem != "0" %} </mj-raw>
+    <mj-section background-repeat="repeat" padding="20px 0" text-align="center">
+      <mj-column> </mj-column>
+      <mj-column>
+        <mj-image
+          align="center"
+          alt="{{var:emblem_alt_text}}"
+          border="none"
+          width="400px"
+          href=""
+          padding="10px 25px 10px 25px"
+          src="{{var:org_emblem}}"
+          target="_blank"
+          title=""
+        ></mj-image>
+      </mj-column>
+      <mj-column> </mj-column>
+    </mj-section>
+    <mj-raw> {% endif %} </mj-raw>
+  </mj-body>
+</mjml>

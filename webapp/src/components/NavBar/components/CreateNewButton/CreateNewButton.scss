@@ -1,0 +1,30 @@
+@use '../../../../styles/font-classes';
+@use '../../../../styles/screen-schemes/default' as screen;
+@use '../../../../styles/color-schemes/default' as colors;
+
+.createNewButtonContainer {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    border: 2px solid colors.$light-light-blue;
+    padding: 0.25rem 1rem;
+    border-radius: 5.5rem;
+    text-decoration: none;
+    color: colors.$light-light-blue;
+
+    transition: all 0.2s ease-in-out;
+
+    @media screen and (screen.$mq-subsmall) {
+        display: none;
+    }
+
+    > span {
+        @include font-classes.regular14();
+    }
+
+    &:hover {
+        background-color: colors.$light-blue-transparent;
+        color: colors.$white;
+    }
+
+}

@@ -1,0 +1,9 @@
+@use '../formVariables' as var;
+
+.imageUploaderItems {
+  @include var.form_dropdown_items;
+  resize: none;
+  .imageUploaderInForm {
+    min-height: 250px;
+  }
+}

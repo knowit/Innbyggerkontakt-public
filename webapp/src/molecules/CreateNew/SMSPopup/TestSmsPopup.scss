@@ -1,0 +1,19 @@
+@use 'styles/font-classes';
+.testSmsPopupContainer {
+    width: 100%;
+    text-align: initial;
+    > :first-child {
+        @include font-classes.regular18;
+    }
+    > :nth-child(2) {
+        @include font-classes.regular11;
+    }
+
+    > .testSmsPopup_phoneInput {
+        margin-top: 1rem;
+        border: 1px solid #333;
+        padding: 0.5rem 0.75rem;
+        border-radius: 2px;
+    }
+
+}

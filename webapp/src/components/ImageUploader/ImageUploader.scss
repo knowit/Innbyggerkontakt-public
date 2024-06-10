@@ -1,0 +1,118 @@
+@use '../../styles/color-schemes/default' as color;
+
+.imageUpload,
+.imageUpload:focus,
+.imageUpload:focus-within {
+  padding: 0 !important;
+  width: auto !important;
+  cursor: default !important;
+}
+
+.imageUploaderCircleIcon {
+  font-size: 60px !important;
+}
+
+.notUploaded {
+  border-style: dashed !important;
+}
+.uploaded {
+  border-style: solid !important;
+}
+
+.imageUploadBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+  height: 160px;
+  padding: 30px 0;
+}
+
+.imageUploaded {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+  height: 220px;
+  position: relative;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .closeImageButton,
+  .closeImageButton:hover {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+}
+
+.imageUploadError {
+  border-color: color.$error !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+}
+
+.messageBoxError {
+  width: calc((1 / 3) * 100%);
+  min-width: 400px;
+  height: fit-content;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.messageBoxWarning {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5rem;
+  padding-bottom: 1.2rem;
+  width: calc((1 / 3) * 100%);
+  min-width: 400px;
+  position: absolute;
+  background-color: rgba(color.$white, 0.8);
+  height: calc((1 / 3) * 100%);
+  min-height: 122px;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 1em;
+
+  &.noDisplay {
+    display: none;
+  }
+
+  > .errorTitle {
+    margin-bottom: 0.5rem;
+  }
+
+  .removeWarningBox,
+  .removeWarningBox:hover {
+    position: absolute;
+    bottom: 10px;
+    right: 1.3rem;
+    cursor: pointer;
+  }
+}
+
+
+.errorTitle {
+  color: color.$error;
+  margin-bottom: 0.5rem;
+}
+
+.closeImageButton {
+  background-color: color.$white;
+  border-radius: 23px;
+  display: flex;
+  padding: 5px 15px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 4px 0px rgba(#000000, 25%);
+
+  :first-child {
+    padding-right: 10px;
+  }
+}

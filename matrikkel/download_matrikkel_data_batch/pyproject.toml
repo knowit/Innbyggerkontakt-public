@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "download_matrikkel_data"
+version = "0.1.0"
+description = "Cloud function that will get download matrikkel-data from a municipality."
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+functions-framework = "^3.2.0"
+cloudevents = "^1.6.1"
+innbyggerkontakt = "^1.0.2"
+cloud-event-model = "^0.1.3"
+otel-setup = "^0.2.2"
+suds-community = "^1.1.2"
+lxml = "^4.9.1"
+pydantic = "^1.10.2"
+ps-message-matrikkel-download-message = "^0.1.0"
+retry-helper = "^0.1.2"
+
+[[tool.poetry.source]]
+name = "py-innbyggerkontakt-dev-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt-dev/ik-python-repo/simple/"
+default = false
+secondary = true
+
+[[tool.poetry.source]]
+name = "google-ik-artifactpy-innbyggerkontakt-artifact"
+url = "https://europe-west3-python.pkg.dev/innbyggerkontakt/ik-python-repo/"
+default = false
+secondary = true
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+pytest-cov = "^4.0.0"
+pytest-mock = "^3.7.0"
+black = "^22.8.0"
+pydantic-factories = "^1.6.2"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+skip-string-normalization = 1
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

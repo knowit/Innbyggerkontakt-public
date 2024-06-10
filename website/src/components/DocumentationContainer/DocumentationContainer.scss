@@ -1,0 +1,33 @@
+// @use '../../styles/color-schemes/default' as colors;
+// @use '../../styles/functions' as functions;
+@use '../../styles/screen-schemes/default'  as display;
+
+.documentationContainer {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  width: 80%;
+  margin-top: 20px;
+  @media screen and (display.$mq-subsmall) {
+    flex-direction: column;
+  }
+}
+
+.documentationNavigation {
+  width: 20%;
+  margin-top: 65px;
+  @media screen and (display.$mq-subsmall) {
+    margin-top: 0px;
+    flex-direction: column;
+    width: 95%;
+  }
+}
+
+.documentationArticle {
+  width: 80%;
+  margin-left: 20px;
+  @media screen and (display.$mq-subsmall) {
+    margin-left: 0px;
+    width: 100%;
+  }
+}

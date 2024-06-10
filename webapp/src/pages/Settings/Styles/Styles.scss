@@ -1,0 +1,105 @@
+@use 'styles/color-schemes/default' as color;
+@use 'styles/font-classes';
+
+.colorPickerRow {
+  display: inline-flex;
+}
+
+.displayFooterBox {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid color.$darker-green;
+  border-radius: 2px;
+  align-items: center;
+  //margin-top: 6px;
+}
+
+.darkestGreenTitle {
+  color: color.$darkest-green;
+}
+
+.fakeBox {
+  color: color.$even-darker-green;
+}
+
+.editIcon {
+  fill: #128664;
+  margin-left: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.helpText {
+  color: color.$gray-text;
+  margin-bottom: 6px;
+  @include font-classes.regular11;
+}
+
+.extraTitle {
+  margin-bottom: -10px;
+  padding-top: 10px;
+  color: color.$darkest-green;
+}
+
+.createStyle__button--save,
+.createStyle__button--back {
+  margin-top: 1%;
+}
+
+.createStyle__button--save {
+  margin-left: 1%;
+  float: right;
+}
+.createStyle__button--back {
+  float: left;
+}
+
+.textButton {
+  display: flex;
+}
+
+.createStyle__title {
+  display: flex;
+  align-items: center;
+}
+
+.genereltItem__h3 {
+  margin-left: 0;
+}
+
+.createStyle__form {
+  grid-column: 2;
+}
+
+.createStyle__icon--hidden {
+  visibility: hidden;
+}
+
+.createStyle__icon--visible {
+  visibility: visible;
+}
+
+.createStyle__icon--margin {
+  margin-left: 5px;
+}
+
+.settingsWrapper__link {
+  margin-bottom: 5px;
+}
+
+.absolute {
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+
+.styles__header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}

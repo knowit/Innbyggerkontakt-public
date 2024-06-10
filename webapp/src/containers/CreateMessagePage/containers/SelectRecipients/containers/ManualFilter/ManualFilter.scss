@@ -1,0 +1,294 @@
+@use '../../../../../../styles/color-schemes/default' as color;
+@use '../../../../../../styles/font-classes';
+@use '../../../../../../styles/color-classes';
+@use '../../../../../../styles/screen-schemes/default' as screen;
+
+.manualListAlternatives {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+
+  .buttonAlternative {
+    background-color: transparent;
+    border: 2px solid color.$bright-blue;
+    color: color.$bright-blue;
+    border-radius: 0px;
+
+    &:first-child {
+      border-right-style: none;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    &.active_button {
+      background-color: color.$bright-blue;
+      &.buttonAlternative {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+/*
+.removeManualList {
+  .innerButton {
+    @include color-classes.btn_tertiary();
+    // background-color: transparent;
+    // border: 2px solid color.$bright-blue;
+    // color: color.$bright-blue;
+    // border-radius: 0px;
+  }
+}
+*/
+
+.manualFilter {
+  @media screen and (screen.$mq-subsmall) {
+    width: 95%;
+  }
+
+  .loader {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  &__deviceIcons {
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+
+    :first-child {
+      border-right-style: none;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    :last-child {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+  }
+
+  &__deviceButton {
+    background-color: transparent;
+    border: 2px solid color.$bright-blue;
+    color: color.$bright-blue;
+
+    &--active {
+      background-color: color.$bright-blue;
+      .previewPage__deviceItem {
+        color: #ffffff;
+      }
+    }
+  }
+
+  &__deviceItem {
+    color: color.$bright-blue;
+  }
+
+  &__checkboxContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  &__checkboxWithText {
+    display: flex;
+    align-items: center;
+  }
+
+  &__mailButton {
+    display: flex;
+    align-items: center;
+  }
+
+  &__mailIcon {
+    margin-right: 12px;
+  }
+
+  &__testEmailStage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .languagePicker {
+      margin-top: 56px;
+    }
+  }
+
+  &__testButton {
+    margin-top: 20px;
+    margin-bottom: 64px;
+  }
+
+  &__navigateButton {
+    display: inline-flex;
+    float: right;
+    @media screen and (screen.$mq-subsmall) {
+      align-self: center;
+    }
+  }
+
+  &__buttonRow {
+    display: flex;
+    justify-content: flex-end;
+
+    @media screen and (screen.$mq-subsmall) {
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+
+      .secondary {
+        margin-right: 0px;
+      }
+    }
+    .editIcon {
+      margin-right: 12px;
+      margin-left: 3px;
+    }
+  }
+
+  &__buttonRowTestEmail {
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (screen.$mq-subsmall) {
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+
+      .tertiary {
+        order: 3;
+      }
+    }
+
+    .editIcon {
+      margin-right: 12px;
+      margin-left: 3px;
+    }
+  }
+
+  &__editButtons {
+    @media screen and (screen.$mq-subsmall) {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  &__nextButton {
+    margin-top: 40px;
+    .primary {
+      float: right;
+      display: inline-flex;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.chooseBox {
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: auto;
+  color: color.$bright-blue;
+  margin-bottom: 32px;
+  margin-top: 20px;
+
+  &__option {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: color.$light-bright-blue;
+    @include font-classes.regular14;
+
+    &--active {
+      color: color.$bright-blue;
+      @include font-classes.medium14;
+    }
+
+    &--disabled {
+      color: color.$gray-text;
+    }
+
+    &--active,
+    &--disabled {
+      .doneIcon {
+        display: none;
+      }
+    }
+  }
+
+  &__icon {
+    display: block;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: currentColor;
+    position: relative;
+
+    .doneIcon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 13px;
+      fill: white;
+    }
+  }
+}
+
+.previewButtonSecondary {
+  display: flex;
+  margin-right: 20px;
+}
+
+.previewButtonTertiary {
+  display: flex;
+  margin-right: 10px;
+  float: right;
+}
+
+.wrapperNewRecipient {
+  display: flex;
+}
+
+.inputNewRecipient {
+  width: 100%;
+}
+
+.buttonNewRecipient {
+  margin-left: 12px;
+  margin-top: 41px;
+  width: 11%;
+  justify-content: space-around;
+}
+
+.addRemoveRowContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mmlInfoBulletPoints {
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+
+  .mmlInfoPoint {
+    @include font-classes.regular14();
+
+    .highlightedMmlText {
+      font-style: italic;
+    }
+  }
+}
