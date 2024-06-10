@@ -1,6 +1,6 @@
 # assumes package innbyggerkontakt-utils and other related packages
 # are installed in the parent docker image or on the system.
-fastapi[all]==0.88.0
+fastapi[all]==0.111.0
 gunicorn
 # packages_source/python/ # 32adbf99701b40eeb1f8d69720c99f77
 opentelemetry-api
